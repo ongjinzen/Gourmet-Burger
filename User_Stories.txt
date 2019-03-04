@@ -1,4 +1,21 @@
-test
-test push
-test pull
-test push after make
+As a customer i want an online system to order food and drinks so that i can be fed food i specifically want. 
+edit
+edit 2
+
+As a staff member i want a system that manages food orders and preperation so that meals can be efficently prepared.
+
+
+customer- Online orders Jack
+
+Staff-service orders Sandeep
+
+Staff - maintain inventory Zen 
+
+
+
+
+
+
+
+
+
