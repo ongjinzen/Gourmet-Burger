@@ -1,3 +1,4 @@
 test
 test push
 test pull
+test push after make
