@@ -11,7 +11,13 @@ Staff-service orders Sandeep
 
 Staff - maintain inventory Zen 
 
-
+As a staff member, I want to be able to update my stock levels in the system after I refill my stock so that I can refer to the system to check on my stock levels.
+As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so that I will know when I am running low on certain ingredients.
+As a staff member, I want the system to prevent customers from placing orders that require ingredients that are unavailable so that they can order something that is in stock.
+As a staff member, I want burgers, wraps and nuggets to be stocked in whole quantities so that .
+As a staff member, I want bottled and can drinks to be stored in whole quantities.
+As a staff member, I want non-bottled drinks to be stocked by volume so that I can serve it in varying sizes.
+As a staff member, I want sides to be stocked by weight so that I can serve it in varying sizes.
 
 
 
