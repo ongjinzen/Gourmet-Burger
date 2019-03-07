@@ -1,4 +1,30 @@
-test
-test push
-test pull
-test push after make
+As a customer i want an online system to order food and drinks so that i can be fed food i specifically want. 
+
+As a staff member i want a system that manages food orders and preperation so that meals can be efficently prepared.
+
+
+customer- Online orders Jack
+
+As a customer i want to be able to access the system via a web adrees so that i can easiliy order food.
+
+As a customer i want to be able to order a wide vareity of food and drink so i can consume what suits my needs.
+
+As a customer i want to be able to customize the ingredients on my oreder so i can meet any dietary requirements i have.
+
+As a customer i want to be able to select different sizes of drinks and sides so i can order only the amount i want to eat or drink. 
+
+As a customer i want to recive a order ID so i can keep track of my order status over time.
+
+As a customer i want to use my order ID to view my order status in a new session. 
+
+As a customer i want to recive a final total before finalising the transaction so i can see the final cost before i pay it.
+
+As a customer i want to recive a meaningful error message if my order is unachievlable so i know how to correct it.  
+
+As a customer i want to view the cost of every item displayed so i can know its cost before adding it to my order. 
+
+
+
+Staff-service orders Sandeep
+
+Staff - maintain inventory Zen 
