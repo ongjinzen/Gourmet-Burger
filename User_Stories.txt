@@ -11,15 +11,22 @@ Staff-service orders Sandeep
 
 Staff - maintain inventory Zen 
 
-As a staff member, I want to be able to update my stock levels in the system after I refill my stock so that I can refer to the system to check on my stock levels.
+As a staff member, I want to update my stock levels in the system after I refill my stock so that I can keep track of my stock levels.
+
+    Acceptance Criteria: When a staff member updates the stock levels in the system and the system stores and correctly displays the updated amount of each stock.
+
 As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so that I will know when I am running low on certain ingredients.
-As a staff member, I want the system to prevent customers from placing orders that require ingredients that are unavailable so that they can order something that is in stock.
-As a staff member, I want burgers, wraps and nuggets to be stocked in whole quantities so that .
-As a staff member, I want bottled and can drinks to be stored in whole quantities.
-As a staff member, I want non-bottled drinks to be stocked by volume so that I can serve it in varying sizes.
-As a staff member, I want sides to be stocked by weight so that I can serve it in varying sizes.
 
+    Acceptance Criteria: When a customer places an order, the system correctly decreases the amount of each ingredient required in the order in stock.
 
+As a staff member, I want the system to prevent customers from placing orders that require ingredients that are unavailable so that they can order something that is available.
+
+    Acceptance Criteria: When a customer attempts to select an item that has ingredients that are unavailable, the system will prevent the customer from selecting the item to add to the order.
+
+As a staff member, I want to certain items to be stocked by volume or weight so that I can serve them in varying sizes.
+
+    Acceptance Criteria: When the system is able to display the total volume of drinks or weight of sides that is in stock.
+                         When the system is able to correctly decrement the correct volume or weight of an item in stock when an order of a certain size of drink or side is placed.
 
 
 
