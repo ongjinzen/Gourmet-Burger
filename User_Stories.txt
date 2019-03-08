@@ -3,47 +3,47 @@ As a customer i want an online system to order food and drinks so that i can be 
 As a staff member i want a system that manages food orders and preperation so that meals can be efficently prepared.
 
 
-customer- Online orders Jack Difficulty scale 
+customer- Online orders Jack Difficulty scale (1-11) sp = 1/4 day
 
-USC1-As a customer i want to be able to access the system via a web adrees so that i can easiliy order food.(3)
+USC1-As a customer i want to be able to access the system via a web adrees so that i can easiliy order food.(3) sp = 2
   Acceptance criteria: Typing in the specific web adreess into a connected browser will load the web page.
 
-USC2-As a customer i want to be able to order a wide vareity of food and drink so i can consume what suits my needs.(1)
+USC2-As a customer i want to be able to order a wide vareity of food and drink so i can consume what suits my needs.(1) sp = 4
   Acceptance criteria: Clicking on different tabs of "mains, sides, and drinks" will load up seperate pages the user can select there order from.
                        Menu items can be added individually in a variety of amounts.
                        Clicking add to cart will add any selected items into my cart.
 
-USC3-As a customer i want to be able to customize the ingredients on my order so i can meet any dietary requirements i have.(4)
+USC3-As a customer i want to be able to customize the ingredients on my order so i can meet any dietary requirements i have.(4)sp = 3
   Acceptance criteria: When building a burger or wrap all ingredients should have the option to be taken away or added. 
 
-USC4-As a customer i want to be able to select different sizes of drinks and sides so i can order only the amount i want to eat or drink. 
-  Acceptance criteria: Small medium and large sizes are offered for each drink and fries.(7)
+USC4-As a customer i want to be able to select different sizes of drinks and sides so i can order only the amount i want to eat or drink. (7) sp = 2
+  Acceptance criteria: Small medium and large sizes are offered for each drink and fries.
                        Amy combination of sizes should be able to be added to an order.
 
-USC5-As a customer i want to recive a order ID so i can keep track of my order status over time.(8)
+USC5-As a customer i want to recive a order ID so i can keep track of my order status over time.(8) sp = 2
   Acceptance criteria: Once the transaction has been completed a order ID should appear on screen with instructions of how to use it 
                        An order ID is specific to a single transaction and not reused untill the order has been filled
 
-USC6-As a customer i want to use my order ID to view my order status in a new session. (9)
+USC6-As a customer i want to use my order ID to view my order status in a new session. (9)sp = 4
   Acceptance criteria: Appending the order ID to the web adress should bring up a session with the details of that order. 
 
-USC7-As a customer i want to be able to view my current cart so i can see what i am going to order and how much each item costs.(10)
+USC7-As a customer i want to be able to view my current cart so i can see what i am going to order and how much each item costs.(10) sp = 3
   Acceptance criteria: Clicking on my cart will bring up a new page showing all items in my cart 
                        The cost of each item will be displayed clearly along with a total.
 
-USC8-As a customer i want to be able to remove things from my cart individually so that if i change my mind it is simple and easy. (1)
+USC8-As a customer i want to be able to remove things from my cart individually so that if i change my mind it is simple and easy. (1) sp = 2
   Acceptance criteria: On the my cart page each item in my cart can be removed by pressing a X button next to it.
                        Once an item is removed the cost of the cart is recalcuated. 
 
-USC9-As a customer i want to recive a final total before finalising the transaction so i can see the final cost before i pay it.(6)
+USC9-As a customer i want to recive a final total before finalising the transaction so i can see the final cost before i pay it.(6) sp = 1
   Acceptance criteria: When finalising payment a detailed breakdown and total cost is displayed. 
                        Any taxes or service charges are also displayed on this order 
 
-USC10-As a customer i want to recive a meaningful error message if my order is unachievlable so i know how to correct it.  (2)
+USC10-As a customer i want to recive a meaningful error message if my order is unachievlable so i know how to correct it.  (2) sp = 2
   Acceptance criteria: If an incompatible number of buns or wraps are ordered a dialouge box should appear detailing what a compatible order looks like 
                        If an attempt to order more food then is currently in stock occurs the system should show an error and display what the maximum order size currently available is. 
 
-USC11-As a customer i want to view the cost of every item displayed so i can know its cost before adding it to my order. (5)
+USC11-As a customer i want to view the cost of every item displayed so i can know its cost before adding it to my order. (5) sp = 1
   Acceptance criteria: On the mains, drinks, and sides pages a cost is displayed next to each item.
                        The cost clearly displays if it is per indivudal item, per 3 or per 6. 
 
