@@ -46,9 +46,9 @@ ID: COO_02
 Name: 
 Description: As a customer I should be able to order multiple items of food and drink so I can consume what suits my needs. 
 Acceptance Criteria:
-    Test - Clicking on different tabs of "mains, sides, and drinks" will load up seperate pages the user can select there order from.
-    Test - Menu items can be added individually in a variety of amounts.
-    Test - Clicking add to cart will add any selected items into my cart.
+    Test1 - Clicking on different tabs of "mains, sides, and drinks" should load up seperate pages displaying different categories of food.
+    Test2 - The user should be able to select however many items he wants and in whatever quantity.
+    Test3 - Clicking add to cart will add any selected items into my cart.
 Priority: 1
 Size: 4 SP
 
