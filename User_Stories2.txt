@@ -10,7 +10,7 @@ As a staff member I want a system that manages food orders and preperation so th
 EPIC STORIES:
 
 Customer Online Order (COO):
-As a customer I should be able to choose my food and drinks, customize the ingredients and then be notified when the order is ready so I can collect it.
+As a customer I should be able to choose my food and drinks online, customize the ingredients and then be notified when the order is ready so I can collect it.
 
 
 Staff Service Order (SS0):
