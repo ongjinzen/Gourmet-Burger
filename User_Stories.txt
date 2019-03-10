@@ -63,19 +63,20 @@ Size: 3 SP
 
 ID: COO_04
 Name:
-Description: As a customer I want to be able to select different sizes of drinks and sides so I can order only the amount I want to eat or drink.
+Description: As a customer I want to be able to select different sizes of drinks and sides so I can order a size that suitably satisfies my appetite.
 Acceptance Criteria:
-    Test - Small medium and large sizes are offered for each drink and fries.
-    Test - Amy combination of sizes should be able to be added to an order.
+    Test1 - Small medium and large sizes should be offered for each drink and fries.
+    Test2 - Amy combination of sizes should be able to be added to an order.
 Priority: 7
 Size: 2 SP
 
 ID: COO_05
 Name:
-Description: As a customer I want to recive a order ID so I can keep track of my order status over time.
+Description: As a customer I want to receive an order ID so I can keep track of my order status over time.
 Acceptance Criteria: 
-    Test - Once the transaction has been completed a order ID should appear on screen with instructions of how to use it 
-    Test - An order ID is specific to a single transaction and not reused untill the order has been filled
+    Test1 - Once the transaction has been completed an order ID should appear on screen with instructions of how to use it.
+    Test2 - The order ID should be able to be used to display order status.
+    Test3 - An order ID is specific to a single transaction and not reused untill the order has been filled
 Priority: 8
 Size: 2 SP
 
