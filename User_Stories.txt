@@ -25,6 +25,7 @@ Customer- Online Orders (Jack)
 
 
 
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Staff - Service Orders (Sandeep)
@@ -145,21 +146,35 @@ Size: 2 SP
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Staff - Maintain Inventory (Zen) 
+I made my priority a scale out of 10, with 10 being the highest,
+and sizes are just story points. We can discuss and change if needed.
 
+(MI1) - Update stock
 As a staff member, I want to update my stock levels in the system after I refill my stock so that I can keep track of my stock levels.
 
     Acceptance Criteria: When a staff member updates the stock levels in the system and the system stores and correctly displays the updated amount of each stock.
+     Priority - 9
+    Size - 7
 
+(MI2) - Decrememt stock
 As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so that I will know when I am running low on certain ingredients.
 
     Acceptance Criteria: When a customer places an order, the system correctly decreases the amount of each ingredient required in the order in stock.
+    Priority - 8
+    Size - 2
 
+(MI3) - Prevent unavailable orders
 As a staff member, I want the system to prevent customers from placing orders that require ingredients that are unavailable so that they can order something that is available.
 
     Acceptance Criteria: When a customer attempts to select an item that has ingredients that are unavailable, the system will prevent the customer from selecting the item to add to the order.
+    Priority - 5
+    Size - 2
 
+(MI4) - Stock drinks and sides by volume and weight
 As a staff member, I want to certain items to be stocked by volume or weight so that I can serve them in varying sizes.
 
     Acceptance Criteria: When the system is able to display the total volume of drinks or weight of sides that is in stock.
                          When the system is able to correctly decrement the correct volume or weight of an item in stock when an order of a certain size of drink or side is placed.
+    Priority - 4
+    Size - 4
 
