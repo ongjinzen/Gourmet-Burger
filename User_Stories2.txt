@@ -144,7 +144,7 @@ Priority scale: 1-7 (highest to lowest)
 
 
 
-ID: SSO_00
+ID: SSO_01
 Name: View orders
 Description: As a staff member I should be able to access a staff only version of the system so I know which orders need to be fulfilled.
 Acceptance Criteria: 
@@ -154,7 +154,7 @@ Acceptance Criteria:
 Priority: 6
 Size: 1 SP
 
-ID: SSO_01
+ID: SSO_02
 Name: View orders
 Description: As a staff member I want the orders to be arranged in a certain order so I can prioritise what has to be cooked. 
 Acceptance Criteria: 
@@ -165,7 +165,7 @@ Size: 2 SP
 
 
 
-ID: SSO_02
+ID: SSO_03
 Name: Accept new orders
 Description: As a staff member I want to be able to input new orders into the list of orders so I can keep track of all incoming orders. 
 Acceptance Criteria: 
@@ -174,7 +174,7 @@ Acceptance Criteria:
 Priority: 3
 Size: 4 SP
 
-ID: SSO_03
+ID: SSO_04
 Name: Update order status
 Description: As a staff member I want to be able to update the order's status once it's cooked so we know we can starting preparing another order. 
 Acceptance Criteria: 
