@@ -1,7 +1,27 @@
-EPIC STORIES:
-As a customer i want an online system to order food and drinks so that i can be fed food i specifically want. 
+EPIC STORIES (old):
+As a customer I want an online system to order food and drinks so that I can be fed food I specifically want. 
 
-As a staff member i want a system that manages food orders and preperation so that meals can be efficently prepared.
+As a staff member I want a system that manages food orders and preperation so that meals can be efficently prepared.
+
+
+
+
+
+EPIC STORIES:
+
+Customer Online Order (COO):
+As a customer I should be able to choose my food and drinks online, customize the ingredients and then be notified when the order is ready so I can collect it.
+
+
+Staff Service Order (SS0):
+(need to combine)
+As a staff member, I should be able to log in/out to view all the online orders at any point in time. 
+As a staff member I should be able to be able to accept new orders and update the order's status once the order is ready. 
+
+
+Staff Maintenance Inventory (SMI):
+As a staff member, I should be able to have inventory levels displayed to me so I know when I need to refill the stock. Inventory levels should also be automatically adjusted as orders are made and when ingredients run out customers shouldn't be able to order them. 
+
 
 
 
@@ -10,59 +30,107 @@ As a staff member i want a system that manages food orders and preperation so th
 Customer- Online Orders (Jack)
 
 
-
-As a customer i want an online system to order and pay for customised food and drinks I should also be able to review my order at anytime before or after i have finalised my payment.
-
-
+As a customer I should be able to choose my food and drinks online, customize the ingredients and then be notified when the order is ready so I can collect it.
 customer- Online orders Jack Difficulty scale (1-10) sp = 1/4 day
 
-USC1-As a customer i want to be able to access the system via a web adrees so that i can easiliy order food.(3) sp = 2
-  Acceptance criteria: Typing in the specific web adreess into a connected browser will load the web page.
-                       Adding an order id to the end of the adress will connect you to a current order.
+ID: COO_01
+Name: 
+Description: As a customer I want to be able to view the food items online so that I deciude which items I want to buy.
+Acceptance Criteria:
+    Test1 - Typing in the company web addresss into a connected internet browser should load the web page.
+    Test2 - The homepage should have a link that once clicked leads to a page which allows the customer to view items.
+Priority: 3
+Size: 2 SP
 
-USC2-As a customer i want to be able to order a wide vareity of food and drink so i can consume what suits my needs.(1) sp = 4
-  Acceptance criteria: Clicking on different tabs of "mains, sides, and drinks" will load up seperate pages the user can select there order from.
-                       Menu items can be added individually in a variety of amounts.
-                       Clicking add to cart will add any selected items into my cart.
+ID: COO_02
+Name: 
+Description: As a customer I should be able to order multiple items of food and drink so I can consume what suits my needs. 
+Acceptance Criteria:
+    Test1 - Clicking on different tabs of "mains, sides, and drinks" should load up seperate pages displaying different categories of food.
+    Test2 - The user should be able to select however many items he wants and in whatever quantity.
+    Test3 - Clicking add to cart will add any selected items into my cart.
+Priority: 1
+Size: 4 SP
 
-USC3-As a customer i want to be able to customize the ingredients on my order so i can meet any dietary requirements i have.(4)sp = 3
-  Acceptance criteria: When building a burger or wrap all ingredients should have the option to be taken away or added. 
+ID: COO_03
+Name:
+Description: As a customer I want to be able to customize the ingredients on my order so I can have more control over the food I will order.
+Acceptance Criteria:
+    Test1 - When building the main (burger or wrap) ingredients should have the option to be taken away or added. 
+Priority: 4
+Size: 3 SP
 
-USC4-As a customer i want to be able to select different sizes of drinks and sides so i can order only the amount i want to eat or drink. (7) sp = 2
-  Acceptance criteria: Small medium and large sizes are offered for each drink and fries.
-                       Amy combination of sizes should be able to be added to an order.
+ID: COO_04
+Name:
+Description: As a customer I want to be able to select different sizes of drinks and sides so I can order only the amount I want to eat or drink.
+Acceptance Criteria:
+    Test - Small medium and large sizes are offered for each drink and fries.
+    Test - Amy combination of sizes should be able to be added to an order.
+Priority: 7
+Size: 2 SP
 
-USC5-As a customer i want to recive a order ID so i can keep track of my order status over time.(8) sp = 2
-  Acceptance criteria: Once the transaction has been completed a order ID should appear on screen with instructions of how to use it 
-                       An order ID is specific to a single transaction and not reused untill the order has been filled
+ID: COO_05
+Name:
+Description: As a customer I want to recive a order ID so I can keep track of my order status over time.
+Acceptance Criteria: 
+    Test - Once the transaction has been completed a order ID should appear on screen with instructions of how to use it 
+    Test - An order ID is specific to a single transaction and not reused untill the order has been filled
+Priority: 8
+Size: 2 SP
 
-USC6-As a customer i want to use my order ID to view my order status in a new session. (9)sp = 4
-  Acceptance criteria: Appending the order ID to the web adress should bring up a session with the details of that order. 
-
-USC7-As a customer i want to be able to view my current cart so i can see what i am going to order and how much each item costs.(10) sp = 3
-  Acceptance criteria: Clicking on my cart will bring up a new page showing all items in my cart 
-                       The cost of each item will be displayed clearly along with a total.
-
-USC8-As a customer i want to be able to remove things from my cart individually so that if i change my mind it is simple and easy. (1) sp = 2
-  Acceptance criteria: On the my cart page each item in my cart can be removed by pressing a X button next to it.
-                       Once an item is removed the cost of the cart is recalcuated. 
-
-USC9-As a customer i want to recive a final total before finalising the transaction so i can see the final cost before i pay it.(6) sp = 1
-  Acceptance criteria: When finalising payment a detailed breakdown and total cost is displayed. 
-                       Any taxes or service charges are also displayed on this order 
-
-USC10-As a customer i want to recive a meaningful error message if my order is unachievlable so i know how to correct it.  (2) sp = 2
-  Acceptance criteria: If an incompatible number of buns or wraps are ordered a dialouge box should appear detailing what a compatible order looks like 
-                       If an attempt to order more food then is currently in stock occurs the system should show an error and display what the maximum order size currently available is. 
-
-USC11-As a customer i want to view the cost of every item displayed so i can know its cost before adding it to my order. (5) sp = 1
-  Acceptance criteria: On the mains, drinks, and sides pages a cost is displayed next to each item.
-                       The cost clearly displays if it is per indivudal item, per 3 or per 6. 
-
-
+ID: COO_06
+Name:
+Description: As a customer I want to use my order ID to view my order status in a new session. (9)sp = 4
+Acceptance Criteria:
+    Test - Appending the order ID to the web adress should bring up a session with the details of that order.
+Priority: 9
+Size: 4 SP
 
 
+ID: COO_07
+Name:
+Description: As a customer I want to be able to view my current cart so I can see what I am going to order and how much each item costs.(10) sp = 3
+Acceptance Criteria:
+    Test - Clicking on my cart will bring up a new page showing all items in my cart 
+    Test - The cost of each item will be displayed clearly along with a total.
+Priority: 10
+Size: 3 SP
 
+ID: COO_08
+Name:
+Description: As a customer I want to be able to remove things from my cart individually so that if I change my mind it is simple and easy.
+Acceptance Criteria:
+    Test - On the my cart page each item in my cart can be removed by pressing a X button next to it.
+    Test - Once an item is removed the cost of the cart is recalcuated. 
+Priority: 1
+Size: 2 SP
+
+ID: COO_09
+Name:
+Description: As a customer I want to recive a final total before finalising the transaction so I can see the final cost before I pay it.
+Acceptance Criteria:
+    Test - When finalising payment a detailed breakdown and total cost is displayed. 
+    Test - Any taxes or service charges are also displayed on this order 
+Priority: 7
+Size: 1 SP
+
+ID: COO_10
+Name:
+Description: As a customer I want to recive a meaningful error message if my order is unachievlable so I know how to correct it.
+Acceptance Criteria:
+    Test - If an incompatible number of buns or wraps are ordered a dialouge box should appear detailing what a compatible order looks like 
+    Test - If an attempt to order more food then is currently in stock occurs the system should show an error and display what the maximum order size currently available is. 
+Priority: 2
+Size: 2 SP
+
+ID: COO_11
+Name:
+Description: As a customer I want to view the cost of every item displayed so I can know its cost before adding it to my order.
+Acceptance Criteria:
+    Test - On the mains, drinks, and sides pages a cost is displayed next to each item.
+    Test - The cost clearly displays if it is per indivudal item, per 3 or per 6. 
+Priority: 5
+Size: 1 SP
 
 
 
@@ -87,7 +155,7 @@ As a staff member, I should be able to log in/out to view all the online orders 
 ID: SSO_00
 Name: Log in
 Description: As a staff member I want to be able to log in with my username and password so I can access my staff account. 
-Acceptance criteria: 
+Acceptance Criteria: 
     Test - Valid username/password should allow staff to successfully log in and be redirected to staff dashboard
     Test - Invalid username/password doesn't allow staff to log in and displays an error page and keeps them on the login page
     Test - No username/password give doesn't allow staff to log in and displays an error page and keeps them on the login page
@@ -97,7 +165,7 @@ Size: 1 SP
 ID: SSO_01
 Name: Log out
 Description: As a staff member I want to at be able to securely log out so no one else can access my staff account. 
-Acceptance criteria: 
+Acceptance Criteria: 
     Test - Staff doesn't get automatically logged out due to inactivity (staff might be busy creating the order)
     Test - Clicking the log out button displays the pop up message "Are you sure you want to log out?" with options to press either "Yes" or "No"
     Test - Clicking "No" removes the pop up leaving them on the page they were already on
@@ -109,7 +177,7 @@ Size: 1 SP
 ID: SSO_02
 Name: View orders
 Description: As a staff member I want to view the orders so I can see what needs to be cooked. 
-Acceptance criteria: 
+Acceptance Criteria: 
     Test - Dashboard should display a link named "Incomplete orders".
     Test - Once the link is clicked it should lead to a page that displays all incomplete orders.
 
@@ -119,7 +187,7 @@ Size: 2 SP
 ID: SSO_03
 Name: View orders
 Description: As a staff member I want the orders to be arranged in a certain order so I can prioritise what has to be cooked. 
-Acceptance criteria: 
+Acceptance Criteria: 
     Test - Page should provide the option to arrange the list. 
     Test - Choosing an option rearranges the list of incomplete orders from oldest to newest and vice versa. 
 Priority: 2
@@ -135,7 +203,7 @@ As a staff member I want to be able to be able to accept new orders and update t
 ID: SSO_10
 Name: Accept new orders
 Description: As a staff member I want to be able to input new orders into the list of orders so I can keep track of all orders. 
-Acceptance criteria: 
+Acceptance Criteria: 
     Test - New order should appear on the list of incomplete orders
     Test - If the list of orders is sorted from oldest to newest, or vice versa, the newest order should appear at the beginning or end of the list 
 Priority: 3
@@ -144,7 +212,7 @@ Size: 4 SP
 ID: SSO_11
 Name: Update order status
 Description: As a staff member I want to be able to update the order's status once it's cooked so we know we can starting preparing another order. 
-Acceptance criteria: 
+Acceptance Criteria: 
     Test - Order's status should change to "completed".
     Test - Order should be removed from the list of incomplete orders and moved to list of completed orders. 
 Priority: 4
@@ -156,14 +224,12 @@ Size: 4 SP
 
 - - - - - - - - - - - - - - - - - - - - 
 CUSTOMER USER STORY THAT I DON'T KNOW WHERE TO PUT:
-ID: C_20?
+ID: COO_20???
 Description: As a customer I should be able to check when my order is completed so I can pick it up
-Acceptance criteria: 
+Acceptance Criteria: 
     Test - When order changes status to "completed" it should be reflected on the customer's end when they refresh their page. 
 Priority: 5
 Size: 2 SP
-
-
 
 
 
@@ -195,32 +261,38 @@ Staff - Maintain Inventory (Zen)
 I made my priority a scale out of 10, with 10 being the highest,
 and sizes are just story points. We can discuss and change if needed.
 
-(MI1) - Update stock
-As a staff member, I want to update my stock levels in the system after I refill my stock so that I can keep track of my stock levels.
 
-    Acceptance Criteria: When a staff member updates the stock levels in the system and the system stores and correctly displays the updated amount of each stock.
-     Priority - 9
-    Size - 7
+ID:SMI_01
+Name: Update Stock
+Description: As a staff member, I want to update my stock levels in the system after I refill my stock so that I can keep track of my stock levels.
+Acceptance Criteria:
+    Test - When a staff member updates the stock levels in the system and the system stores and correctly displays the updated amount of each stock.
+Priority: 9
+Size: 7 SP
 
-(MI2) - Decrememt stock
-As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so that I will know when I am running low on certain ingredients.
+ID:SMI_02
+Name: Decrememt stock
+Description: As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so that I will know when I am running low on certain ingredients.
+Acceptance Criteria:
+    Test - When a customer places an order, the system correctly decreases the amount of each ingredient required in the order in stock.
+Priority: 8
+Size: 2 SP
 
-    Acceptance Criteria: When a customer places an order, the system correctly decreases the amount of each ingredient required in the order in stock.
-    Priority - 8
-    Size - 2
 
-(MI3) - Prevent unavailable orders
-As a staff member, I want the system to prevent customers from placing orders that require ingredients that are unavailable so that they can order something that is available.
+ID:SMI_03
+Name: Prevent unavailable orders
+Description: As a staff member, I want the system to prevent customers from placing orders that require ingredients that are unavailable so that they can order something that is available.
+Acceptance Criteria:
+Priority: 5
+Size: 2 SP
 
-    Acceptance Criteria: When a customer attempts to select an item that has ingredients that are unavailable, the system will prevent the customer from selecting the item to add to the order.
-    Priority - 5
-    Size - 2
 
-(MI4) - Stock drinks and sides by volume and weight
-As a staff member, I want to certain items to be stocked by volume or weight so that I can serve them in varying sizes.
-
-    Acceptance Criteria: When the system is able to display the total volume of drinks or weight of sides that is in stock.
-                         When the system is able to correctly decrement the correct volume or weight of an item in stock when an order of a certain size of drink or side is placed.
-    Priority - 4
-    Size - 4
+ID:SMI_04
+Name: Stock drinks and sides by volume and weight
+Description: As a staff member, I want to certain items to be stocked by volume or weight so that I can serve them in varying sizes.
+Acceptance Criteria:
+    Test - When the system is able to display the total volume of drinks or weight of sides that is in stock.
+    Test - When the system is able to correctly decrement the correct volume or weight of an item in stock when an order of a certain size of drink or side is placed.
+Priority: 4
+Size: 4 SP
 
