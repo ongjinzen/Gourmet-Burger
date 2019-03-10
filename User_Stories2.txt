@@ -54,9 +54,9 @@ Size: 4 SP
 
 ID: COO_03
 Name:
-Description: As a customer I want to be able to customize the ingredients on my order so I can meet any dietary requirements I have.
+Description: As a customer I want to be able to customize the ingredients on my order so I can have more control over the food I will order.
 Acceptance Criteria:
-    Test - When building a burger or wrap all ingredients should have the option to be taken away or added. 
+    Test1 - When building the main (burger or wrap) ingredients should have the option to be taken away or added. 
 Priority: 4
 Size: 3 SP
 
