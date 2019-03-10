@@ -73,5 +73,11 @@ Size: 4 SP
 
 - - - - - - - - - - - - - - - - - - - - 
 CUSTOMER USER STORY THAT I DON'T KNOW WHERE TO PUT:
+ID: C_20?
+Description: As a customer I should be able to check when my order is completed so I can pick it up
+Acceptance criteria: 
+    Test - When order changes status to "completed" it should be reflected on the customer's end when they refresh their page. 
+Priority: 5
+Size: 2 SP
 
 
