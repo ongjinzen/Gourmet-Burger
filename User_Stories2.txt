@@ -214,7 +214,7 @@ ID:SMI_02
 Name: Decrememt stock
 Description: As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so I can accurate account for the stock levels.
 Acceptance Criteria:
-    Test1 - When an order is placed, the system should correctly decrease the amount of ingredients used in the order from the stock levels.
+    Test1 - When an order is placed, the system decreases the inventory the correct amount.
     Test2 - The system should then refresh and display the updated amount of each stock.
 Priority: 3
 Size: 2 SP
@@ -222,8 +222,9 @@ Size: 2 SP
 
 ID:SMI_03
 Name: Prevent unavailable orders
-Description: As a staff member, I want the system to prevent customers from placing orders that require ingredients that are unavailable so that they can order something that is available.
+Description: As a staff member, I want the system to prevent customers from placing orders requiring unavailable ingredients so they don't place an order that can't be provided for.
 Acceptance Criteria:
+    Test1 - When a customer attempts to select an item that has ingredients that are unavailable, the system will prevent the customer from adding the item to the cart.
 Priority: 5
 Size: 2 SP
 
