@@ -34,7 +34,7 @@ As a customer I should be able to choose my food and drinks online, customize th
 customer- Online orders Jack Difficulty scale (1-10) sp = 1/4 day
 
 ID: COO_01
-Name: 
+Name: Website connection
 Description: As a customer I want to be able to view the food items online so that I deciude which items I want to buy.
 Acceptance Criteria:
     Test1 - Typing in the company web addresss into a connected internet browser should load the web page.
@@ -43,7 +43,7 @@ Priority: 3
 Size: 2 SP
 
 ID: COO_02
-Name: 
+Name: Food variety 
 Description: As a customer I should be able to order multiple items of food and drink so I can consume what suits my needs. 
 Acceptance Criteria:
     Test1 - Clicking on different tabs of "mains, sides, and drinks" should load up seperate pages displaying different categories of food.
@@ -53,7 +53,7 @@ Priority: 1
 Size: 4 SP
 
 ID: COO_03
-Name:
+Name: Ingredient options
 Description: As a customer I want to be able to customize the ingredients on my order so I can have as much control over the food to be ordered.
 Acceptance Criteria:
     Test1 - When building the main (burger or wrap) ingredients should have the option to be taken away or added. 
@@ -62,7 +62,7 @@ Priority: 4
 Size: 3 SP
 
 ID: COO_04
-Name:
+Name: Size options
 Description: As a customer I want to be able to select different sizes of drinks and sides so I can order a size that suitably satisfies my appetite.
 Acceptance Criteria:
     Test1 - Small medium and large sizes should be offered for each drink and fries.
@@ -71,7 +71,7 @@ Priority: 7
 Size: 2 SP
 
 ID: COO_05
-Name:
+Name: Generate order ID
 Description: As a customer I want to receive an order ID so I can view my order status.
 Acceptance Criteria: 
     Test1 - Once the transaction has been completed an order ID should appear on screen with instructions of how to use it.
@@ -82,24 +82,17 @@ Size: 2 SP
 
 
 ID: COO_07
-Name:
-Description: As a customer I want to be able to view my current cart so I can see what I am going to order.
+Name: View current Cart
+Description: As a customer I want to be able to view my cart so I can see what I am going to order and its costs.
 Acceptance Criteria:
     Test1 - Clicking on the cart should bring up a new page showing all items in my cart 
+    Test2 - The cost of each item should be displayed clearly along with a total.
 Priority: 10
-Size: 3 SP
-
-ID: COO_08
-Name:
-Description: As a customer I want to be able to view my current cart so I can see how much each item costs.
-Acceptance Criteria:
-    Test1 - The cost of each item should be displayed clearly along with a total.
-Priority: 11
 Size: 3 SP
 
 
 ID: COO_09
-Name:
+Name: Edit cart
 Description: As a customer I want to be able to remove things from my cart individually so that if I change my mind it is simple and easy.
 Acceptance Criteria:
     Test1 - On the my cart page each item in my cart should be able to be removed by pressing a X button next to it.
@@ -108,7 +101,7 @@ Priority: 1
 Size: 2 SP
 
 ID: COO_10
-Name:
+Name: Payment finalisation
 Description: As a customer I want to receive a final total before finalising the transaction so I can determine if the final cost meets my budget.
 Acceptance Criteria:
     Test1 - When finalising payment a detailed breakdown and total cost should be displayed. 
@@ -117,7 +110,7 @@ Priority: 7
 Size: 1 SP
 
 ID: COO_11
-Name:
+Name: Error handling
 Description: As a customer I want to recive a meaningful error message if my order is unachievlable so I know how to correct it.
 Acceptance Criteria:
     Test1 - If an incompatible number of buns or wraps are ordered a dialouge box should appear detailing what a compatible order looks like. 
@@ -126,7 +119,7 @@ Priority: 2
 Size: 2 SP
 
 ID: COO_12
-Name:
+Name: Display costs
 Description: As a customer I want to view the cost of every item displayed so I can know its cost before adding it to my order.
 Acceptance Criteria:
     Test1 - On the mains, drinks, and sides pages a cost should be displayed next to each item.
