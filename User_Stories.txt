@@ -1,3 +1,7 @@
+SP: 1/4 of a day
+Priority scale: 1-7 (highest to lowest)
+
+
 - - - - - - - - - - - - - - - - - - - - 
 + + + Epic Story: 
 As a staff member, I should be able to log in/out to view all the online orders at any point in time. 
@@ -71,6 +75,7 @@ Size: 4 SP
 
 
 
+
 - - - - - - - - - - - - - - - - - - - - 
 CUSTOMER USER STORY THAT I DON'T KNOW WHERE TO PUT:
 ID: C_20?
@@ -79,5 +84,4 @@ Acceptance criteria:
     Test - When order changes status to "completed" it should be reflected on the customer's end when they refresh their page. 
 Priority: 5
 Size: 2 SP
-
 
