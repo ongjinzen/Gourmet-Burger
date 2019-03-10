@@ -138,8 +138,8 @@ Acceptance Criteria:
     Test1 - URL link provided should display staff-only version of the website. 
     Test2 - Dashboard on the website should display a link named "Incomplete orders".
     Test3 - Once the link is clicked it should lead to a page that displays all incomplete orders.
-Priority: 6
-Size: 1 SP
+Priority: 2
+Size: 2 SP
 
 ID: SSO_02
 Name: View orders
@@ -147,8 +147,8 @@ Description: As a staff member I want the orders to be arranged in a certain ord
 Acceptance Criteria: 
     Test1 - Page should provide the option to arrange the list. 
     Test2 - Choosing an option should be able to rearrange the list of incomplete orders from oldest to newest or vice versa. 
-Priority: 2
-Size: 2 SP
+Priority: 8
+Size: 4 SP
 
 
 
@@ -158,7 +158,7 @@ Description: As a staff member I want to be able to input new orders into the li
 Acceptance Criteria: 
     Test1 - New order should appear on the list of incomplete orders
     Test2 - If the list of orders is sorted from oldest to newest, or vice versa, the newest order should appear at the beginning or end of the list 
-Priority: 3
+Priority: 5
 Size: 4 SP
 
 ID: SSO_04
@@ -168,7 +168,7 @@ Acceptance Criteria:
     Test1 - Order's status should change to "completed".
     Test2 - Order should be removed from the list of incomplete orders and moved to list of completed orders. 
 Priority: 4
-Size: 4 SP
+Size: 2 SP
 
 
 
@@ -197,7 +197,7 @@ Acceptance Criteria:
     Test1 - Staff-only page's dashboard should have a link that once clicked leads to a page displaying inventory.
     Test2 - Page should list each item in inventory and display warning if stock is too low for a certain item.
 Priority: 1
-Size: 7 SP
+Size: 3 SP
 
 
 ID:SMI_02
@@ -207,7 +207,7 @@ Acceptance Criteria:
     Test1 - When an order is placed, the system decreases the inventory the correct amount.
     Test2 - The system should then refresh and display the updated amount of each stock.
 Priority: 3
-Size: 2 SP
+Size: 4 SP
 
 
 ID:SMI_03
@@ -216,7 +216,7 @@ Description: As a staff member, I want the system to prevent customers from plac
 Acceptance Criteria:
     Test1 - When a customer attempts to select an item that has ingredients that are unavailable, the system should prevent the customer from adding the item to the cart.
 Priority: 5
-Size: 2 SP
+Size: 1 SP
 
 
 ID:SMI_04
@@ -225,6 +225,6 @@ Description: As a staff member, I want certain items to be stocked by volume or 
 Acceptance Criteria:
     Test1 - The system should respectively display the volume/weight of each type of drink/side that is in stock.
     Test2 - The system should correctly decrement the correct volume/weight of an item in stock when an order is placed.
-Priority: 6
+Priority: 7
 Size: 4 SP
 
