@@ -1,13 +1,22 @@
-EPIC STORIES:
+EPIC STORIES (old):
 As a customer i want an online system to order food and drinks so that i can be fed food i specifically want. 
 
 As a staff member i want a system that manages food orders and preperation so that meals can be efficently prepared.
 
+
+
+
+
 EPIC STORIES:
 
 Customer Online Order (COO):
+As a customer I should be able to perform a number of actions like being able to choose my food and drinks, customize the ingredients and then be notified when the order is ready so I can collect it.
+
 
 Staff Service Order (SS0):
+As a staff member, I should be able to log in/out to view all the online orders at any point in time. 
+As a staff member I want to be able to be able to accept new orders and update the order's status once the order is ready. 
+
 
 Staff Maintenance Inventory (SMI):
 
