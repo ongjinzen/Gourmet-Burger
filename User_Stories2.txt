@@ -204,27 +204,18 @@ ID:SMI_01
 Name: View Stock
 Description: As a staff member, I should be able to view my stock levels so I can refill stock if needed.
 Acceptance Criteria:
-    Test1 - Dashboard should have a link that once clicked leads to a page displaying inventory.
+    Test1 - Staff-only page's dashboard should have a link that once clicked leads to a page displaying inventory.
     Test2 - Page should list each item in inventory and display warning if stock is too low for a certain item.
 Priority: 1
 Size: 7 SP
 
-ID:SMI_01.1
-Name: Update Stock
-Description: As a staff member, I want the system to automatically update my stock levels after each order is made so I can accurate account for the stock levels.
-Acceptance Criteria:
-    Test1 - When an order is put in it updates the stock levels in the system.
-    Test2 - The system then refreshes and displayed the updated amount of each stock.
-Priority: 1
-Size: 7 SP
-
-
 
 ID:SMI_02
 Name: Decrememt stock
-Description: As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so that I will know when I am running low on certain ingredients.
+Description: As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so I can accurate account for the stock levels.
 Acceptance Criteria:
-    Test - When a customer places an order, the system correctly decreases the amount of each ingredient required in the order in stock.
+    Test1 - When an order is placed, the system should correctly decrease the amount of ingredients used in the order from the stock levels.
+    Test2 - The system should then refresh and display the updated amount of each stock.
 Priority: 3
 Size: 2 SP
 
