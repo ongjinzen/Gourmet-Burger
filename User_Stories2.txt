@@ -1,28 +1,18 @@
-EPIC STORIES (old):
-As a customer I want an online system to order food and drinks so that I can be fed food I specifically want. 
-
-As a staff member I want a system that manages food orders and preperation so that meals can be efficently prepared.
-
-
-
-
+STORY POINTS: SP = 1/4 day
 
 EPIC STORIES:
 
-Customer Online Order (COO):
+ - Customer Online Order (COO):
 As a customer I should be able to choose my food and drinks online, customize the ingredients and then be notified when the order is ready so I can collect it.
 
 
-Staff Service Order (SS0):
-(need to combine)
-As a staff member, I should be able to log in/out to view all the online orders at any point in time. 
-As a staff member I should be able to be able to accept new orders and update the order's status once the order is ready. 
+ - Staff Service Order (SS0):
+As a staff member, I should be able to view all the online orders and be able to accept new orders and update the order's status once the order is ready. 
 
 
-Staff Maintenance Inventory (SMI):
+ - Staff Maintenance Inventory (SMI):
 As a staff member, I should be able to have inventory levels displayed to me so I know when I need to refill the stock. Inventory levels should also be automatically adjusted as orders are made and when ingredients run out customers shouldn't be able to order them. 
 
-STORY POINTS: SP = 1/4 day
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -78,7 +68,7 @@ Priority: 8
 Size: 2 SP
 
 
-ID: COO_07
+ID: COO_06
 Name: View current Cart
 Description: As a customer I want to be able to view my cart so I can see what I am going to order and its costs.
 Acceptance Criteria:
@@ -88,7 +78,7 @@ Priority: 10
 Size: 3 SP
 
 
-ID: COO_09
+ID: COO_07
 Name: Edit cart
 Description: As a customer I want to be able to remove things from my cart individually so that if I change my mind it is simple and easy.
 Acceptance Criteria:
@@ -97,7 +87,7 @@ Acceptance Criteria:
 Priority: 1
 Size: 2 SP
 
-ID: COO_10
+ID: COO_08
 Name: Payment finalisation
 Description: As a customer I want to receive a final total before finalising the transaction so I can determine if the final cost meets my budget.
 Acceptance Criteria:
@@ -106,7 +96,7 @@ Acceptance Criteria:
 Priority: 7
 Size: 1 SP
 
-ID: COO_11
+ID: COO_09
 Name: Error handling
 Description: As a customer I want to recive a meaningful error message if my order is unachievlable so I know how to correct it.
 Acceptance Criteria:
@@ -115,7 +105,7 @@ Acceptance Criteria:
 Priority: 2
 Size: 2 SP
 
-ID: COO_12
+ID: COO_10
 Name: Display costs
 Description: As a customer I want to view the cost of every item displayed so I can know its cost before adding it to my order.
 Acceptance Criteria:
