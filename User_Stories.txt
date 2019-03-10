@@ -1,9 +1,7 @@
-As a customer i want an online system to order food and drinks so that i can be fed food i specifically want. 
-
-As a staff member i want a system that manages food orders and preperation so that meals can be efficently prepared.
+As a customer i want an online system to order and pay for customised food and drinks I should also be able to review my order at anytime before or after i have finalised my payment.
 
 
-customer- Online orders Jack Difficulty scale (1-11) sp = 1/4 day
+customer- Online orders Jack Difficulty scale (1-10) sp = 1/4 day
 
 USC1-As a customer i want to be able to access the system via a web adrees so that i can easiliy order food.(3) sp = 2
   Acceptance criteria: Typing in the specific web adreess into a connected browser will load the web page.
