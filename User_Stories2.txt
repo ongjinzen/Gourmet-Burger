@@ -3,6 +3,16 @@ As a customer i want an online system to order food and drinks so that i can be 
 
 As a staff member i want a system that manages food orders and preperation so that meals can be efficently prepared.
 
+EPIC STORIES:
+
+Customer Online Order (COO):
+
+Staff Service Order (SS0):
+
+Staff Maintenance Inventory (SMI):
+
+
+
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
