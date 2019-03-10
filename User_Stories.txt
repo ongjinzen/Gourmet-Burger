@@ -54,9 +54,10 @@ Size: 4 SP
 
 ID: COO_03
 Name:
-Description: As a customer I want to be able to customize the ingredients on my order so I can have more control over the food I will order.
+Description: As a customer I want to be able to customize the ingredients on my order so I can have as much control over the food to be ordered.
 Acceptance Criteria:
     Test1 - When building the main (burger or wrap) ingredients should have the option to be taken away or added. 
+    Test2 - Option to add or remove ingredients should be taken away if there's too little or too many ingredients of the same type.
 Priority: 4
 Size: 3 SP
 
@@ -258,16 +259,13 @@ Size: 2 SP
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Staff - Maintain Inventory (Zen) 
-I made my priority a scale out of 10, with 10 being the highest,
-and sizes are just story points. We can discuss and change if needed.
-
 
 ID:SMI_01
 Name: Update Stock
 Description: As a staff member, I want to update my stock levels in the system after I refill my stock so that I can keep track of my stock levels.
 Acceptance Criteria:
     Test - When a staff member updates the stock levels in the system and the system stores and correctly displays the updated amount of each stock.
-Priority: 9
+Priority: 1
 Size: 7 SP
 
 ID:SMI_02
@@ -275,7 +273,7 @@ Name: Decrememt stock
 Description: As a staff member, I want the system to automatically decrement stock levels of the required ingredients of an order when the order is placed so that I will know when I am running low on certain ingredients.
 Acceptance Criteria:
     Test - When a customer places an order, the system correctly decreases the amount of each ingredient required in the order in stock.
-Priority: 8
+Priority: 3
 Size: 2 SP
 
 
@@ -293,6 +291,6 @@ Description: As a staff member, I want to certain items to be stocked by volume 
 Acceptance Criteria:
     Test - When the system is able to display the total volume of drinks or weight of sides that is in stock.
     Test - When the system is able to correctly decrement the correct volume or weight of an item in stock when an order of a certain size of drink or side is placed.
-Priority: 4
+Priority: 6
 Size: 4 SP
 
