@@ -45,11 +45,28 @@ Size: 2 SP
 
 
 
+
 - - - - - - - - - - - - - - - - - - - - 
 + + + Epic Story: 
 As a staff member I want to be able to be able to accept new orders and update the order's status once the order is ready. 
 
+ID: SSO_10
+Name: Accept new orders
+Description: As a staff member I want to be able to input new orders into the list of orders so I can keep track of all orders. 
+Acceptance criteria: 
+    Test - New order should appear on the list of incomplete orders
+    Test - If the list of orders is sorted from oldest to newest, or vice versa, the newest order should appear at the beginning or end of the list 
+Priority: 3
+Size: 4 SP
 
+ID: SSO_11
+Name: Update order status
+Description: As a staff member I want to be able to update the order's status once it's cooked so we know we can starting preparing another order. 
+Acceptance criteria: 
+    Test - Order's status should change to "completed".
+    Test - Order should be removed from the list of incomplete orders and moved to list of completed orders. 
+Priority: 4
+Size: 4 SP
 
 
 
