@@ -1,15 +1,26 @@
+EPIC STORIES:
 As a customer i want an online system to order food and drinks so that i can be fed food i specifically want. 
-edit
-edit 2
 
 As a staff member i want a system that manages food orders and preperation so that meals can be efficently prepared.
 
 
-customer- Online orders Jack
 
-Staff-service orders Sandeep
 
-Staff - maintain inventory Zen 
+Customer- Online Orders (Jack)
+
+
+
+
+
+Staff - Service Orders (Sandeep)
+
+
+
+
+
+
+
+Staff - Maintain Inventory (Zen) 
 
 As a staff member, I want to update my stock levels in the system after I refill my stock so that I can keep track of my stock levels.
 
