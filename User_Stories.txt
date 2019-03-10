@@ -18,6 +18,7 @@ customer- Online orders Jack Difficulty scale (1-10) sp = 1/4 day
 
 USC1-As a customer i want to be able to access the system via a web adrees so that i can easiliy order food.(3) sp = 2
   Acceptance criteria: Typing in the specific web adreess into a connected browser will load the web page.
+                       Adding an order id to the end of the adress will connect you to a current order.
 
 USC2-As a customer i want to be able to order a wide vareity of food and drink so i can consume what suits my needs.(1) sp = 4
   Acceptance criteria: Clicking on different tabs of "mains, sides, and drinks" will load up seperate pages the user can select there order from.
