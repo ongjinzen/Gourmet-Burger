@@ -1,4 +1,21 @@
-test
-test 2
+- - - - - - - - - - - - - - - - - - - - 
++ + + Epic Story: 
+As a staff member, I should be able to log in/out to view all the online orders at any point in time. 
 
-edit 15:48
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - 
++ + + Epic Story: 
+As a staff member I want to be able to be able to accept new orders and update the order's status once the order is ready. 
+
+
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - 
+CUSTOMER USER STORY THAT I DON'T KNOW WHERE TO PUT:
+
+
