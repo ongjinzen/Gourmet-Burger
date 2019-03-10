@@ -71,64 +71,48 @@ Size: 4 SP
 
 ID: COO_07
 Name:
-Description:
+Description: As a customer i want to be able to view my current cart so i can see what i am going to order and how much each item costs.(10) sp = 3
 Acceptance criteria:
-Priority:
-Size:
+    Test - Clicking on my cart will bring up a new page showing all items in my cart 
+    Test - The cost of each item will be displayed clearly along with a total.
+Priority: 10
+Size: 3 SP
 
 ID: COO_08
 Name:
-Description:
+Description: As a customer i want to be able to remove things from my cart individually so that if i change my mind it is simple and easy.
 Acceptance criteria:
-Priority:
-Size:
+    Test - On the my cart page each item in my cart can be removed by pressing a X button next to it.
+    Test - Once an item is removed the cost of the cart is recalcuated. 
+Priority: 1
+Size: 2 SP
 
 ID: COO_09
 Name:
-Description:
+Description: As a customer i want to recive a final total before finalising the transaction so i can see the final cost before i pay it.
 Acceptance criteria:
-Priority:
-Size:
+    Test - When finalising payment a detailed breakdown and total cost is displayed. 
+    Test - Any taxes or service charges are also displayed on this order 
+Priority: 7
+Size: 1 SP
 
 ID: COO_10
 Name:
-Description:
+Description: As a customer i want to recive a meaningful error message if my order is unachievlable so i know how to correct it.
 Acceptance criteria:
-Priority:
-Size:
+    Test - If an incompatible number of buns or wraps are ordered a dialouge box should appear detailing what a compatible order looks like 
+    Test - If an attempt to order more food then is currently in stock occurs the system should show an error and display what the maximum order size currently available is. 
+Priority: 2
+Size: 2 SP
 
 ID: COO_11
 Name:
-Description:
+Description: As a customer i want to view the cost of every item displayed so i can know its cost before adding it to my order.
 Acceptance criteria:
-Priority:
-Size:
-
-
-USC7-As a customer i want to be able to view my current cart so i can see what i am going to order and how much each item costs.(10) sp = 3
-  Acceptance criteria: Clicking on my cart will bring up a new page showing all items in my cart 
-                       The cost of each item will be displayed clearly along with a total.
-
-USC8-As a customer i want to be able to remove things from my cart individually so that if i change my mind it is simple and easy. (1) sp = 2
-  Acceptance criteria: On the my cart page each item in my cart can be removed by pressing a X button next to it.
-                       Once an item is removed the cost of the cart is recalcuated. 
-
-USC9-As a customer i want to recive a final total before finalising the transaction so i can see the final cost before i pay it.(6) sp = 1
-  Acceptance criteria: When finalising payment a detailed breakdown and total cost is displayed. 
-                       Any taxes or service charges are also displayed on this order 
-
-USC10-As a customer i want to recive a meaningful error message if my order is unachievlable so i know how to correct it.  (2) sp = 2
-  Acceptance criteria: If an incompatible number of buns or wraps are ordered a dialouge box should appear detailing what a compatible order looks like 
-                       If an attempt to order more food then is currently in stock occurs the system should show an error and display what the maximum order size currently available is. 
-
-USC11-As a customer i want to view the cost of every item displayed so i can know its cost before adding it to my order. (5) sp = 1
-  Acceptance criteria: On the mains, drinks, and sides pages a cost is displayed next to each item.
-                       The cost clearly displays if it is per indivudal item, per 3 or per 6. 
-
-
-
-
-
+    Test - On the mains, drinks, and sides pages a cost is displayed next to each item.
+    Test - The cost clearly displays if it is per indivudal item, per 3 or per 6. 
+Priority: 5
+Size: 1 SP
 
 
 
