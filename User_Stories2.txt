@@ -149,70 +149,39 @@ Name: View orders
 Description: As a staff member I should be able to access a staff only version of the system so I know which orders need to be fulfilled.
 Acceptance Criteria: 
     Test1 - URL link provided should display staff-only version of the website. 
-    Test2 - 
+    Test2 - Dashboard on the website should display a link named "Incomplete orders".
+    Test3 - Once the link is clicked it should lead to a page that displays all incomplete orders.
 Priority: 6
 Size: 1 SP
 
-
-ID: SSO_02
-Name: View orders
-Description: As a staff member I want to view the orders so I can see what needs to be cooked. 
-Acceptance Criteria: 
-    Test - Dashboard should display a link named "Incomplete orders".
-    Test - Once the link is clicked it should lead to a page that displays all incomplete orders.
-
-Priority: 1
-Size: 2 SP
-
-ID: SSO_03
+ID: SSO_01
 Name: View orders
 Description: As a staff member I want the orders to be arranged in a certain order so I can prioritise what has to be cooked. 
 Acceptance Criteria: 
-    Test - Page should provide the option to arrange the list. 
-    Test - Choosing an option rearranges the list of incomplete orders from oldest to newest and vice versa. 
+    Test1 - Page should provide the option to arrange the list. 
+    Test2 - Choosing an option should be able to rearrange the list of incomplete orders from oldest to newest or vice versa. 
 Priority: 2
 Size: 2 SP
 
 
 
-ID: SSO_10
+ID: SSO_02
 Name: Accept new orders
-Description: As a staff member I want to be able to input new orders into the list of orders so I can keep track of all orders. 
+Description: As a staff member I want to be able to input new orders into the list of orders so I can keep track of all incoming orders. 
 Acceptance Criteria: 
-    Test - New order should appear on the list of incomplete orders
-    Test - If the list of orders is sorted from oldest to newest, or vice versa, the newest order should appear at the beginning or end of the list 
+    Test1 - New order should appear on the list of incomplete orders
+    Test2 - If the list of orders is sorted from oldest to newest, or vice versa, the newest order should appear at the beginning or end of the list 
 Priority: 3
 Size: 4 SP
 
-ID: SSO_11
+ID: SSO_03
 Name: Update order status
 Description: As a staff member I want to be able to update the order's status once it's cooked so we know we can starting preparing another order. 
 Acceptance Criteria: 
-    Test - Order's status should change to "completed".
-    Test - Order should be removed from the list of incomplete orders and moved to list of completed orders. 
+    Test1 - Order's status should change to "completed".
+    Test2 - Order should be removed from the list of incomplete orders and moved to list of completed orders. 
 Priority: 4
 Size: 4 SP
-
-
-
-
-- - - - - - - - - - - - - - - - - - - - 
-CUSTOMER USER STORY THAT I DON'T KNOW WHERE TO PUT:
-ID: COO_20???
-Description: As a customer I should be able to check when my order is completed so I can pick it up
-Acceptance Criteria: 
-    Test - When order changes status to "completed" it should be reflected on the customer's end when they refresh their page. 
-Priority: 5
-Size: 2 SP
-
-
-
-
-
-
-
-
-
 
 
 
