@@ -157,29 +157,14 @@ SP: 1/4 of a day
 Priority scale: 1-7 (highest to lowest)
 
 
-- - - - - - - - - - - - - - - - - - - - 
-+ + + Epic Story: 
-As a staff member, I should be able to log in/out to view all the online orders at any point in time. 
 
 ID: SSO_00
-Name: Log in
-Description: As a staff member I want to be able to log in with my username and password so I can access my staff account. 
+Name: View orders
+Description: As a staff member I should be able to access a staff only version of the system so I know which orders need to be fulfilled.
 Acceptance Criteria: 
-    Test - Valid username/password should allow staff to successfully log in and be redirected to staff dashboard
-    Test - Invalid username/password doesn't allow staff to log in and displays an error page and keeps them on the login page
-    Test - No username/password give doesn't allow staff to log in and displays an error page and keeps them on the login page
+    Test1 - URL link provided should display staff-only version of the website. 
+    Test2 - 
 Priority: 6
-Size: 1 SP
-
-ID: SSO_01
-Name: Log out
-Description: As a staff member I want to at be able to securely log out so no one else can access my staff account. 
-Acceptance Criteria: 
-    Test - Staff doesn't get automatically logged out due to inactivity (staff might be busy creating the order)
-    Test - Clicking the log out button displays the pop up message "Are you sure you want to log out?" with options to press either "Yes" or "No"
-    Test - Clicking "No" removes the pop up leaving them on the page they were already on
-    Test - Clicking "Yes" securely logs them out taking them back to the log in page
-Priority: 7
 Size: 1 SP
 
 
@@ -204,11 +189,6 @@ Size: 2 SP
 
 
 
-
-- - - - - - - - - - - - - - - - - - - - 
-+ + + Epic Story: 
-As a staff member I want to be able to be able to accept new orders and update the order's status once the order is ready. 
-
 ID: SSO_10
 Name: Accept new orders
 Description: As a staff member I want to be able to input new orders into the list of orders so I can keep track of all orders. 
@@ -226,7 +206,6 @@ Acceptance Criteria:
     Test - Order should be removed from the list of incomplete orders and moved to list of completed orders. 
 Priority: 4
 Size: 4 SP
-
 
 
 
