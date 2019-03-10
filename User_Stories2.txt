@@ -109,17 +109,17 @@ ID: COO_09
 Name:
 Description: As a customer I want to be able to remove things from my cart individually so that if I change my mind it is simple and easy.
 Acceptance Criteria:
-    Test - On the my cart page each item in my cart can be removed by pressing a X button next to it.
-    Test - Once an item is removed the cost of the cart is recalcuated. 
+    Test1 - On the my cart page each item in my cart should be able to be removed by pressing a X button next to it.
+    Test2 - Once an item is removed the cost of the cart should be recalcuated. 
 Priority: 1
 Size: 2 SP
 
 ID: COO_10
 Name:
-Description: As a customer I want to recive a final total before finalising the transaction so I can see the final cost before I pay it.
+Description: As a customer I want to receive a final total before finalising the transaction so I can determine if the final cost meets my budget.
 Acceptance Criteria:
-    Test - When finalising payment a detailed breakdown and total cost is displayed. 
-    Test - Any taxes or service charges are also displayed on this order 
+    Test1 - When finalising payment a detailed breakdown and total cost should be displayed. 
+    Test2 - Any taxes or service charges should also be displayed on this order. 
 Priority: 7
 Size: 1 SP
 
@@ -127,8 +127,8 @@ ID: COO_11
 Name:
 Description: As a customer I want to recive a meaningful error message if my order is unachievlable so I know how to correct it.
 Acceptance Criteria:
-    Test - If an incompatible number of buns or wraps are ordered a dialouge box should appear detailing what a compatible order looks like 
-    Test - If an attempt to order more food then is currently in stock occurs the system should show an error and display what the maximum order size currently available is. 
+    Test1 - If an incompatible number of buns or wraps are ordered a dialouge box should appear detailing what a compatible order looks like. 
+    Test2 - If an attempt to order more food then is currently in stock occurs the system should show an error and display what the maximum order size currently available is. 
 Priority: 2
 Size: 2 SP
 
@@ -136,8 +136,8 @@ ID: COO_12
 Name:
 Description: As a customer I want to view the cost of every item displayed so I can know its cost before adding it to my order.
 Acceptance Criteria:
-    Test - On the mains, drinks, and sides pages a cost is displayed next to each item.
-    Test - The cost clearly displays if it is per indivudal item, per 3 or per 6. 
+    Test1 - On the mains, drinks, and sides pages a cost should be displayed next to each item.
+    Test2 - The cost should clearly display if it is per indivudal item, per 3 or per 6. 
 Priority: 5
 Size: 1 SP
 
