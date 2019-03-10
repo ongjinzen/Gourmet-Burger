@@ -72,20 +72,13 @@ Size: 2 SP
 
 ID: COO_05
 Name:
-Description: As a customer I want to receive an order ID so I can keep track of my order status over time.
+Description: As a customer I want to receive an order ID so I can view my order status.
 Acceptance Criteria: 
     Test1 - Once the transaction has been completed an order ID should appear on screen with instructions of how to use it.
     Test2 - An order ID is specific to a single transaction and not reused untill the order has been filled
+    Test3 - Appending the order ID to the web adress should bring up a session with the details of that order.
 Priority: 8
 Size: 2 SP
-
-ID: COO_06
-Name:
-Description: As a customer I want to use my order ID to view my order status in a new session.
-Acceptance Criteria:
-    Test1 - Appending the order ID to the web adress should bring up a session with the details of that order.
-Priority: 9
-Size: 4 SP
 
 
 ID: COO_07
