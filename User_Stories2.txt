@@ -30,23 +30,21 @@ As a staff member, I should be able to have inventory levels displayed to me so 
 Customer- Online Orders (Jack)
 
 
-
-As a customer I want an online system to order and pay for customised food and drinks I should also be able to review my order at anytime before or after I have finalised my payment.
-
-
+As a customer I should be able to choose my food and drinks online, customize the ingredients and then be notified when the order is ready so I can collect it.
 customer- Online orders Jack Difficulty scale (1-10) sp = 1/4 day
 
 ID: COO_01
 Name: 
-Description: As a customer I want to be able to view what food items I want to buy via a web address so that I can easiliy order food.
+Description: As a customer I want to be able to view the food items online so that I deciude which items I want to buy.
 Acceptance Criteria:
-    Test - Typing in the specific web addresss into a connected browser will load the web page.
+    Test1 - Typing in the company web addresss into a connected internet browser should load the web page.
+    Test2 - The homepage should have a link that once clicked leads to a page which allows the customer to view items.
 Priority: 3
 Size: 2 SP
 
 ID: COO_02
 Name: 
-Description: As a customer I want to be able to access the system via a web address so that I can easiliy order food.
+Description: As a customer I should be able to order multiple items of food and drink so I can consume what suits my needs. 
 Acceptance Criteria:
     Test - Clicking on different tabs of "mains, sides, and drinks" will load up seperate pages the user can select there order from.
     Test - Menu items can be added individually in a variety of amounts.
