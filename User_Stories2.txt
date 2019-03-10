@@ -75,30 +75,37 @@ Name:
 Description: As a customer I want to receive an order ID so I can keep track of my order status over time.
 Acceptance Criteria: 
     Test1 - Once the transaction has been completed an order ID should appear on screen with instructions of how to use it.
-    Test2 - The order ID should be able to be used to display order status.
-    Test3 - An order ID is specific to a single transaction and not reused untill the order has been filled
+    Test2 - An order ID is specific to a single transaction and not reused untill the order has been filled
 Priority: 8
 Size: 2 SP
 
 ID: COO_06
 Name:
-Description: As a customer I want to use my order ID to view my order status in a new session. (9)sp = 4
+Description: As a customer I want to use my order ID to view my order status in a new session.
 Acceptance Criteria:
-    Test - Appending the order ID to the web adress should bring up a session with the details of that order.
+    Test1 - Appending the order ID to the web adress should bring up a session with the details of that order.
 Priority: 9
 Size: 4 SP
 
 
 ID: COO_07
 Name:
-Description: As a customer I want to be able to view my current cart so I can see what I am going to order and how much each item costs.(10) sp = 3
+Description: As a customer I want to be able to view my current cart so I can see what I am going to order.
 Acceptance Criteria:
-    Test - Clicking on my cart will bring up a new page showing all items in my cart 
-    Test - The cost of each item will be displayed clearly along with a total.
+    Test1 - Clicking on the cart should bring up a new page showing all items in my cart 
 Priority: 10
 Size: 3 SP
 
 ID: COO_08
+Name:
+Description: As a customer I want to be able to view my current cart so I can see how much each item costs.
+Acceptance Criteria:
+    Test1 - The cost of each item should be displayed clearly along with a total.
+Priority: 11
+Size: 3 SP
+
+
+ID: COO_09
 Name:
 Description: As a customer I want to be able to remove things from my cart individually so that if I change my mind it is simple and easy.
 Acceptance Criteria:
@@ -107,7 +114,7 @@ Acceptance Criteria:
 Priority: 1
 Size: 2 SP
 
-ID: COO_09
+ID: COO_10
 Name:
 Description: As a customer I want to recive a final total before finalising the transaction so I can see the final cost before I pay it.
 Acceptance Criteria:
@@ -116,7 +123,7 @@ Acceptance Criteria:
 Priority: 7
 Size: 1 SP
 
-ID: COO_10
+ID: COO_11
 Name:
 Description: As a customer I want to recive a meaningful error message if my order is unachievlable so I know how to correct it.
 Acceptance Criteria:
@@ -125,7 +132,7 @@ Acceptance Criteria:
 Priority: 2
 Size: 2 SP
 
-ID: COO_11
+ID: COO_12
 Name:
 Description: As a customer I want to view the cost of every item displayed so I can know its cost before adding it to my order.
 Acceptance Criteria:
