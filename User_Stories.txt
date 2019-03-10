@@ -2,7 +2,46 @@
 + + + Epic Story: 
 As a staff member, I should be able to log in/out to view all the online orders at any point in time. 
 
+ID: SSO_00
+Name: Log in
+Description: As a staff member I want to be able to log in with my username and password so I can access my staff account. 
+Acceptance criteria: 
+    Test - Valid username/password should allow staff to successfully log in and be redirected to staff dashboard
+    Test - Invalid username/password doesn't allow staff to log in and displays an error page and keeps them on the login page
+    Test - No username/password give doesn't allow staff to log in and displays an error page and keeps them on the login page
+Priority: 6
+Size: 1 SP
 
+ID: SSO_01
+Name: Log out
+Description: As a staff member I want to at be able to securely log out so no one else can access my staff account. 
+Acceptance criteria: 
+    Test - Staff doesn't get automatically logged out due to inactivity (staff might be busy creating the order)
+    Test - Clicking the log out button displays the pop up message "Are you sure you want to log out?" with options to press either "Yes" or "No"
+    Test - Clicking "No" removes the pop up leaving them on the page they were already on
+    Test - Clicking "Yes" securely logs them out taking them back to the log in page
+Priority: 7
+Size: 1 SP
+
+
+ID: SSO_02
+Name: View orders
+Description: As a staff member I want to view the orders so I can see what needs to be cooked. 
+Acceptance criteria: 
+    Test - Dashboard should display a link named "Incomplete orders".
+    Test - Once the link is clicked it should lead to a page that displays all incomplete orders.
+
+Priority: 1
+Size: 2 SP
+
+ID: SSO_03
+Name: View orders
+Description: As a staff member I want the orders to be arranged in a certain order so I can prioritise what has to be cooked. 
+Acceptance criteria: 
+    Test - Page should provide the option to arrange the list. 
+    Test - Choosing an option rearranges the list of incomplete orders from oldest to newest and vice versa. 
+Priority: 2
+Size: 2 SP
 
 
 
