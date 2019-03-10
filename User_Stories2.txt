@@ -224,17 +224,17 @@ ID:SMI_03
 Name: Prevent unavailable orders
 Description: As a staff member, I want the system to prevent customers from placing orders requiring unavailable ingredients so they don't place an order that can't be provided for.
 Acceptance Criteria:
-    Test1 - When a customer attempts to select an item that has ingredients that are unavailable, the system will prevent the customer from adding the item to the cart.
+    Test1 - When a customer attempts to select an item that has ingredients that are unavailable, the system should prevent the customer from adding the item to the cart.
 Priority: 5
 Size: 2 SP
 
 
 ID:SMI_04
 Name: Stock drinks and sides by volume and weight
-Description: As a staff member, I want to certain items to be stocked by volume or weight so that I can serve them in varying sizes.
+Description: As a staff member, I want certain items to be stocked by volume or weight so that I can serve them in varying sizes.
 Acceptance Criteria:
-    Test - When the system is able to display the total volume of drinks or weight of sides that is in stock.
-    Test - When the system is able to correctly decrement the correct volume or weight of an item in stock when an order of a certain size of drink or side is placed.
+    Test1 - The system should respectively display the volume/weight of each type of drink/side that is in stock.
+    Test2 - The system should correctly decrement the correct volume/weight of an item in stock when an order is placed.
 Priority: 6
 Size: 4 SP
 
