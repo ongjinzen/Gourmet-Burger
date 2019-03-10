@@ -200,14 +200,25 @@ Size: 4 SP
 Staff - Maintain Inventory (Zen) 
  - As a staff member, I should be able to have inventory levels displayed to me so I know when I need to refill the stock. Inventory levels should also be automatically adjusted as orders are made and when ingredients run out customers shouldn't be able to order them. 
 
-
 ID:SMI_01
-Name: Update Stock
-Description: As a staff member, I want to update my stock levels in the system after I refill my stock so that I can keep track of my stock levels.
+Name: View Stock
+Description: As a staff member, I should be able to view my stock levels so I can refill stock if needed.
 Acceptance Criteria:
-    Test - When a staff member updates the stock levels in the system and the system stores and correctly displays the updated amount of each stock.
+    Test1 - Dashboard should have a link that once clicked leads to a page displaying inventory.
+    Test2 - Page should list each item in inventory and display warning if stock is too low for a certain item.
 Priority: 1
 Size: 7 SP
+
+ID:SMI_01.1
+Name: Update Stock
+Description: As a staff member, I want the system to automatically update my stock levels after each order is made so I can accurate account for the stock levels.
+Acceptance Criteria:
+    Test1 - When an order is put in it updates the stock levels in the system.
+    Test2 - The system then refreshes and displayed the updated amount of each stock.
+Priority: 1
+Size: 7 SP
+
+
 
 ID:SMI_02
 Name: Decrememt stock
