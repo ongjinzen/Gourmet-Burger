@@ -6,21 +6,7 @@ Goals:
 
 
 
-customer - 3, 4, 5, 8, 10
 
-As a customer, I want a service that I can rent a car from that matches my needs and payment is clear and simple.
-I also want confirmation via email that my booking is confirmed.
-
-
-Company - 1, 2, 6, 7, 9, 11, 12, 13, 14
-
-As an employee, I want a system that enables customers to 
-temporarily rent cars for a fee for a specified period and 
-lets me keep track of all their relavent details that also 
-has suitable security and minimizes risk. I should also be 
-able to enter new information to the system and generate 
-reports detailing a summary of transactions for a given 
-period of time
 
 NEW USER STORIES:
 
@@ -63,6 +49,22 @@ UC14: As a manger I want to be able to generate weekly reports so I can do accou
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+customer - 3, 4, 5, 8, 10
+
+As a customer, I want a service that I can rent a car from that matches my needs and payment is clear and simple.
+I also want confirmation via email that my booking is confirmed.
+
+
+Company - 1, 2, 6, 7, 9, 11, 12, 13, 14
+
+As an employee, I want a system that enables customers to 
+temporarily rent cars for a fee for a specified period and 
+lets me keep track of all their relavent details that also 
+has suitable security and minimizes risk. I should also be 
+able to enter new information to the system and generate 
+reports detailing a summary of transactions for a given 
+period of time
 
 1) As a company, I want to rent cars for a fee in order to generate revenue. (100h) HIGH
 	
