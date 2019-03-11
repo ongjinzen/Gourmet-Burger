@@ -1,11 +1,13 @@
 Actors: Customer, manager, admin, database, staff
 Goals:
 
-
-
-
-
-
+- track which rental belongs to which customer
+- view cars of different sizes
+- search the system
+- view the price of a car
+- view the type of car
+- pay for the rental
+- record the customer's details
 
 
 NEW USER STORIES:
@@ -27,7 +29,7 @@ As a customer, I want to view the type of car so I can decide if I like it.
 
 UC6: As a customer I want be able to pay for the rental so it is reserved for me. 
 
-UC7: As a staff member, I want the customer's details so I can keep a record. 
+UC7: As a staff member, I want to record the customer's details for the sake of book-keeping.
 
 UC8: As a customer, I want the final net price to be displayed so I can decide if it fits my budget.
 
