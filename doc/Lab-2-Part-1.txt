@@ -1,9 +1,8 @@
 Actors: Customer, manager, admin, database, staff
 Goals:
-    Customer: To find and rent a car of their choosing.
-    Manager: To be able to collect weekly financial reports.
-    Admin: To be able to log into the system and enter new car information.
-    Staff: 
+
+
+
 
 
 
