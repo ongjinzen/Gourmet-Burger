@@ -23,10 +23,16 @@ able to enter new information to the system and generate
 reports detailing a summary of transactions for a given 
 period of time
 
+NEW USER STORIES:
 
 
 
 
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - 
 
 1) As a company, I want to rent cars for a fee in order to generate revenue. (100h) HIGH
 	
