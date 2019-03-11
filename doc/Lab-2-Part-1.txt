@@ -25,7 +25,38 @@ period of time
 
 NEW USER STORIES:
 
+UC1:
+As a staff, I want to track which rental belongs to which customer so I can keep track of inventory. 
 
+UC2:
+As a customer, I want to be able to view cars of different sizes so I can choose a car large enough to suit my needs.
+
+UC3:
+As a customer I want to be able to search the system so I can find a car that suitably matches my needs.
+
+UC4:
+As a customer I want to view the price of a car so I can decide if it fits my budget.
+
+UC5:
+As a customer, I want to view the type of car so I can decide if I like it.
+
+UC6: As a customer I want be able to pay for the rental so it is reserved for me. 
+
+UC7: As a staff member, I want the customer's details so I can keep a record. 
+
+UC8: As a customer, I want the final net price to be displayed so I can decide if it fits my budget.
+
+UC9: As a customer, I want  a confirmation email so I know the booking has been made. 
+
+UC10: As a staff member I want to be able to log in to the system so I can configure details of the system.
+
+UC11: As a staff member I want to be able to log out to maintain security and privacy.
+
+UC12: As an admin, I want to enter new car information to the system so I can keep it up to date.
+
+UC13: As a staff member I want to keep track of each car's associated attributes for the sake of keeping track of inventory. 
+
+UC14: As a manger I want to be able to generate weekly reports so I can do accounting.  
 
 
 
