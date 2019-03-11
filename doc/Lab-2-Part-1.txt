@@ -1,20 +1,20 @@
 Actors: Customer, manager, admin, database, staff
 
 Goals:
-- track which rental belongs to which customer
-- view cars of different sizes
-- search the system
-- view the price of a car
-- view the type of car
-- pay for the rental
-- record the customer's details
-- final net price to be displayed
-- confirmation email sent
-- log in to the system (staff)
-- log out (staff)
-- enter new car information
-- keep track of each car's associated attributes
-- generate weekly reports
+- track which rental belongs to which customer  +++
+- view cars of different sizes  +++
+- search the system +++
+- view the price of a car  +++
+- view the type of car  +++
+- pay for the rental  +++
+- record the customer's details   +++
+- final net price to be displayed   +++
+- confirmation email sent +++
+- log in to the system (staff)  +++
+- log out (staff)  +++
+- enter new car information  +++
+- keep track of each car's associated attributes  +++
+- generate weekly reports  +++
 
 
 NEW USER STORIES:
