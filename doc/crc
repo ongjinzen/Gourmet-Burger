@@ -7,6 +7,9 @@ configure details of the system
 enter new car information
 keep track of each car's associated attributes
 
+Knows:
+Log in details
+
 Collaborators:
 System
 
@@ -21,6 +24,9 @@ configure details of the system
 enter new car information
 keep track of each car's associated attributes
 generate weekly reports
+
+Knows:
+Log in details
 
 Collaborators:
 System
@@ -58,8 +64,10 @@ Car details
 Rental details
 
 Collaborators:
+Admin (staff)
+Manager (staff)
 Customer
-car
+Car
 
 ===================================================
 
