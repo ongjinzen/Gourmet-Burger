@@ -49,7 +49,12 @@ Pay for rental
 Receive confirmation email
 
 Knows:
-Customer details
+Customer name
+Customer license number
+Customer license issue date
+Customer address
+Customer phone number
+Customer email address
 
 Collaborators:
 System
@@ -80,3 +85,15 @@ Name: Car
 Knows:
 Car price
 Car type
+
+===================================================
+
+Name: Transaction
+
+Knows:
+Transaction price
+Rental start date and time
+Rental end date and time
+Customer name
+Customer license number
+Customer license issue date
