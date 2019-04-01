@@ -1,0 +1,98 @@
+Name: Admin (staff)
+
+Responsibilities:
+Tracks which rental belongs to which customer
+record customer's details
+configure details of the system
+enter new car information
+keep track of each car's associated attributes
+Log in
+Log out
+
+Knows:
+Log in details
+
+Collaborators:
+System
+
+===================================================
+
+Name: Manager (staff)
+
+Responsibilities:
+Tracks which rental belongs to which customer
+record customer's details
+configure details of the system
+enter new car information
+keep track of each car's associated attributes
+Log in
+Log out
+generate weekly reports
+
+Knows:
+Log in details
+
+Collaborators:
+System
+
+===================================================
+
+Name: Customer
+
+Responsibilities:
+search the system
+View cars
+View price of car
+View type of car
+View final net price
+Pay for rental
+Receive confirmation email
+
+Knows:
+Customer name
+Customer license number
+Customer license issue date
+Customer address
+Customer phone number
+Customer email address
+
+Collaborators:
+System
+
+===================================================
+
+Name: System
+
+Responsibilities:
+Send confirmation email
+
+Knows:
+Customer details
+System details
+Car details
+Rental details
+
+Collaborators:
+Admin (staff)
+Manager (staff)
+Customer
+Car
+
+===================================================
+
+Name: Car
+
+Knows:
+Car price
+Car type
+
+===================================================
+
+Name: Transaction
+
+Knows:
+Transaction price
+Rental start date and time
+Rental end date and time
+Customer name
+Customer license number

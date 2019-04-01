@@ -1,0 +1,178 @@
+Actors: Customer, manager, admin, database, staff
+
+Goals:
+- track which rental belongs to which customer  +++
+- view cars of different sizes  +++
+- search the system +++
+- view the price of a car  +++
+- view the type of car  +++
+- pay for the rental  +++
+- record the customer's details   +++
+- final net price to be displayed   +++
+- confirmation email sent +++
+- log in to the system (staff)  +++
+- log out (staff)  +++
+- enter new car information  +++
+- keep track of each car's associated attributes  +++
+- generate weekly reports  +++
+
+
+NEW USER STORIES:
+
+UC1:
+As a staff, I want to track which rental belongs to which customer so I can keep track of inventory. 
+
+UC2:
+As a customer, I want to be able to view cars of different sizes so I can choose a car large enough to suit my needs.
+
+UC3:
+As a customer I want to be able to search the system so I can find a car that suitably matches my needs.
+
+UC4:
+As a customer I want to view the price of a car so I can decide if it fits my budget.
+
+UC5:
+As a customer, I want to view the type of car so I can decide if I like it.
+
+UC6: As a customer I want be able to pay for the rental so it is reserved for me. 
+
+UC7: As a staff member, I want to record the customer's details for the sake of book-keeping.
+
+UC8: As a customer, I want the final net price to be displayed so I can decide if it fits my budget.
+
+UC9: As a customer, I want a confirmation email sent so I know the booking has been made. 
+
+UC10: As a staff member I want to be able to log in to the system so I can configure details of the system.
+
+UC11: As a staff member I want to be able to log out to maintain security and privacy.
+
+UC12: As an admin, I want to enter new car information to the system so I can keep it up to date.
+
+UC13: As a staff member I want to keep track of each car's associated attributes for the sake of keeping track of inventory. 
+
+UC14: As a manger I want to be able to generate weekly reports so I can do accounting.  
+
+
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - 
+
+customer - 3, 4, 5, 8, 10
+
+As a customer, I want a service that I can rent a car from that matches my needs and payment is clear and simple.
+I also want confirmation via email that my booking is confirmed.
+
+
+Company - 1, 2, 6, 7, 9, 11, 12, 13, 14
+
+As an employee, I want a system that enables customers to 
+temporarily rent cars for a fee for a specified period and 
+lets me keep track of all their relavent details that also 
+has suitable security and minimizes risk. I should also be 
+able to enter new information to the system and generate 
+reports detailing a summary of transactions for a given 
+period of time
+
+1) As a company, I want to rent cars for a fee in order to generate revenue. (100h) HIGH
+	
+	Acceptance criteria:
+		When a customer rents a car through the system, the system 
+		processes the transaction and the customer is charged a fee.
+
+2) As a company, I want to categorize my cars into groups of small, medium,
+ large and premium cars to introduce pricing tiers, monitor stock use and 
+ increase navigatability for the customer. (10h) MEDIUM
+
+	Acceptance criteria:
+		When I look up a car category, the system generates a list
+		of only the correct cars in that category and displays it
+		to the customer.
+
+3) As a customer, I want to specify search criteria to find a car so that
+ my needs are easily met. (5h) LOW
+
+	Acceptance criteria:
+		When I search for a car with specific criteria, the system 
+		finds a suitable list of cars according to my needs and 
+		displays it.
+
+4) As a company, I want to customers to provide information about themselves
+ so that I have personal details for record, insurance and marketing purposes. (2h) HIGH
+
+	Acceptance criteria:
+		When a customer rents a car, the system records their details
+		and stores it.
+		
+		When a company looks up a customer name, the system searches
+		its database for the customer's details and displays it to
+		the employee.
+
+5) As an insurance provider, I want to be able to review customer's information
+ in order to charge an appropriate fee. (3-5h) HIGH
+
+	Acceptance criteria:
+		When the insurance provider provides insurance to a customer,
+		the system provides customer details to the insurance provider
+		so that they can calculate an appropriate fee.
+		
+		When the company gets a new  car, the system updates and
+		checks that the new car is insured.
+
+6) As a customer, I want to know the net price of a rental so I can decide if
+ I want to go through with the transaction. (2h) MEDIUM
+
+	Acceptance criteria:
+		When the customer rents a car, the system adds up all costs and displays
+		a single price to the customer.
+
+7) As a company, I want payments to be handled using an external credit card
+ system to minimize financial risk. (5h) HIGH
+
+	Acceptance criteria:
+		When the customer decides to pay, the system redirects them 
+		to an external credit card system so they can pay securely.
+
+8) As a customer, I want to have a confirmation email so that I have a proof of purchase. (2h) LOW
+
+	Acceptance criteria:
+		When the customer has completed his payment, the system finds
+		their email address and generates an email containing a proof
+		of purchase and sends it to the customer, and the customer 
+		receives the email.
+
+9) As a company, I want the system to require a username and password to maintain
+ a high level of security. (20h) HIGH
+
+	Acceptance criteria:
+		When an authorized user inputs the correct log in details, the
+		system verifies that it is correct and updates their session
+		into a logged in state.
+		
+		When incorrect login details are provided, the system rejects
+		the log in attempt and does not allow the user to enter the
+		logged in state
+
+10) As an admin, I want to be able to enter new car information into the
+ system so that the system stays up to date. (5h) MEDIUM
+
+	Acceptance criteria:
+		When an admin enters new car information, the system creates
+		a new record with relavent information and the system is
+		updated. Customers are also able to rent the car.
+
+11) As a company, I want each vehicle to have relavent details recorded
+ so that I can keep track of stock. (15h) MEDIUM
+
+	Acceptance criteria:
+		When an employee want to check on the stock, the system looks up
+		relavent information on the stock and displays it.
+		
+
+12) As a manager, I want to be able to generate weekly reports to be able to calculate weekly finances. (5h) LOW
+
+	Acceptance criteria:
+		When a manager requests a weekly report, the system automatically
+		gathers relavent details and displays it in a standardized
+		report format.
