@@ -27,3 +27,22 @@ Meeting 25/03/19
 Tasks to be completed.
  -Zen: UML Diagram touch up, CODE: Staff, customer, order
  -Jack, work on logbook, CODE: system, food drinks and sides 
+
+
+1/04/19
+submit order check ingredients number > inventory
+generate id based on lists and add to ID 
+prepare order changes status but still in incomplete 
+complete order moves it to completed order list update status 
+view all orders prints/returns incomplete list and incomplete list.
+same as above 
+same as above 
+\
+items list of items 
+id set id when made
+status, oreder, preparing complete 
+calculate cost-add cost of every item in item 
+add to order add ite,m to list 
+remove removes
+set name appends it to customer list 
+
