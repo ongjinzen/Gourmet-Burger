@@ -5,7 +5,7 @@ class FoodSystem():
     def __init__(self,inventory = None, ingredientsCost = None):
         self._inventory = inventory
         self._ingredientsCost = ingredientsCost
-        self._compeletedOrders = []
+        self._completedOrders = []
         self._incompleteOrders = []
 
     @property
@@ -15,7 +15,7 @@ class FoodSystem():
     def ingredientsCost(self):
         return self._ingredientsCost
     @property
-    def compeletedOrders(self):
+    def completedOrders(self):
         return self._completedOrders
     @property
     def incompleteOrders(self):
@@ -32,12 +32,12 @@ class FoodSystem():
         return newOrder
 
     def DeleteOrder(self, orderToDelete):
-        for order in self.compeletedOrders :
+        for order in self.completedOrders :
             if order == orderToDelete :
-                self.compeletedOrders.remove(orderToDelete)
+                self.completedOrders.remove(orderToDelete)
         for order in self.incompleteOrders:
             if order == orderToDelete :
-                self.incompeleteOrders.remove(orderToDelete)
+                self.incompleteOrders.remove(orderToDelete)
     
         pass
     
@@ -51,7 +51,7 @@ class FoodSystem():
             return toMany
         else :
             orderToSubmit.status = "incomplete"
-            self.incompeleteOrders.append(orderToSubmit)
+            self.incompleteOrders.append(orderToSubmit)
             pass
 
     def prepareOrder(self, orderToPrepare):
@@ -60,8 +60,8 @@ class FoodSystem():
 
     def completeOrder(self, orderToComplete):
         orderToComplete.status = "complete"
-        self.compeletedOrders.append(orderToComplete)
-        self.incompeleteOrders.remove(orderToComplete)
+        self.completedOrders.append(orderToComplete)
+        self.incompleteOrders.remove(orderToComplete)
         pass
 
 
@@ -74,10 +74,10 @@ class FoodSystem():
         return self.viewIncompleteOrders.extend(self.viewCompleteOrders)
     
     def viewCompleteOrders(self):
-        return self.compeletedOrders
+        return self.completedOrders
 
     def viewIncompleteOrders(self):
-        return self.incompeleteOrders
+        return self.incompleteOrders
     
     def updateStock(self, stock, num):
         self.inventory[stock] += num
