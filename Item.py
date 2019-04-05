@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
 from errors import ItemError
 
-import pytest
-
 class Item (ABC):
 
     def __init__(self, Inventory, Ingredient_Costs):
@@ -204,10 +202,10 @@ class Wrap(Item):
 
     def Check_Ingredients (self):
         
-        if self._Num_Buns < 2 or self._Num_Buns > 4:
-            raise ItemError("Invalid number of buns selected.")
-        elif self._Num_Patties <1 or self._Num_Patties > 3:
-            raise ItemError("Invalid number of patties selected.")
+        if self._Wrap_Type == None:
+            raise ItemError("No wrap selected.")
+        elif self._Filling_Type == None:
+            raise ItemError("No filling selected.")
 
         return True
 
@@ -220,7 +218,7 @@ class Wrap(Item):
         
         if Wrap_Type == "pita" or Wrap_Type == "tortilla":
             if self._Inventory[Wrap_Type] > 0:
-                if Wrap_Type != self._Wrap_Type:
+                if Wrap_Type != self._Wrap_Type and self._Wrap_Type != None:
                     self._Inventory[self._Wrap_Type] += 1
                 self._Wrap_Type = Wrap_Type
                 self._Inventory[self._Wrap_Type] -= 1
@@ -238,7 +236,7 @@ class Wrap(Item):
         
         if Filling_Type == "pork" or Filling_Type == "tuna":
             if self._Inventory[Filling_Type] > 0:
-                if Filling_Type != self._Filling_Type:
+                if Filling_Type != self._Filling_Type and self._Filling_Type != None:
                     self._Inventory[self._Filling_Type] += 1
                 self._Filling_Type = Filling_Type
                 self._Inventory[self._Filling_Type] -= 1
