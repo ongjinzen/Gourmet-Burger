@@ -3,12 +3,19 @@ class GenerateID():
     def __init__(self):
         self._ID = 0
 
-    def __call__(self):
+    def next(self):
+        print(f"inside before {self._ID}")
         self._ID += 1
+        print(f"inside after {self._ID}")
         return self._ID
-
-
     
+    def __str__(self):
+        return f'{self._ID}'
+
+
+def IdGen(i =[0]):
+    i[0] += 1
+    return i[0]
 
 
 class Order():
@@ -16,7 +23,7 @@ class Order():
         self._inventory = inventory
         self._ingredientsCost = ingredientsCost
         self._items = []
-        self._ID = GenerateID()
+        self._ID = IdGen()
         self._status = "Ordering"
     
     @property
@@ -34,6 +41,9 @@ class Order():
     @property
     def status(self):
         return self._status
+    @status.setter
+    def status(self,value):
+        self._status = value
 
     def __str__(self):
         return f'Order {self.ID} \n  status: {self.status} \n Items: {self.items} \n totat cost : ${calculateCost(self)}'
@@ -60,6 +70,6 @@ class Order():
     def removeFromOrder(self, item):
         self.items.remove(item)
         pass
-    def viewOrder(self)
+    def viewOrder(self):
         print(self)
         pass

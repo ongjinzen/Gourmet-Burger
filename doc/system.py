@@ -1,5 +1,4 @@
-
-
+from order import Order, GenerateID
 class FoodSystem():
 
     def __init__(self,inventory = None, ingredientsCost = None):
@@ -43,13 +42,16 @@ class FoodSystem():
     
     def SubmitOrder(self, orderToSubmit):
         toMany = []
-        for item in orderToSubmit.Items:
-            if orderToSubmit.Items.count(item) > self.inventory[item]:
-                toMany.append(f'{orderToSubmit.Items.count(item) - self.inventory[item]} to many {item}\'s')
+        for item in orderToSubmit.items:
+            #print("in loop")
+            if orderToSubmit.items.count(item) > self.inventory[item]:
+                toMany.append(f'{orderToSubmit.items.count(item) - self.inventory[item]} to many {item}\'s')
 
-        if not toMany:
+        if toMany != []:
+            #print("to many")
             return toMany
         else :
+            #print("in else")
             orderToSubmit.status = "incomplete"
             self.incompleteOrders.append(orderToSubmit)
             pass
@@ -67,12 +69,23 @@ class FoodSystem():
 
     def checkStatus(self, orderToCheck):
         allOrders = self.viewAllOrders()
-        status = allOrders[orderToCheck].status
+        for order in allOrders:
+            if order == orderToCheck:
+                status = order.status
         return status
 
     def viewAllOrders(self):
-        return self.viewIncompleteOrders.extend(self.viewCompleteOrders)
+        incom = self.viewCompleteOrders()
+        com = self.viewIncompleteOrders()
+        incom.extend(com)
+        return incom
     
+    def viewID(self,ID):
+        orders = self.viewAllOrders()
+        for order in orders:
+            if str(order.ID) == str(ID):
+                return order
+        return "no order with that ID found"
     def viewCompleteOrders(self):
         return self.completedOrders
 
