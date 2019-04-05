@@ -200,7 +200,7 @@ class Wrap(Item):
         for other in self._Other:
             other_cost += self._Ingredient_Costs[other]
 
-        return base_cost + bun_cost + patty_cost + other_cost
+        return base_cost + wrap_cost + filling_cost + other_cost
 
     def Check_Ingredients (self):
         
@@ -210,3 +210,62 @@ class Wrap(Item):
             raise ItemError("Invalid number of patties selected.")
 
         return True
+
+    @property
+    def Wrap_Type(self):
+        return self._Wrap_Type
+
+    @Wrap_Type.setter
+    def Wrap_Type(self, Wrap_Type):
+        
+        if Wrap_Type == "pita" or Wrap_Type == "tortilla":
+            if self._Inventory[Wrap_Type] > 0:
+                if Wrap_Type != self._Wrap_Type:
+                    self._Inventory[self._Wrap_Type] += 1
+                self._Wrap_Type = Wrap_Type
+                self._Inventory[self._Wrap_Type] -= 1
+            else:
+                raise ItemError(f"Not enough {Wrap_Type} wraps in stock.")
+        else:
+            raise ItemError("Invalid wrap type.")
+
+    @property
+    def Filling_Type(self):
+        return self._Filling_Type
+
+    @Filling_Type.setter
+    def Filling_Type(self, Filling_Type):
+        
+        if Filling_Type == "pork" or Filling_Type == "tuna":
+            if self._Inventory[Filling_Type] > 0:
+                if Filling_Type != self._Filling_Type:
+                    self._Inventory[self._Filling_Type] += 1
+                self._Filling_Type = Filling_Type
+                self._Inventory[self._Filling_Type] -= 1
+            else:
+                raise ItemError(f"Not enough {Filling_Type} filling in stock.")
+        else:
+            raise ItemError("Invalid filling type.")
+
+    @property
+    def Other(self):
+        return self._Other
+
+    def Add_Other(self, ingredient):
+        
+        if ingredient in {"cheese", "lettuce", "onion", "tomato", "avocado"}:
+            if self._Inventory[ingredient] > 0:
+                self._Inventory[ingredient] -= 1
+                self._Other.append(ingredient)
+            else:
+                raise ItemError(f"Not enough {ingredient} in stock.")
+        else:
+            raise ItemError("Please select a valid ingredient.")
+
+    def Remove_Other(self, ingredient):
+        
+        if ingredient in self._Other:
+            self._Inventory[ingredient] += 1
+            self._Other.remove(ingredient)
+        else:
+            raise ItemError("Ingredient not in item.")
