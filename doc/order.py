@@ -60,4 +60,6 @@ class Order():
     def removeFromOrder(self, item):
         self.items.remove(item)
         pass
-    
+    def viewOrder(self)
+        print(self)
+        pass
