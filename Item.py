@@ -267,3 +267,126 @@ class Wrap(Item):
             self._Other.remove(ingredient)
         else:
             raise ItemError("Ingredient not in item.")
+
+class Bottled_Drink (Item):
+
+    def __init__(self, Inventory, Ingredient_Costs, Name):
+        
+        if Name == "coke" or Name == "pepsi":
+            if Inventory[Name] < 1:
+                raise ItemError("This drink is out of stock.")
+            else:
+                super().__init__(Inventory, Ingredient_Costs)
+                self._Name = Name
+                Inventory[Name] -= 1
+        else:
+            raise ItemError("Invalid drink.")
+
+        
+
+    def __str__(self):
+        
+        return self._Name.capitalize()
+
+    def Calculate_Cost(self):
+        
+        return self._Ingredient_Costs[self._Name]
+
+    def Check_Ingredients (self):
+        return True
+
+class Fountain_Drinks_and_Sides (Item):
+
+    def __init__(self, Inventory, Ingredient_Costs, Name,):
+        
+        if Name in ["apple juice", "orange juice", "fries", "nuggets"]:
+            self._Name = Name
+            self._Size = None
+        else:
+            raise ItemError("Invalid item.")
+
+    def __str__(self):
+        
+        return self._Name.capitalize()
+
+    def Calculate_Cost(self):
+        
+        return self._Ingredient_Costs[self._Name]
+
+    def Check_Ingredients (self):
+
+        if Name
+        return True
+
+    @property
+    def Size(self):
+        return self._Size
+
+    @Size.setter
+    def Size(self, Size):
+
+        if self._Name == "apple juice" or self._Name == "orange juice":
+            if Size == "small":
+                if self._Inventory[self._Name] < 250:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 250
+                    self._Size = Size
+            elif Size == "medium":
+                if self._Inventory[self._Name] < 500:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 500
+                    self._Size = Size
+            elif Size == "large":
+                if self._Inventory[self._Name] < 750:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 750
+                    self._Size = Size
+            else:
+                raise ItemError("Invalid size.")
+
+        elif self._Name == "fries":
+            if Size == "small":
+                if self._Inventory[self._Name] < 200:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 200
+                    self._Size = Size
+            elif Size == "medium":
+                if self._Inventory[self._Name] < 400:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 400
+                    self._Size = Size
+            elif Size == "large":
+                if self._Inventory[self._Name] < 600:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 600
+                    self._Size = Size
+            else:
+                raise ItemError("Invalid size.")
+
+        elif self._Name == "nuggets":
+            if Size == "small":
+                if self._Inventory[self._Name] < 4:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 4
+                    self._Size = Size
+            elif Size == "medium":
+                if self._Inventory[self._Name] < 8:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 8
+                    self._Size = Size
+            elif Size == "large":
+                if self._Inventory[self._Name] < 12:
+                    raise ItemError(f'Not enough {self._Name} in stock.')
+                else:
+                    self._Inventory -= 12
+                    self._Size = Size
+            else:
+                raise ItemError("Invalid size.")
