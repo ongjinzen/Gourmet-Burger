@@ -5,8 +5,28 @@ import pytest
 
 @pytest.fixture 
 def system_fixture():
-    food =  { "white buns": 5, "sesame buns" : 3, 'lettuce' : 5, 'tomato' : 6 ,'onion' : 7, 'beef patty':4, 'chicken patty' : 10, 'pita' :5, 'tortilla': 12, 'cheese':14, 'avacado': 15, 'pepsi': 20, 'coke': 12, 'juice': 1000, 'chips':5000, 'nuggets': 100}
-    mains =  {"burger":5, "wrap" :6, "white buns": 1, "sesame buns" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef patty':2, 'chicken patty' : 2.50, 'pita' :3, 'tortilla': 4, 'cheese':2, 'avacado': 10,}
+    food = {
+        "white": 10,
+        "sesame": 10,
+        "beef": 10,
+        "chicken": 10,
+        "pita": 10,
+        "tortilla": 10,
+        "pork": 10,
+        "tuna": 10,
+        "cheese": 10,
+        "lettuce": 10,
+        "onion": 10,
+        "tomato": 10,
+        "avocado": 10,
+        "pepsi": 10,
+        "coke": 10,
+        "apple juice": 300,
+        "orange juice": 600,
+        "fries": 500,
+        "nuggets": 10,
+}
+    mains =  {"burger":5, "wrap" :4, "white": 1, "sesame" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef':2, 'chicken' : 2.50, 'pita' :3, 'tortilla': 4, 'pork': 3, 'tuna':3.5, 'cheese':2, 'avacado': 10,}
     drinks = { 'pepsi': 2.50, 'coke': 3.50, 'juice medium ': 3.5,'juice large': 4,'juice small': 2.5}
     sides =  {'chips small':2,'chips meidum':3,'chips large':3.5, '4-nuggets': 4,'8-nuggets': 7,'12-nuggets': 10}
     system = FoodSystem(food,mains,sides,drinks)
@@ -178,9 +198,13 @@ def test_0inComplete_Orders(system_fixture):
 
 def test_view_menu(system_fixture):
     test = system_fixture.viewMenu()
-    menu  =  {"burger":5,"wrap":6, "white buns": 1, "sesame buns" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef patty':2, 'chicken patty' : 2.50, 'pita' :3, 'tortilla': 4, 'cheese':2, 'avacado': 10, 'pepsi': 2.50, 'coke': 3.50, 'juice medium ': 3.5,'juice large': 4,'juice small': 2.5, 'chips small':2,'chips meidum':3,'chips large':3.5, '4-nuggets': 4,'8-nuggets': 7,'12-nuggets': 10}
+    mains =  {"burger":5, "wrap" :4, "white": 1, "sesame" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef':2, 'chicken' : 2.50, 'pita' :3, 'tortilla': 4, 'pork': 3, 'tuna':3.5, 'cheese':2, 'avacado': 10,}
+    drinks = { 'pepsi': 2.50, 'coke': 3.50, 'juice medium ': 3.5,'juice large': 4,'juice small': 2.5}
+    sides =  {'chips small':2,'chips meidum':3,'chips large':3.5, '4-nuggets': 4,'8-nuggets': 7,'12-nuggets': 10}
+    mains.update(sides)
+    mains.update(drinks)
     
-    assert( test == menu)
+    assert( test == mains)
 
 def test_error_check(system_fixture):
     testOrder = system_fixture.CreateOrder()
@@ -203,9 +227,17 @@ def test_order_setter(system_fixture):
 
 def test_add_item(system_fixture):
     order = system_fixture.CreateOrder()
-    order.addToOrder('burger')
+    burg1 = order.createItem("Burger")
+    burg1.Bun_Type = "white"
+    burg1.Add_Bun()
+    burg1.Add_Bun()
+    burg1.Patty_Type = "beef"
+    burg1.Add_Patty()
+    burg1.Add_Other("cheese")
+    order.addToOrder(burg1)
     menu = system_fixture.ingredientsCost 
     food = system_fixture.inventory
+    
     assert(order.inventory == food)
     assert(order.ingredientsCost == menu)
     assert(str(order.ID) == '33')
@@ -214,15 +246,26 @@ def test_add_item(system_fixture):
 
 def test_add2_item(system_fixture):
     order = system_fixture.CreateOrder()
-    order.addToOrder('burger')
-    order.addToOrder('small chips')
+    burg1 = order.createItem("Burger")
+    burg1.Bun_Type = "white"
+    burg1.Add_Bun()
+    burg1.Add_Bun()
+    burg1.Patty_Type = "beef"
+    burg1.Add_Patty()
+    burg1.Add_Other("cheese")
+    order.addToOrder(burg1)
+    juice = order.createItem("apple juice")
+    juice.size = "small"
+    order.addToOrder(juice)
     menu = system_fixture.ingredientsCost 
     food = system_fixture.inventory
     assert(order.inventory == food)
     assert(order.ingredientsCost == menu)
     assert(str(order.ID) == '34')
     assert(order.items[0] == "burger")
-    assert(order.items[1] == "small chips")
+    assert(order.items[1] == "beef")
+    assert(order.items[2] == "cheese")
+    assert(order.items[3] == "apple juice") 
     assert(order.status == "Ordering")
 
 def test_calculate_cost(system_fixture):

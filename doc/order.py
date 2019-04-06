@@ -1,4 +1,5 @@
 from error import OrderStatusError, checkOrderStatusError
+from item import *
 
 class GenerateID():
 
@@ -46,6 +47,9 @@ class Order():
     @status.setter
     def status(self,value):
         self._status = value
+    @inventory.setter
+    def inventory(self,value):
+        self._inventory = value
 
     def __str__(self):
         return f'Order {self.ID} \n  status: {self.status} \n Items: {self.items} \n totat cost : ${self.calculateCost()}'
@@ -54,10 +58,21 @@ class Order():
     methods
     '''
 
-    def createItem(self, food):
-        pass
-        
+    def createItem(self, Name):
+        if Name == "Burger":
+            item = Burger(self.inventory, self.ingredientsCost)
+        elif Name == "Wrap":
+            item = Wrap(self.inventory, self.ingredientsCost)
+        elif Name == "coke" or Name == "pepsi":
+            item = Bottled_Drink(self.inventory, self.ingredientsCost, Name)
+        elif Name in ["apple juice", "orange juice", "fries", "nuggets"]:
+            item = Fountain_Drinks_and_Sides(self.inventory, self.ingredientsCost, Name)
+        else:
+            raise ItemError("Invalid item.")
+
+        return item
     def deleteItem(self, item):
+        Item.Clear_Ingredients()
         pass
     
     def calculateCost(self):
@@ -68,12 +83,16 @@ class Order():
         return cost
     def addToOrder(self,item):
         try:
-            checkOrderStatusError(self)
+            checkOrderStatusError(self) 
+            
         except OrderStatusError as err:
+            print(f'order status = {self.status}')
             print(f'{err.message}')
         else:
-            diff =  self.inventory - item.tempItemInv
-            if diff["sesame buns"] != 0 or diff["white buns"] != 0:
+            diff =  self.inventory #- item.Inventory
+            for key in diff:
+                diff[key] -+ item.Inventory[key]
+            if diff["sesame"] != 0 or diff["white"] != 0:
                 self.items.append("burger")
             if diff['pita'] != 0 or diff['tortilla'] != 0 :
                 self.items.append("wrap")
@@ -81,7 +100,7 @@ class Order():
                 if value != 0:
                     for k in range(value):
                         self.items.append(key)
-            self.inventory = item.tempItemInv
+            self.inventory = item.Inventory
             pass
         
     def removeFromOrder(self, item):
