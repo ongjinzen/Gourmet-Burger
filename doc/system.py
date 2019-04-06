@@ -38,6 +38,9 @@ class FoodSystem():
     @property
     def incompleteOrders(self):
         return self._incompleteOrders
+    @inventory.setter
+    def inventory(self,value):
+        self._inventory = value
 
     def __str__(self):
         return f'System info \n  <Inventory>\n {self.inventory} \n <MENU>\n {self.ingredientsCost}\n <Incomplete Orders>\n {self.incompleteOrders}\n <Complete Orders>\n {self.completedOrders}\n'
@@ -66,21 +69,10 @@ class FoodSystem():
             pass
         
     def SubmitOrder(self, orderToSubmit):
-       
-        toMany = []
-        for item in orderToSubmit.items:
-            #print("in loop")
-            if orderToSubmit.items.count(item) > self.inventory[item]:
-                toMany.append(f'{orderToSubmit.items.count(item) - self.inventory[item]} to many {item}\'s')
-
-        if toMany != []:
-            #print("to many")
-            return toMany
-        else :
-            #print("in else")
-            orderToSubmit.status = "incomplete"
-            self.incompleteOrders.append(orderToSubmit)
-            pass
+        self.inventory = orderToSubmit.inventory
+        orderToSubmit.status = "incomplete"
+        self.incompleteOrders.append(orderToSubmit)
+        pass
 
     def prepareOrder(self, orderToPrepare):
         try:

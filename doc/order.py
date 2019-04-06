@@ -1,4 +1,4 @@
-
+from error import OrderStatusError, checkOrderStatusError
 
 class GenerateID():
 
@@ -67,9 +67,23 @@ class Order():
 
         return cost
     def addToOrder(self,item):
-        self.items.append(item)
-        pass
-    
+        try:
+            checkOrderStatusError(self)
+        except OrderStatusError as err:
+            print(f'{err.message}')
+        else:
+            diff =  self.inventory - item.tempItemInv
+            if diff["sesame buns"] != 0 or diff["white buns"] != 0:
+                self.items.append("burger")
+            if diff['pita'] != 0 or diff['tortilla'] != 0 :
+                self.items.append("wrap")
+            for key, value in diff.items():
+                if value != 0:
+                    for k in range(value):
+                        self.items.append(key)
+            self.inventory = item.tempItemInv
+            pass
+        
     def removeFromOrder(self, item):
         self.items.remove(item)
         pass
