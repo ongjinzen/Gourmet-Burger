@@ -6,7 +6,7 @@ import pytest
 @pytest.fixture 
 def system_fixture():
     food =  { "white buns": 5, "sesame buns" : 3, 'lettuce' : 5, 'tomato' : 6 ,'onion' : 7, 'beef patty':4, 'chicken patty' : 10, 'pita' :5, 'tortilla': 12, 'cheese':14, 'avacado': 15, 'pepsi': 20, 'coke': 12, 'juice': 1000, 'chips':5000, 'nuggets': 100}
-    mains =  { "white buns": 1, "sesame buns" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef patty':2, 'chicken patty' : 2.50, 'pita' :3, 'tortilla': 4, 'cheese':2, 'avacado': 10,}
+    mains =  {"burger":5, "wrap" :6, "white buns": 1, "sesame buns" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef patty':2, 'chicken patty' : 2.50, 'pita' :3, 'tortilla': 4, 'cheese':2, 'avacado': 10,}
     drinks = { 'pepsi': 2.50, 'coke': 3.50, 'juice medium ': 3.5,'juice large': 4,'juice small': 2.5}
     sides =  {'chips small':2,'chips meidum':3,'chips large':3.5, '4-nuggets': 4,'8-nuggets': 7,'12-nuggets': 10}
     system = FoodSystem(food,mains,sides,drinks)
@@ -178,6 +178,80 @@ def test_0inComplete_Orders(system_fixture):
 
 def test_view_menu(system_fixture):
     test = system_fixture.viewMenu()
-    menu = menu =  { "white buns": 1, "sesame buns" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef patty':2, 'chicken patty' : 2.50, 'pita' :3, 'tortilla': 4, 'cheese':2, 'avacado': 10, 'pepsi': 2.50, 'coke': 3.50, 'juice medium ': 3.5,'juice large': 4,'juice small': 2.5, 'chips small':2,'chips meidum':3,'chips large':3.5, '4-nuggets': 4,'8-nuggets': 7,'12-nuggets': 10}
+    menu  =  {"burger":5,"wrap":6, "white buns": 1, "sesame buns" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef patty':2, 'chicken patty' : 2.50, 'pita' :3, 'tortilla': 4, 'cheese':2, 'avacado': 10, 'pepsi': 2.50, 'coke': 3.50, 'juice medium ': 3.5,'juice large': 4,'juice small': 2.5, 'chips small':2,'chips meidum':3,'chips large':3.5, '4-nuggets': 4,'8-nuggets': 7,'12-nuggets': 10}
     
     assert( test == menu)
+
+'''
+test order.py
+'''
+
+def test_order_setter(system_fixture):
+    order = system_fixture.CreateOrder()
+    menu  = system_fixture.ingredientsCost
+    food =  system_fixture.inventory
+    assert(order.inventory == food)
+    assert(order.ingredientsCost == menu)
+    assert(str(order.ID) == '31')
+    assert(order.items == [])
+    assert(order.status == "Ordering")
+
+def test_add_item(system_fixture):
+    order = system_fixture.CreateOrder()
+    order.addToOrder('burger')
+    menu = system_fixture.ingredientsCost 
+    food = system_fixture.inventory
+    assert(order.inventory == food)
+    assert(order.ingredientsCost == menu)
+    assert(str(order.ID) == '32')
+    assert(order.items[0] == "burger")
+    assert(order.status == "Ordering")
+
+def test_add2_item(system_fixture):
+    order = system_fixture.CreateOrder()
+    order.addToOrder('burger')
+    order.addToOrder('small chips')
+    menu = system_fixture.ingredientsCost 
+    food = system_fixture.inventory
+    assert(order.inventory == food)
+    assert(order.ingredientsCost == menu)
+    assert(str(order.ID) == '33')
+    assert(order.items[0] == "burger")
+    assert(order.items[1] == "small chips")
+    assert(order.status == "Ordering")
+
+def test_calculate_cost(system_fixture):
+    order = system_fixture.CreateOrder()
+    order.addToOrder('burger')
+    order.addToOrder('chips small')
+    menu = system_fixture.ingredientsCost 
+    food = system_fixture.inventory
+    cost = order.calculateCost()
+    assert(order.inventory == food)
+    assert(order.ingredientsCost == menu)
+    assert(str(order.ID) == '34')
+    assert(order.items[0] == "burger")
+    assert(order.items[1] == "chips small")
+    assert(order.status == "Ordering")
+    assert(cost == 7 )
+
+def test_remove_item(system_fixture):
+    order = system_fixture.CreateOrder()
+    order.addToOrder('burger')
+    order.addToOrder('small chips')
+    menu = system_fixture.ingredientsCost 
+    food = system_fixture.inventory
+    assert(order.inventory == food)
+    assert(order.ingredientsCost == menu)
+    assert(str(order.ID) == '35')
+    assert(order.items[0] == "burger")
+    assert(order.items[1] == "small chips")
+    assert(order.status == "Ordering")
+    order.removeFromOrder('burger')
+    assert(order.items[0] == "small chips")
+
+def test_View_order(system_fixture):
+    order = system_fixture.CreateOrder()
+    order.addToOrder('burger')
+    order.addToOrder('chips small')
+    order.viewOrder()

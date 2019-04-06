@@ -46,14 +46,15 @@ class Order():
         self._status = value
 
     def __str__(self):
-        return f'Order {self.ID} \n  status: {self.status} \n Items: {self.items} \n totat cost : ${calculateCost(self)}'
+        return f'Order {self.ID} \n  status: {self.status} \n Items: {self.items} \n totat cost : ${self.calculateCost()}'
     
     '''
     methods
     '''
 
-    def createItem(self, name):
+    def createItem(self, food):
         pass
+        
     def deleteItem(self, item):
         pass
     
