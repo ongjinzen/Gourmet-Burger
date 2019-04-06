@@ -20,6 +20,10 @@ class Order ():
     def ID(self):
         return self._ID
 
+    @ID.setter
+    def ID(self, ID):
+        self._ID = ID
+
     @property
     def Status(self):
         return self._Status
