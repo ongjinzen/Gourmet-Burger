@@ -356,3 +356,46 @@ def test_check_calculate_cost(inventory_fixture, ingredient_cost_fixture):
     burg1.Add_Other("avocado")
 
     assert(burg1.Calculate_Cost() == 31)
+
+def test_check_clear_ingredients(inventory_fixture, ingredient_cost_fixture):
+    orig_white_bun = inventory_fixture["white"]
+    orig_beef = inventory_fixture["beef"]
+    orig_cheese = inventory_fixture["cheese"]
+    orig_lettuce = inventory_fixture["lettuce"]
+    orig_onion = inventory_fixture["onion"]
+    orig_tomato = inventory_fixture["tomato"]
+    orig_avocado = inventory_fixture["avocado"]
+    
+    burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
+    burg1.Bun_Type = "white"
+    burg1.Add_Bun()
+    burg1.Add_Bun()
+    burg1.Add_Bun()
+    burg1.Add_Bun()
+    burg1.Patty_Type = "beef"
+    burg1.Add_Patty()
+    burg1.Add_Patty()
+    burg1.Add_Patty()
+    burg1.Add_Other("cheese")
+    burg1.Add_Other("lettuce")
+    burg1.Add_Other("onion")
+    burg1.Add_Other("tomato")
+    burg1.Add_Other("avocado")
+
+    assert((orig_white_bun - 4) == inventory_fixture["white"])
+    assert((orig_beef - 3) == inventory_fixture["beef"])
+    assert((orig_cheese - 1) == inventory_fixture["cheese"])
+    assert((orig_lettuce - 1) == inventory_fixture["lettuce"])
+    assert((orig_onion - 1) == inventory_fixture["onion"])
+    assert((orig_tomato - 1) == inventory_fixture["tomato"])
+    assert((orig_avocado - 1) == inventory_fixture["avocado"])
+
+    burg1.Clear_Ingredients()
+
+    assert(orig_white_bun == inventory_fixture["white"])
+    assert(orig_beef == inventory_fixture["beef"])
+    assert(orig_cheese == inventory_fixture["cheese"])
+    assert(orig_lettuce == inventory_fixture["lettuce"])
+    assert(orig_onion == inventory_fixture["onion"])
+    assert(orig_tomato == inventory_fixture["tomato"])
+    assert(orig_avocado == inventory_fixture["avocado"])

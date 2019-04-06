@@ -182,7 +182,7 @@ def test_other_no_stock(inventory_fixture, ingredient_cost_fixture):
     else:
         assert(False)
 
-def test_valid_burger(inventory_fixture, ingredient_cost_fixture):
+def test_valid_wrap(inventory_fixture, ingredient_cost_fixture):
     wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture)
     wrap1.Wrap_Type = "pita"
     wrap1.Filling_Type = "tuna"
@@ -201,3 +201,39 @@ def test_check_calculate_cost(inventory_fixture, ingredient_cost_fixture):
     wrap1.Add_Other("avocado")
 
     assert(wrap1.Calculate_Cost() == 29.5)
+
+def test_check_clear_ingredients(inventory_fixture, ingredient_cost_fixture):
+    orig_pita = inventory_fixture["pita"]
+    orig_pork = inventory_fixture["pork"]
+    orig_cheese = inventory_fixture["cheese"]
+    orig_lettuce = inventory_fixture["lettuce"]
+    orig_onion = inventory_fixture["onion"]
+    orig_tomato = inventory_fixture["tomato"]
+    orig_avocado = inventory_fixture["avocado"]
+    
+    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture)
+    wrap1.Wrap_Type = "pita"
+    wrap1.Filling_Type = "pork"
+    wrap1.Add_Other("cheese")
+    wrap1.Add_Other("lettuce")
+    wrap1.Add_Other("onion")
+    wrap1.Add_Other("tomato")
+    wrap1.Add_Other("avocado")
+
+    assert((orig_pita - 1) == inventory_fixture["pita"])
+    assert((orig_pork - 1) == inventory_fixture["pork"])
+    assert((orig_cheese - 1) == inventory_fixture["cheese"])
+    assert((orig_lettuce - 1) == inventory_fixture["lettuce"])
+    assert((orig_onion - 1) == inventory_fixture["onion"])
+    assert((orig_tomato - 1) == inventory_fixture["tomato"])
+    assert((orig_avocado - 1) == inventory_fixture["avocado"])
+
+    wrap1.Clear_Ingredients()
+
+    assert(orig_pita == inventory_fixture["pita"])
+    assert(orig_pork == inventory_fixture["pork"])
+    assert(orig_cheese == inventory_fixture["cheese"])
+    assert(orig_lettuce == inventory_fixture["lettuce"])
+    assert(orig_onion == inventory_fixture["onion"])
+    assert(orig_tomato == inventory_fixture["tomato"])
+    assert(orig_avocado == inventory_fixture["avocado"])

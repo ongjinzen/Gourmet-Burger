@@ -12,7 +12,11 @@ class Item (ABC):
         pass
 
     @abstractmethod
-    def Check_Ingredients (self):
+    def Check_Ingredients(self):
+        pass
+
+    @abstractmethod
+    def Clear_Ingredients(self):
         pass
 
 class Burger (Item):
@@ -58,6 +62,19 @@ class Burger (Item):
             raise ItemError("Invalid number of patties selected.")
 
         return True
+
+    def Clear_Ingredients(self):
+        
+        self._Inventory[self._Bun_Type] += self._Num_Buns
+        self._Num_Buns = 0
+        self._Inventory[self._Patty_Type] += self._Num_Patties
+        self._Num_Patties = 0
+
+        for ingredient in self._Other:
+            self._Inventory[ingredient] += 1
+            
+        for ingredient in self._Other:
+            self._Other.remove(ingredient)
 
     @property
     def Bun_Type(self):
@@ -209,6 +226,17 @@ class Wrap(Item):
 
         return True
 
+    def Clear_Ingredients(self):
+        
+        self._Inventory[self._Wrap_Type] += 1
+        self._Inventory[self._Filling_Type] += 1
+
+        for ingredient in self._Other:
+            self._Inventory[ingredient] += 1
+            
+        for ingredient in self._Other:
+            self._Other.remove(ingredient)
+
     @property
     def Wrap_Type(self):
         return self._Wrap_Type
@@ -295,6 +323,10 @@ class Bottled_Drink (Item):
     def Check_Ingredients (self):
         return True
 
+    def Clear_Ingredients(self):
+        
+        self._Inventory[self._Name] += 1
+
 class Fountain_Drinks_and_Sides (Item):
 
     def __init__(self, Inventory, Ingredient_Costs, Name,):
@@ -353,6 +385,30 @@ class Fountain_Drinks_and_Sides (Item):
             raise ItemError("Invalid size.")
 
         return True
+
+    def Clear_Ingredients(self):
+        
+        if self._Name in ["apple juice", "orange juice"]:
+            if self._Size == "small":
+                self._Inventory[self._Name] += 250
+            if self._Size == "medium":
+                self._Inventory[self._Name] += 500
+            if self._Size == "large":
+                    self._Inventory[self._Name] += 750
+        elif self._Name == "fries":
+            if self._Size == "small":
+                self._Inventory[self._Name] += 200
+            if self._Size == "medium":
+                self._Inventory[self._Name] += 400
+            if self._Size == "large":
+                self._Inventory[self._Name] += 600
+        elif self._Name == "nuggets":
+            if self._Size == "small":
+                self._Inventory[self._Name] += 4
+            if self._Size == "medium":
+                self._Inventory[self._Name] += 8
+            if self._Size == "large":
+                self._Inventory[self._Name] += 12
 
     @property
     def Size(self):

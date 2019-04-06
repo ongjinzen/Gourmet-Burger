@@ -188,3 +188,13 @@ def test_change_nuggets_size_and_cost(inventory_fixture, ingredient_cost_fixture
     assert(inventory_fixture[nuggets1._Name] == (orig_nuggets - 8))
     assert(nuggets1.Calculate_Cost() == 7)
     assert(nuggets1.Check_Ingredients() == True)
+
+def test_clear_ingredients(inventory_fixture, ingredient_cost_fixture):
+    orig_nuggets = inventory_fixture["nuggets"]
+    nuggets1 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "nuggets")
+    assert(nuggets1.Calculate_Cost() == 0)
+    nuggets1.Size = "small"
+    assert(inventory_fixture[nuggets1._Name] == (orig_nuggets - 4))
+
+    nuggets1.Clear_Ingredients()
+    assert(inventory_fixture[nuggets1._Name] == (orig_nuggets))

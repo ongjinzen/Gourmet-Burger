@@ -87,3 +87,11 @@ def test_check_calculate_cost(inventory_fixture, ingredient_cost_fixture):
     drink1 = Bottled_Drink(inventory_fixture, ingredient_cost_fixture, "coke")
 
     assert(drink1.Calculate_Cost() == 3.5)
+
+def test_clear_ingredients(inventory_fixture, ingredient_cost_fixture):
+    orig_coke = inventory_fixture["coke"]
+    drink1 = Bottled_Drink(inventory_fixture, ingredient_cost_fixture, "coke")
+
+    assert(inventory_fixture["coke"] == (orig_coke - 1))
+    drink1.Clear_Ingredients()
+    assert(inventory_fixture["coke"] == orig_coke)
