@@ -211,10 +211,12 @@ def test_error_check(system_fixture):
     system_fixture.SubmitOrder(testOrder)
     fail = 1
     system_fixture.completeOrder(fail)
+
+###############################
 '''
 test order.py
 '''
-
+##############################
 def test_order_setter(system_fixture):
     order = system_fixture.CreateOrder()
     menu  = system_fixture.ingredientsCost
