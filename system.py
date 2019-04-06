@@ -11,6 +11,7 @@ class System():
         self._Main_Menu = ["Burger", "Wrap"]
         self._Drink_Menu = ["coke", "pepsi", "apple juice", "orange juice"]
         self._Side_Menu = ["fries", "nuggets"]
+        self._Generate_ID = 0
 
     def Create_Order(self):
         new_order = Order(self._Inventory, self._Ingredient_Costs)
@@ -25,6 +26,8 @@ class System():
         if len(order.Items) < 1:
             raise OrderError("No items in order.")
         else:
+            order.ID = self._Generate_ID
+            self._Generate_ID += 1
             order.Status = "Submitted"
             self._Incomplete_Orders.append(order)
 
