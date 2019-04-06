@@ -8,8 +8,13 @@ Tasks for next meeting
 -Jack: Create Customer user stories
 -Sandeep: Create Service User stories
 -Zen: Create Maintain inventory user stories
+Notes:
+ -see usersStories.txt for draft user stories
 
 Meeting 11/03/19
+Milestone 1 submitted 
+Reflection
+The user stories went well, each group member fulfilled their role as expected and completed all the tasks given to them. 
 -focused on lab work. 
 - Jack put in charge of log book
 
@@ -17,12 +22,15 @@ Meeting 11/03/19
 Meeting 18/03/19
 -sandeep not present
 -recieved feedback on user stories
--more focus on acceptance criteria needed
+Issues 
+     more focus on acceptance criteria needed
+     some of the priorities need changing 
+     change the ID's for the Userstories 
 
 
 Meeting 25/03/19
 -Created a basis for the UML Diagram
--Sandeep left the group 
+-Sandeep left the group
 
 Tasks to be completed.
  -Zen: UML Diagram touch up, CODE: Staff, customer, order
@@ -30,19 +38,32 @@ Tasks to be completed.
 
 
 1/04/19
-submit order check ingredients number > inventory
-generate id based on lists and add to ID 
-prepare order changes status but still in incomplete 
-complete order moves it to completed order list update status 
-view all orders prints/returns incomplete list and incomplete list.
-same as above 
-same as above 
-\
-items list of items 
-id set id when made
-status, oreder, preparing complete 
-calculate cost-add cost of every item in item 
-add to order add ite,m to list 
-remove removes
-set name appends it to customer list 
+Recieved feedback on UML Diagram
+Issues
+  food items should not be in abstract class
+  menu and ingrediants should available to the whole system
+  customer and staff classes are not needed.
+Notes on Functions
+ System
+ submit order check ingredients number > inventory
+ generate id based on lists and add to ID 
+ prepare order changes status but still in incomplete 
+ complete order moves it to completed order list update status 
+ view all orders prints/returns incomplete list and complete list.
+ Order
+ items list of items 
+ id set id when made
+ status, oreder, preparing complete 
+ calculate cost-add cost of every item in item 
+ add to order add ite,m to list 
+ remove removes
+ set name appends it to customer list 
+ Tasks to be completed:
+ Zen: make edits to UML Diagram, code item and its inheritance 
+ Jack: Code System and Order
+ 
+ 3/04/19
+ UML Diagram presented by Zen
+ 
+ 
 
