@@ -152,14 +152,14 @@ def test_filling_no_stock(inventory_fixture, ingredient_cost_fixture):
     assert(inventory_fixture[wrap1.Filling_Type] == (orig_pork - 1))
 
 def test_valid_other(inventory_fixture, ingredient_cost_fixture):
-    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture, [])
+    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture)
     wrap1.Add_Other("cheese")
     assert("cheese" in wrap1.Other)
     wrap1.Add_Other("lettuce")
     assert("lettuce" in wrap1.Other)
 
 def test_invalid_other(inventory_fixture, ingredient_cost_fixture):
-    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture, [])
+    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture)
     try:
         wrap1.Add_Other("grape")
     except ItemError as err:
@@ -169,7 +169,7 @@ def test_invalid_other(inventory_fixture, ingredient_cost_fixture):
 
 def test_other_no_stock(inventory_fixture, ingredient_cost_fixture):
     inventory_fixture["cheese"] = 2
-    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture, [])
+    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture)
     wrap1.Add_Other("cheese")
     assert(wrap1.Other.count("cheese") == 1)
     wrap1.Add_Other("cheese")
@@ -183,7 +183,7 @@ def test_other_no_stock(inventory_fixture, ingredient_cost_fixture):
         assert(False)
 
 def test_valid_burger(inventory_fixture, ingredient_cost_fixture):
-    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture, [])
+    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture)
     wrap1.Wrap_Type = "pita"
     wrap1.Filling_Type = "tuna"
     wrap1.Add_Other("cheese")
@@ -191,7 +191,7 @@ def test_valid_burger(inventory_fixture, ingredient_cost_fixture):
     assert(wrap1.Check_Ingredients() == True)
 
 def test_check_calculate_cost(inventory_fixture, ingredient_cost_fixture):
-    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture, [])
+    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture)
     wrap1.Wrap_Type = "tortilla"
     wrap1.Filling_Type = "tuna"
     wrap1.Add_Other("cheese")

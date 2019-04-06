@@ -297,14 +297,14 @@ def test_patty_no_stock(inventory_fixture, ingredient_cost_fixture):
         assert(False)
 
 def test_valid_other(inventory_fixture, ingredient_cost_fixture):
-    burg1 = Burger(inventory_fixture, ingredient_cost_fixture, [])
+    burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
     burg1.Add_Other("cheese")
     assert("cheese" in burg1.Other)
     burg1.Add_Other("lettuce")
     assert("lettuce" in burg1.Other)
 
 def test_invalid_other(inventory_fixture, ingredient_cost_fixture):
-    burg1 = Burger(inventory_fixture, ingredient_cost_fixture, [])
+    burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
     try:
         burg1.Add_Other("grape")
     except ItemError as err:
@@ -314,7 +314,7 @@ def test_invalid_other(inventory_fixture, ingredient_cost_fixture):
 
 def test_other_no_stock(inventory_fixture, ingredient_cost_fixture):
     inventory_fixture["cheese"] = 2
-    burg1 = Burger(inventory_fixture, ingredient_cost_fixture, [])
+    burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
     burg1.Add_Other("cheese")
     assert(burg1.Other.count("cheese") == 1)
     burg1.Add_Other("cheese")
@@ -328,7 +328,7 @@ def test_other_no_stock(inventory_fixture, ingredient_cost_fixture):
         assert(False)
 
 def test_valid_burger(inventory_fixture, ingredient_cost_fixture):
-    burg1 = Burger(inventory_fixture, ingredient_cost_fixture, [])
+    burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
     burg1.Bun_Type = "white"
     burg1.Add_Bun()
     burg1.Add_Bun()
@@ -339,7 +339,7 @@ def test_valid_burger(inventory_fixture, ingredient_cost_fixture):
     assert(burg1.Check_Ingredients() == True)
 
 def test_check_calculate_cost(inventory_fixture, ingredient_cost_fixture):
-    burg1 = Burger(inventory_fixture, ingredient_cost_fixture, [])
+    burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
     burg1.Bun_Type = "white"
     burg1.Add_Bun()
     burg1.Add_Bun()

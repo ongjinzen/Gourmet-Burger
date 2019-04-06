@@ -78,19 +78,12 @@ def test_drink_no_stock(inventory_fixture, ingredient_cost_fixture):
     else:
         assert(False)
 
-def test_valid_burger(inventory_fixture, ingredient_cost_fixture):
+def test_valid_drink(inventory_fixture, ingredient_cost_fixture):
     drink1 = Bottled_Drink(inventory_fixture, ingredient_cost_fixture, "coke")
     
     assert(drink1.Check_Ingredients() == True)
 
 def test_check_calculate_cost(inventory_fixture, ingredient_cost_fixture):
-    wrap1 = Wrap(inventory_fixture, ingredient_cost_fixture, [])
-    wrap1.Wrap_Type = "tortilla"
-    wrap1.Filling_Type = "tuna"
-    wrap1.Add_Other("cheese")
-    wrap1.Add_Other("lettuce")
-    wrap1.Add_Other("onion")
-    wrap1.Add_Other("tomato")
-    wrap1.Add_Other("avocado")
+    drink1 = Bottled_Drink(inventory_fixture, ingredient_cost_fixture, "coke")
 
-    assert(wrap1.Calculate_Cost() == 29.5)
+    assert(drink1.Calculate_Cost() == 3.5)

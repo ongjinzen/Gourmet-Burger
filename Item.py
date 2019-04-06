@@ -17,13 +17,13 @@ class Item (ABC):
 
 class Burger (Item):
 
-    def __init__(self, Inventory, Ingredient_Costs, Other = [], Bun_Type = None, Num_Buns = 0, Patty_Type = None, Num_Patties = 0):
+    def __init__(self, Inventory, Ingredient_Costs):
         super().__init__(Inventory, Ingredient_Costs)
-        self._Bun_Type = Bun_Type
-        self._Num_Buns = Num_Buns
-        self._Patty_Type = Patty_Type
-        self._Num_Patties = Num_Patties
-        self._Other = Other
+        self._Bun_Type = None
+        self._Num_Buns = 0
+        self._Patty_Type = None
+        self._Num_Patties = 0
+        self._Other = []
 
     def __str__(self):
         output = 'This burger contains:\n'
@@ -169,11 +169,11 @@ class Burger (Item):
 
 class Wrap(Item):
     
-    def __init__(self, Inventory, Ingredient_Costs, Other = [], Wrap_Type = None, Filling_Type = None):
+    def __init__(self, Inventory, Ingredient_Costs):
         super().__init__(Inventory, Ingredient_Costs)
-        self._Wrap_Type = Wrap_Type
-        self._Filling_Type = Filling_Type
-        self._Other = Other
+        self._Wrap_Type = None
+        self._Filling_Type = None
+        self._Other = []
 
     def __str__(self):
         output = 'This wrap contains:\n'
@@ -302,6 +302,8 @@ class Fountain_Drinks_and_Sides (Item):
         if Name in ["apple juice", "orange juice", "fries", "nuggets"]:
             self._Name = Name
             self._Size = None
+            self._Inventory = Inventory
+            self._Ingredient_Costs = Ingredient_Costs
         else:
             raise ItemError("Invalid item.")
 
@@ -310,12 +312,46 @@ class Fountain_Drinks_and_Sides (Item):
         return self._Name.capitalize()
 
     def Calculate_Cost(self):
-        
-        return self._Ingredient_Costs[self._Name]
+
+        cost = 0
+        if self._Name == "apple juice":
+            if self._Size == "small":
+                cost = 2.5
+            elif self._Size == "medium":
+                cost = 3.5
+            elif self._Size == "large":
+                cost = 4
+        elif self._Name == "orange juice":
+            if self._Size == "small":
+                cost = 2
+            elif self._Size == "medium":
+                cost = 3
+            elif self._Size == "large":
+                cost = 3.5
+        elif self._Name == "fries":
+            if self._Size == "small":
+                cost = 2
+            elif self._Size == "medium":
+                cost = 3
+            elif self._Size == "large":
+                cost = 3.5
+        elif self._Name == "nuggets":
+            if self._Size == "small":
+                cost = 4
+            elif self._Size == "medium":
+                cost = 7
+            elif self._Size == "large":
+                cost = 10
+
+        return cost
 
     def Check_Ingredients (self):
 
-        if Name
+        if not (self._Name in ["apple juice", "orange juice", "fries", "nuggets"]):
+            raise ItemError("Invalid item.")
+        elif not (self._Size in ["small", "medium", "large"]):
+            raise ItemError("Invalid size.")
+
         return True
 
     @property
@@ -325,24 +361,46 @@ class Fountain_Drinks_and_Sides (Item):
     @Size.setter
     def Size(self, Size):
 
+        if self._Size in ["small", "medium", "large"] and self._Size != Size:
+            if self._Name in ["apple juice", "orange juice"]:
+                if self._Size == "small":
+                    self._Inventory[self._Name] += 250
+                if self._Size == "medium":
+                    self._Inventory[self._Name] += 500
+                if self._Size == "large":
+                    self._Inventory[self._Name] += 750
+            elif self._Name == "fries":
+                if self._Size == "small":
+                    self._Inventory[self._Name] += 200
+                if self._Size == "medium":
+                    self._Inventory[self._Name] += 400
+                if self._Size == "large":
+                    self._Inventory[self._Name] += 600
+            elif self._Name == "nuggets":
+                if self._Size == "small":
+                    self._Inventory[self._Name] += 4
+                if self._Size == "medium":
+                    self._Inventory[self._Name] += 8
+                if self._Size == "large":
+                    self._Inventory[self._Name] += 12
         if self._Name == "apple juice" or self._Name == "orange juice":
             if Size == "small":
                 if self._Inventory[self._Name] < 250:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 250
+                    self._Inventory[self._Name] -= 250
                     self._Size = Size
             elif Size == "medium":
                 if self._Inventory[self._Name] < 500:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 500
+                    self._Inventory[self._Name] -= 500
                     self._Size = Size
             elif Size == "large":
                 if self._Inventory[self._Name] < 750:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 750
+                    self._Inventory[self._Name] -= 750
                     self._Size = Size
             else:
                 raise ItemError("Invalid size.")
@@ -352,19 +410,19 @@ class Fountain_Drinks_and_Sides (Item):
                 if self._Inventory[self._Name] < 200:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 200
+                    self._Inventory[self._Name] -= 200
                     self._Size = Size
             elif Size == "medium":
                 if self._Inventory[self._Name] < 400:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 400
+                    self._Inventory[self._Name] -= 400
                     self._Size = Size
             elif Size == "large":
                 if self._Inventory[self._Name] < 600:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 600
+                    self._Inventory[self._Name] -= 600
                     self._Size = Size
             else:
                 raise ItemError("Invalid size.")
@@ -374,19 +432,19 @@ class Fountain_Drinks_and_Sides (Item):
                 if self._Inventory[self._Name] < 4:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 4
+                    self._Inventory[self._Name] -= 4
                     self._Size = Size
             elif Size == "medium":
                 if self._Inventory[self._Name] < 8:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 8
+                    self._Inventory[self._Name] -= 8
                     self._Size = Size
             elif Size == "large":
                 if self._Inventory[self._Name] < 12:
                     raise ItemError(f'Not enough {self._Name} in stock.')
                 else:
-                    self._Inventory -= 12
+                    self._Inventory[self._Name] -= 12
                     self._Size = Size
             else:
                 raise ItemError("Invalid size.")
