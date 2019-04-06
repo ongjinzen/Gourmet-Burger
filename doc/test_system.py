@@ -182,6 +182,11 @@ def test_view_menu(system_fixture):
     
     assert( test == menu)
 
+def test_error_check(system_fixture):
+    testOrder = system_fixture.CreateOrder()
+    system_fixture.SubmitOrder(testOrder)
+    fail = 1
+    system_fixture.completeOrder(fail)
 '''
 test order.py
 '''
@@ -192,7 +197,7 @@ def test_order_setter(system_fixture):
     food =  system_fixture.inventory
     assert(order.inventory == food)
     assert(order.ingredientsCost == menu)
-    assert(str(order.ID) == '31')
+    assert(str(order.ID) == '32')
     assert(order.items == [])
     assert(order.status == "Ordering")
 
@@ -203,7 +208,7 @@ def test_add_item(system_fixture):
     food = system_fixture.inventory
     assert(order.inventory == food)
     assert(order.ingredientsCost == menu)
-    assert(str(order.ID) == '32')
+    assert(str(order.ID) == '33')
     assert(order.items[0] == "burger")
     assert(order.status == "Ordering")
 
@@ -215,7 +220,7 @@ def test_add2_item(system_fixture):
     food = system_fixture.inventory
     assert(order.inventory == food)
     assert(order.ingredientsCost == menu)
-    assert(str(order.ID) == '33')
+    assert(str(order.ID) == '34')
     assert(order.items[0] == "burger")
     assert(order.items[1] == "small chips")
     assert(order.status == "Ordering")
@@ -229,7 +234,7 @@ def test_calculate_cost(system_fixture):
     cost = order.calculateCost()
     assert(order.inventory == food)
     assert(order.ingredientsCost == menu)
-    assert(str(order.ID) == '34')
+    assert(str(order.ID) == '35')
     assert(order.items[0] == "burger")
     assert(order.items[1] == "chips small")
     assert(order.status == "Ordering")
@@ -243,7 +248,7 @@ def test_remove_item(system_fixture):
     food = system_fixture.inventory
     assert(order.inventory == food)
     assert(order.ingredientsCost == menu)
-    assert(str(order.ID) == '35')
+    assert(str(order.ID) == '36')
     assert(order.items[0] == "burger")
     assert(order.items[1] == "small chips")
     assert(order.status == "Ordering")

@@ -1,4 +1,5 @@
 from order import Order, GenerateID
+from error import OrderError, checkOrderExist
 class FoodSystem():
 
     def __init__(self,inventory = None, mains = None, sides = None, drinks = None):
@@ -49,16 +50,23 @@ class FoodSystem():
         return newOrder
 
     def DeleteOrder(self, orderToDelete):
-        for order in self.completedOrders :
-            if order == orderToDelete :
-                self.completedOrders.remove(orderToDelete)
-        for order in self.incompleteOrders:
-            if order == orderToDelete :
-                self.incompleteOrders.remove(orderToDelete)
-    
-        pass
-    
+        try:
+            checkOrderExist(self, orderToDelete)
+        except OrderError as err:
+            print(f'{err.message}')
+        else:
+
+            for order in self.completedOrders :
+                if order == orderToDelete :
+                    self.completedOrders.remove(orderToDelete)
+            for order in self.incompleteOrders:
+                if order == orderToDelete :
+                    self.incompleteOrders.remove(orderToDelete)
+        
+            pass
+        
     def SubmitOrder(self, orderToSubmit):
+       
         toMany = []
         for item in orderToSubmit.items:
             #print("in loop")
@@ -75,22 +83,37 @@ class FoodSystem():
             pass
 
     def prepareOrder(self, orderToPrepare):
-        orderToPrepare.status = "incomplete"
-        pass
+        try:
+            checkOrderExist(self, orderToPrepare)
+        except OrderError as err:
+            print(f'{err.message}')
+        else:
+            orderToPrepare.status = "incomplete"
+            pass
 
     def completeOrder(self, orderToComplete):
-        orderToComplete.status = "complete"
-        self.completedOrders.append(orderToComplete)
-        self.incompleteOrders.remove(orderToComplete)
-        pass
+        try:
+            checkOrderExist(self, orderToComplete)
+        except OrderError as err:
+            print(f'{err.message}')
+        else:
+            orderToComplete.status = "complete"
+            self.completedOrders.append(orderToComplete)
+            self.incompleteOrders.remove(orderToComplete)
+            pass
 
 
     def checkStatus(self, orderToCheck):
-        allOrders = self.viewAllOrders()
-        for order in allOrders:
-            if order == orderToCheck:
-                status = order.status
-        return status
+        try:
+            checkOrderExist(self, orderToCheck)
+        except OrderError as err:
+            print(f'{err.message}')
+        else:
+            allOrders = self.viewAllOrders()
+            for order in allOrders:
+                if order == orderToCheck:
+                    status = order.status
+            return status
 
     def viewAllOrders(self):
         incom = self.viewCompleteOrders()
