@@ -1,15 +1,33 @@
 from order import Order, GenerateID
 class FoodSystem():
 
-    def __init__(self,inventory = None, ingredientsCost = None):
+    def __init__(self,inventory = None, mains = None, sides = None, drinks = None):
         self._inventory = inventory
-        self._ingredientsCost = ingredientsCost
+        
+        self._mains = mains
+        self._sides = sides
+        self._drinks = drinks
         self._completedOrders = []
         self._incompleteOrders = []
+        ingrediants = {}
+        ingrediants.update(mains) 
+        ingrediants.update(sides)
+        ingrediants.update(drinks)
+        self._ingredientsCost = ingrediants
+
 
     @property
     def inventory(self):
         return self._inventory
+    @property
+    def mains(self):
+        return self._mains
+    @property
+    def drinks(self):
+        return self._drinks
+    @property
+    def sides(self):
+        return self._sides 
     @property
     def ingredientsCost(self):
         return self._ingredientsCost
@@ -96,9 +114,21 @@ class FoodSystem():
         self.inventory[stock] += num
         pass
 
-    def newStock(self, stock, num, cost):
+    def newStock(self, stock, num, cost, dish):
         self.inventory[stock] = num
         self.ingredientsCost[stock] = cost
+        if dish == 'main' :
+            self.mains[stock] = cost
+        if dish == 'side' :
+            self.sides[stock] = cost
+        if dish == 'drink' :
+            self.drinks[stock] = cost
         pass
     def viewMenu(self):
         return self.ingredientsCost
+    def viewMains(self):
+        return self.mains
+    def viewSides(self):
+        return self.sides
+    def viewDrinks(self):
+        return self.drinks

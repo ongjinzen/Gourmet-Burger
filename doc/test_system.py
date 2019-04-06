@@ -6,15 +6,21 @@ import pytest
 @pytest.fixture 
 def system_fixture():
     food =  { "white buns": 5, "sesame buns" : 3, 'lettuce' : 5, 'tomato' : 6 ,'onion' : 7, 'beef patty':4, 'chicken patty' : 10, 'pita' :5, 'tortilla': 12, 'cheese':14, 'avacado': 15, 'pepsi': 20, 'coke': 12, 'juice': 1000, 'chips':5000, 'nuggets': 100}
-    menu =  { "white buns": 1, "sesame buns" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef patty':2, 'chicken patty' : 2.50, 'pita' :3, 'tortilla': 4, 'cheese':2, 'avacado': 10, 'pepsi': 2.50, 'coke': 3.50, 'juice medium ': 3.5,'juice large': 4,'juice small': 2.5, 'chips small':2,'chips meidum':3,'chips large':3.5, '4-nuggets': 4,'8-nuggets': 7,'12-nuggets': 10}
-    system = FoodSystem(food,menu)
+    mains =  { "white buns": 1, "sesame buns" : 1.5, 'lettuce' : 1, 'tomato' : 2 ,'onion' : 3, 'beef patty':2, 'chicken patty' : 2.50, 'pita' :3, 'tortilla': 4, 'cheese':2, 'avacado': 10,}
+    drinks = { 'pepsi': 2.50, 'coke': 3.50, 'juice medium ': 3.5,'juice large': 4,'juice small': 2.5}
+    sides =  {'chips small':2,'chips meidum':3,'chips large':3.5, '4-nuggets': 4,'8-nuggets': 7,'12-nuggets': 10}
+    system = FoodSystem(food,mains,sides,drinks)
     #print(system)
-    assert( system.ingredientsCost == menu)
+    ingrediants = {}
+    ingrediants.update(mains) 
+    ingrediants.update(sides)
+    ingrediants.update(drinks)
+    assert( system.ingredientsCost == ingrediants )
     assert(system.inventory == food)
     return system
 
 def test_new_stock(system_fixture):
-    system_fixture.newStock('celery', 10000, 10.10)
+    system_fixture.newStock('celery', 10000, 10.10,"main")
     assert(system_fixture.ingredientsCost['celery'] == 10.10)
     assert(system_fixture.inventory['celery'] == 10000)
     pass

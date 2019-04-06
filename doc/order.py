@@ -52,7 +52,7 @@ class Order():
     methods
     '''
 
-    def createItem(self):
+    def createItem(self, name):
         pass
     def deleteItem(self, item):
         pass
