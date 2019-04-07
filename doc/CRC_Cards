@@ -1,0 +1,147 @@
+
+
+===================================================
+
+Name: System
+
+Responsibilities:
+Create An Order 
+Delete An Order 
+Submit An Order 
+move an order to prepared status
+mark an order as complete
+Check the status of an order
+View all current orders 
+View all Incomplete Orders 
+View all CompleteOrders
+add more stock to the system
+create a new menu item
+display the menu
+get an order with a specific ID
+
+Knows:
+Menu
+Inventory
+Mains
+Sides
+Drinks
+Completed orders
+Incomplete orders
+
+Collaborators:
+Order
+
+===================================================
+
+Name: Order
+
+Responsibilities:
+Create an item
+delete an item 
+calculate the cost 
+add an item to an order
+remove an item from an order 
+display an order 
+
+Knows:
+Menu
+Inventory
+items in the order 
+order ID 
+status of the order
+
+Collaborators:
+system 
+items
+
+===================================================
+
+Name: Item
+
+Knows:
+Menu
+inventory 
+
+Collaborators:
+order
+mains 
+bottled drinks
+sides and fountain drinks 
+
+====================================================
+
+Name: Main
+
+Responsibilities:
+set other ingrediants 
+
+Knows:
+added ingrediants 
+
+Collaborators:
+Items
+wraps
+burgers
+
+====================================================
+
+Name: Burgers
+
+Responsibilities:
+set number and type of buns
+set number and type of pattys
+
+Knows:
+patty number 
+patty type
+buns number
+buns type
+Cost of ingredients
+
+Collaborators:
+Mains
+
+====================================================
+
+Name: Wraps
+
+Responsibilities:
+set number and type of wrap
+set number and type of filling
+
+Knows:
+filling type 
+wrap type
+Cost of ingredients
+
+
+Collaborators:
+Mains
+
+====================================================
+
+Name: Bottled drinks
+
+Responsibilities:
+
+Knows:
+type of drink 
+
+Collaborators:
+Items
+
+
+====================================================
+
+Name: Fountain drinks and sides
+
+Responsibilities:
+set size of drink
+Knows:
+type of drink/side
+size of the drink/side
+
+Collaborators:
+Items
+
+
