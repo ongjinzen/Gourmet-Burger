@@ -5,5 +5,6 @@
   "test_system.py::test_view_order",
   "test_system.py::test_update_stock",
   "test_system.py::test_new_stock",
-  "test_system.py::test_view_menus"
+  "test_system.py::test_view_menus",
+  "test_system.py::test_2_valid_order"
 ]

@@ -254,3 +254,108 @@ def test_view_menus(inventory_fixture, ingredient_cost_fixture):
     assert(system1.View_Main_Menu() == ["Burger", "Wrap"])
     assert(system1.View_Drink_Menu() == ["coke", "pepsi", "apple juice", "orange juice"])
     assert(system1.View_Side_Menu() == ["fries", "nuggets"])
+
+def test_2_valid_order(inventory_fixture, ingredient_cost_fixture):
+
+
+    system1 = System(inventory_fixture, ingredient_cost_fixture)
+    assert(isinstance(system1, System))
+    order1 = system1.Create_Order()
+    order2 = system1.Create_Order()
+    assert(isinstance(order1, Order))
+    assert(isinstance(order2, Order))
+
+    orig_white_bun = inventory_fixture["white"]
+    orig_beef = inventory_fixture["beef"]
+    orig_cheese = inventory_fixture["cheese"]
+    orig_tortilla = inventory_fixture["tortilla"]
+    orig_tuna = inventory_fixture["tuna"]
+    orig_lettuce = inventory_fixture["lettuce"]
+    orig_onion = inventory_fixture["onion"]
+    orig_tomato = inventory_fixture["tomato"]
+    orig_avocado = inventory_fixture["avocado"]
+
+    burg1 = order1.Create_Item("Burger")
+    burg1.Bun_Type = "white"
+    burg1.Add_Bun()
+    burg1.Add_Bun()
+    burg1.Patty_Type = "beef"
+    burg1.Add_Patty()
+    burg1.Add_Other("cheese")
+    order1.Add_To_Order(burg1)
+    assert(burg1 in order1.Items)
+    assert(order1.Calculate_Cost() == 9)
+
+    burg2 = order2.Create_Item("Burger")
+    burg2.Bun_Type = "white"
+    burg2.Add_Bun()
+    burg2.Add_Bun()
+    burg2.Patty_Type = "beef"
+    burg2.Add_Patty()
+    burg2.Add_Other("cheese")
+    order2.Add_To_Order(burg2)
+    assert(burg2 in order2.Items)
+    assert(order2.Calculate_Cost() == 9)
+
+    wrap1 = order1.Create_Item("Wrap")
+    wrap1.Wrap_Type = "tortilla"
+    wrap1.Filling_Type = "tuna"
+    wrap1.Add_Other("cheese")
+    wrap1.Add_Other("lettuce")
+    wrap1.Add_Other("onion")
+    wrap1.Add_Other("tomato")
+    wrap1.Add_Other("avocado")
+    order1.Add_To_Order(wrap1)
+    assert(order1.Calculate_Cost() == 38.5)
+
+    assert(inventory_fixture["white"] == (orig_white_bun - 4))
+    assert(inventory_fixture["beef"] == (orig_beef - 2))
+    assert(inventory_fixture["cheese"] == (orig_cheese - 3))
+    assert(inventory_fixture["tortilla"] == (orig_tortilla - 1))
+    assert(inventory_fixture["tuna"] == (orig_tuna - 1))
+    assert(inventory_fixture["lettuce"] == (orig_lettuce - 1))
+    assert(inventory_fixture["onion"] == (orig_onion - 1))
+    assert(inventory_fixture["tomato"] == (orig_tomato - 1))
+    assert(inventory_fixture["avocado"] == (orig_avocado - 1))
+
+    assert(order1.ID == None)
+    assert(order1.Status == None)
+    try:
+        system1.Check_Status(0)
+    except SystemError as err:
+        assert(err.message == "Order not found.")
+    else:
+        assert(False)
+
+    system1.Submit_Order(order1)
+    system1.Submit_Order(order2)
+    assert(order1.ID == 0)
+    assert(order2.ID == 1)
+    assert(order1 in system1.View_Incomplete_Orders())
+    assert(order2 in system1.View_Incomplete_Orders())
+    assert(system1.Check_Status(0) == "Submitted")
+    assert(system1.Check_Status(1) == "Submitted")
+
+    system1.Preparing_Order(order1)
+
+    assert(order1.ID == 0)
+    assert(system1.Check_Status(0) == "Preparing order")
+    assert(order1 in system1.View_Incomplete_Orders())
+
+    system1.Preparing_Order(order2)
+
+    assert(order2.ID == 1)
+    assert(system1.Check_Status(1) == "Preparing order")
+    assert(order2 in system1.View_Incomplete_Orders())
+
+    system1.Complete_Order(order1)
+
+    assert(order1.ID == 0)
+    assert(system1.Check_Status(0) == "Completed")
+    assert(order1 in system1.View_Complete_Orders())
+
+    system1.Complete_Order(order2)
+
+    assert(order2.ID == 1)
+    assert(system1.Check_Status(0) == "Completed")
+    assert(order2 in system1.View_Complete_Orders())
