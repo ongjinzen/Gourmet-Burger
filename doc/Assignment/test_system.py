@@ -53,6 +53,9 @@ def test_create_system(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(system1, System))
 
+# UC11 - Acceptance Criteria: 1
+# UC12 - Acceptance Criteria: 1, 2
+# UC14 - Acceptance Criteria: 1
 def test_valid_order(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(system1, System))
@@ -198,6 +201,7 @@ def test_delete_order(inventory_fixture, ingredient_cost_fixture):
     assert(system1.Inventory["tomato"] == (orig_tomato))
     assert(system1.Inventory["avocado"] == (orig_avocado))
 
+# UC5 - Acceptance Criteria: 4
 def test_view_order(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(system1, System))
@@ -248,6 +252,7 @@ def test_new_stock(inventory_fixture, ingredient_cost_fixture):
 
     assert(system1.Ingredient_Costs["white"] == 1)
 
+# UC2 - Acceptance Criteria: 1
 def test_view_menus(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
 
@@ -255,6 +260,8 @@ def test_view_menus(inventory_fixture, ingredient_cost_fixture):
     assert(system1.View_Drink_Menu() == ["coke", "pepsi", "apple juice", "orange juice"])
     assert(system1.View_Side_Menu() == ["fries", "nuggets"])
 
+# UC5 - Acceptance Criteria: 1, 2
+# UC9 - Acceptance Criteria: 1
 def test_2_valid_order(inventory_fixture, ingredient_cost_fixture):
 
 

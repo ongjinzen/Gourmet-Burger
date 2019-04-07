@@ -7,14 +7,17 @@ class Item (ABC):
         self._Inventory = Inventory
         self._Ingredient_Costs = Ingredient_Costs
 
+    # Calculates the cost of the item.
     @abstractmethod
     def Calculate_Cost(self):
         pass
 
+    # Checks that the item's options are valid.
     @abstractmethod
     def Check_Ingredients(self):
         pass
 
+    # Removes all ingredients from an item and restores the inventory.
     @abstractmethod
     def Clear_Ingredients(self):
         pass
@@ -82,6 +85,7 @@ class Burger (Item):
     def Bun_Type(self):
         return self._Bun_Type
 
+    # Choose the type of bun
     @Bun_Type.setter
     def Bun_Type(self, Bun_Type):
         
@@ -100,6 +104,7 @@ class Burger (Item):
     def Num_Buns(self):
         return self._Num_Buns
 
+    # Increment the number of buns by 1
     def Add_Bun(self):
 
         if self._Bun_Type == None:
@@ -114,6 +119,7 @@ class Burger (Item):
             else:
                 raise ItemError("A burger cannot have more than 4 buns.")
 
+    # Decrement the number of buns by 1
     def Remove_Bun(self):
         
         if (self._Num_Buns > 2):
@@ -126,6 +132,7 @@ class Burger (Item):
     def Patty_Type(self):
         return self._Patty_Type
 
+    # Choose the type of patty
     @Patty_Type.setter
     def Patty_Type(self, Patty_Type):
         if Patty_Type == "beef" or Patty_Type == "chicken":
@@ -142,6 +149,7 @@ class Burger (Item):
     def Num_Patties(self):
         return self._Num_Patties
 
+    # Increment the number of patties by 1
     def Add_Patty(self):
         
         if self._Patty_Type == None:
@@ -156,6 +164,7 @@ class Burger (Item):
             else:
                 raise ItemError("A burger cannot have more than 3 patties.")
 
+    # Decrement the number of patties by 1
     def Remove_Patty(self):
         if (self._Num_Patties > 1):
             self._Inventory[self._Patty_Type] += 1
@@ -167,6 +176,7 @@ class Burger (Item):
     def Other(self):
         return self._Other
 
+    # Add other ingredients
     def Add_Other(self, ingredient):
         
         if ingredient in {"cheese", "lettuce", "onion", "tomato", "avocado"}:
@@ -178,6 +188,7 @@ class Burger (Item):
         else:
             raise ItemError("Please select a valid ingredient.")
 
+    # Remove other ingredients
     def Remove_Other(self, ingredient):
         
         if ingredient in self._Other:
@@ -245,6 +256,7 @@ class Wrap(Item):
     def Wrap_Type(self):
         return self._Wrap_Type
 
+    # Choose the type of wrap
     @Wrap_Type.setter
     def Wrap_Type(self, Wrap_Type):
         
@@ -263,6 +275,7 @@ class Wrap(Item):
     def Filling_Type(self):
         return self._Filling_Type
 
+    # Choose the type of filling
     @Filling_Type.setter
     def Filling_Type(self, Filling_Type):
         
@@ -281,6 +294,7 @@ class Wrap(Item):
     def Other(self):
         return self._Other
 
+    # Add other ingredients
     def Add_Other(self, ingredient):
         
         if ingredient in {"cheese", "lettuce", "onion", "tomato", "avocado"}:
@@ -292,6 +306,7 @@ class Wrap(Item):
         else:
             raise ItemError("Please select a valid ingredient.")
 
+    # Remove other ingredients
     def Remove_Other(self, ingredient):
         
         if ingredient in self._Other:
@@ -423,6 +438,7 @@ class Fountain_Drinks_and_Sides (Item):
     def Size(self):
         return self._Size
 
+    # Choose the size of the item
     @Size.setter
     def Size(self, Size):
 
@@ -513,4 +529,3 @@ class Fountain_Drinks_and_Sides (Item):
                     self._Size = Size
             else:
                 raise ItemError("Invalid size.")
-

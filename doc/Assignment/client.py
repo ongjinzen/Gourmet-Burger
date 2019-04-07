@@ -57,6 +57,8 @@ order1.Add_To_Order(burg1)
 print(f"order1 costs {order1.Calculate_Cost()}\n")
 system1.Submit_Order(order1)
 
+# UC13 - Acceptance Criteria: 1
+# UC16 - Acceptance Criteria: 1
 print(system1)
 
 system1.Preparing_Order(order1)

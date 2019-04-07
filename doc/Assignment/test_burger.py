@@ -155,6 +155,7 @@ def test_change_bun_type(inventory_fixture, ingredient_cost_fixture):
     assert(inventory_fixture[burg1.Bun_Type] == (orig_white_bun))
     assert(burg1.Num_Buns == 0)
 
+# UC15 - Acceptance Criteria: 1
 def test_bun_no_stock(inventory_fixture, ingredient_cost_fixture):
     inventory_fixture["white"] = 2
     burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
@@ -312,6 +313,7 @@ def test_invalid_other(inventory_fixture, ingredient_cost_fixture):
     else:
         assert(False)
 
+# UC3 - Acceptance Criteria: 1, 2
 def test_other_no_stock(inventory_fixture, ingredient_cost_fixture):
     inventory_fixture["cheese"] = 2
     burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
@@ -327,6 +329,7 @@ def test_other_no_stock(inventory_fixture, ingredient_cost_fixture):
     else:
         assert(False)
 
+# UC3 - Acceptance Criteria: 1, 2
 def test_valid_burger(inventory_fixture, ingredient_cost_fixture):
     burg1 = Burger(inventory_fixture, ingredient_cost_fixture)
     burg1.Bun_Type = "white"

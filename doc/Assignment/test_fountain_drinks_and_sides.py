@@ -48,6 +48,7 @@ def ingredient_cost_fixture():
     }
     return Ingredient_costs
 
+# UC4 - Acceptance Criteria: 1, 2, 3, 4
 def test_juice_sizes(inventory_fixture, ingredient_cost_fixture):
     
     juice1 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "apple juice")
@@ -62,6 +63,7 @@ def test_juice_sizes(inventory_fixture, ingredient_cost_fixture):
     juice1.Size = "small"
     assert(juice1.Size == "small")
 
+# UC4 - Acceptance Criteria: 5
 def test_invalid_item(inventory_fixture, ingredient_cost_fixture):
 
     try:
@@ -87,6 +89,7 @@ def test_invalid_juice_size(inventory_fixture, ingredient_cost_fixture):
     except ItemError as err:
         assert(err.message == "Invalid size.")
 
+# UC16 - Acceptance Criteria: 2
 def test_change_juice_size_and_cost(inventory_fixture, ingredient_cost_fixture):
 
     orig_orange = inventory_fixture["orange juice"]
@@ -175,6 +178,7 @@ def test_invalid_nugget_size(inventory_fixture, ingredient_cost_fixture):
     except ItemError as err:
         assert(err.message == "Invalid size.")
 
+# UC16 - Acceptance Criteria: 2
 def test_change_nuggets_size_and_cost(inventory_fixture, ingredient_cost_fixture):
 
     orig_nuggets = inventory_fixture["nuggets"]

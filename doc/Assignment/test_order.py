@@ -52,6 +52,7 @@ def test_create_order(inventory_fixture, ingredient_cost_fixture):
     order1 = Order(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(order1, Order))
 
+# UC2 - Acceptance Criteria: 2, 3
 def test_create_and_add_item(inventory_fixture, ingredient_cost_fixture):
     order1 = Order(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(order1, Order))
@@ -104,6 +105,7 @@ def test_delete_item(inventory_fixture, ingredient_cost_fixture):
     assert(inventory_fixture["beef"] == (orig_beef))
     assert(inventory_fixture["cheese"] == (orig_cheese))
 
+# UC7 - Acceptance Criteria: 2, 3, 4
 def test_remove_from_order(inventory_fixture, ingredient_cost_fixture):
     order1 = Order(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(order1, Order))
