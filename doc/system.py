@@ -14,13 +14,13 @@ class System():
         self._Generate_ID = 0
 
     def __str__(self):
-        output += ""
+        output = ""
         output += f"{len(self._Completed_Orders)} completed orders.\n"
         output += f"{len(self._Incomplete_Orders)} incomplete orders.\n\n"
         
         output += f"Inventory:\n"
         for ingredient in self._Inventory:
-            output += f"{ingredient} : {self._Inventory[ingredient]}"
+            output += f"{ingredient} : {self._Inventory[ingredient]}\n"
 
         return output
 
