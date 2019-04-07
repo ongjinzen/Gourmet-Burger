@@ -58,31 +58,41 @@ class System():
 
     def Delete_Order(self, order):
         
-        i = len(order.Items) - 1
+        if isinstance(order, Order):
+            i = len(order.Items) - 1
 
-        while i >= 0:
-            order.Remove_From_Order(order.Items[i])
-            i -= 1
+            while i >= 0:
+                order.Remove_From_Order(order.Items[i])
+                i -= 1
+        else:
+            raise SystemError("Invalid order.")
 
     def Submit_Order(self, order):
         
-        if len(order.Items) < 1:
-            raise OrderError("No items in order.")
+        if order.Status == None:
+            if len(order.Items) < 1:
+                raise OrderError("No items in order.")
+            else:
+                order.ID = self._Generate_ID
+                self._Generate_ID += 1
+                order.Status = "Submitted"
+                self._Incomplete_Orders.append(order)
         else:
-            order.ID = self._Generate_ID
-            self._Generate_ID += 1
-            order.Status = "Submitted"
-            self._Incomplete_Orders.append(order)
+            raise SystemError("Order status error.")
 
     def Preparing_Order(self, order):
         if order in self._Incomplete_Orders and order.Status == "Submitted":
             order.Status = "Preparing order"
+        else:
+            raise SystemError("Order status error.")
 
     def Complete_Order(self, order):
         if order in self._Incomplete_Orders and order.Status == "Preparing order":
             order.Status = "Completed"
             self._Incomplete_Orders.remove(order)
             self._Completed_Orders.append(order)
+        else:
+            raise SystemError("Order status error.")
 
     def View_Order(self, ID):
         for order in self._Incomplete_Orders:
