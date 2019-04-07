@@ -33,11 +33,13 @@ class Burger (Item):
         output = 'This burger contains:\n'
         output += f'{self._Num_Buns} pieces of {self._Bun_Type} buns\n'
         output += f'{self._Num_Patties} pieces of {self._Patty_Type} patties\n'
-        output += f'and the following sides: '
+        output += f'and the following sides:\n'
         
         for ingredient in self._Other:
-            output += ingredient
-            output += ','
+            output += ingredient.capitalize()
+            output += ', '
+
+        output = output[:-2]
 
         return output
 
@@ -196,11 +198,13 @@ class Wrap(Item):
         output = 'This wrap contains:\n'
         output += f'A {self._Wrap_Type} wrap\n'
         output += f'{self._Filling_Type} filling\n'
-        output += f'and the following sides: '
+        output += f'and the following sides:\n'
         
         for ingredient in self._Other:
-            output += ingredient
-            output += ','
+            output += ingredient.capitalize()
+            output += ', '
+
+        output = output[:-2]
 
         return output
 
@@ -341,7 +345,12 @@ class Fountain_Drinks_and_Sides (Item):
 
     def __str__(self):
         
-        return self._Name.capitalize()
+        if self._Size == None:
+            raise ItemError("Invalid size.")
+        elif self._Name == None:
+            raise ItemError("Invalid item.")
+        else:
+            return f'{self._Size.capitalize()} {self._Name.capitalize()}'
 
     def Calculate_Cost(self):
 
@@ -504,3 +513,4 @@ class Fountain_Drinks_and_Sides (Item):
                     self._Size = Size
             else:
                 raise ItemError("Invalid size.")
+

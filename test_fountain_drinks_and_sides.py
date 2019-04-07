@@ -1,5 +1,5 @@
 from errors import ItemError
-from Item import *
+from item import *
 import pytest
 
 @pytest.fixture

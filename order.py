@@ -1,5 +1,5 @@
 from errors import ItemError
-from Item import *
+from item import *
 
 class Order ():
 
@@ -11,7 +11,12 @@ class Order ():
         self._Status = None
 
     def __str__(self):
-        pass
+        output = ""
+        output += f"Order ID: {self._ID}\n"
+        output += f"Order Status: {self._Status}\n"
+        output += f"Items in this order: {len(self._Items)}"
+
+        return output
 
     @property
     def Items(self):
