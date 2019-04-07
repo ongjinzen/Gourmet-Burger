@@ -24,6 +24,34 @@ class System():
 
         return output
 
+    @property
+    def Inventory(self):
+        return self._Inventory
+
+    @property
+    def Ingredient_Costs(self):
+        return self._Ingredient_Costs
+
+    @property
+    def Completed_Orders(self):
+        return self._Completed_Orders
+
+    @property
+    def Main_Menu(self):
+        return self._Main_Menu
+
+    @property
+    def Drink_Menu(self):
+        return self._Drink_Menu
+
+    @property
+    def Side_Menu(self):
+        return self._Side_Menu
+
+    @property
+    def Incomplete_Orders(self):
+        return self._Incomplete_Orders
+
     def Create_Order(self):
         new_order = Order(self._Inventory, self._Ingredient_Costs)
         return new_order
@@ -61,7 +89,7 @@ class System():
             if ID == order.ID:
                 return order
         
-        for order in self._Complete_Orders:
+        for order in self._Completed_Orders:
             if ID == order.ID:
                 return order
 
