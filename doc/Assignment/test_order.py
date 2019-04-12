@@ -23,6 +23,7 @@ def inventory_fixture():
         "apple juice": 300,
         "orange juice": 600,
         "fries": 500,
+        "sundae": 1000,
         "nuggets": 10,
     }
     return Inventory
