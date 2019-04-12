@@ -41,6 +41,10 @@ class Order ():
 
         if Name == "Burger":
             item = Burger(self._Inventory, self._Ingredient_Costs)
+        #default burger is 2 white buns beef patty and 1 lettuce. 
+        elif Name == "Default Burger":
+            Create_Default(self)
+            return
         elif Name == "Wrap":
             item = Wrap(self._Inventory, self._Ingredient_Costs)
         elif Name == "coke" or Name == "pepsi":
@@ -51,6 +55,8 @@ class Order ():
             raise ItemError("Invalid item.")
 
         return item
+    
+    
 
     def Delete_Item(self, Item):
 
@@ -72,3 +78,14 @@ class Order ():
     def Remove_From_Order(self, Item):
         Item.Clear_Ingredients()
         self._Items.remove(Item)
+
+def Create_Default(self):
+    burg1 = Burger(self._Inventory, self._Ingredient_Costs)
+    burg1.Bun_Type = "white"
+    burg1.Add_Bun()
+    burg1.Add_Bun()
+    burg1.Patty_Type = "beef"
+    burg1.Add_Patty()
+    burg1.Add_Other("lettuce")
+    self.Add_To_Order(burg1)
+    
