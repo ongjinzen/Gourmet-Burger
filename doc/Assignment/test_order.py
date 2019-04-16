@@ -1,6 +1,8 @@
+import pytest
+
 from errors import ItemError
 from order import Order
-import pytest
+
 
 @pytest.fixture
 def inventory_fixture():
@@ -236,3 +238,74 @@ def test_add_invalid_order(inventory_fixture, ingredient_cost_fixture):
         assert(err.message == "Invalid number of buns selected.")
     else:
         assert(False)
+
+def test_default_burger(inventory_fixture, ingredient_cost_fixture):
+    order1 = Order(inventory_fixture, ingredient_cost_fixture)
+    assert(isinstance(order1, Order))
+
+    orig_white_bun = inventory_fixture["white"]
+    orig_beef = inventory_fixture["beef"]
+    orig_cheese = inventory_fixture["cheese"]
+    orig_tortilla = inventory_fixture["tortilla"]
+    orig_tuna = inventory_fixture["tuna"]
+    orig_lettuce = inventory_fixture["lettuce"]
+    orig_onion = inventory_fixture["onion"]
+    orig_tomato = inventory_fixture["tomato"]
+    orig_avocado = inventory_fixture["avocado"]
+
+    def_burg1 = order1.Create_Item("Default Burger")
+    order1.Add_To_Order(def_burg1)
+    assert(def_burg1 in order1.Items)
+    assert(order1.Calculate_Cost() == 8)
+
+    
+
+    assert(inventory_fixture["white"] == (orig_white_bun - 2))
+    assert(inventory_fixture["beef"] == (orig_beef - 1))
+    assert(inventory_fixture["cheese"] == (orig_cheese))
+    assert(inventory_fixture["tortilla"] == (orig_tortilla))
+    assert(inventory_fixture["tuna"] == (orig_tuna))
+    assert(inventory_fixture["lettuce"] == (orig_lettuce - 1))
+    assert(inventory_fixture["onion"] == (orig_onion))
+    assert(inventory_fixture["tomato"] == (orig_tomato))
+    assert(inventory_fixture["avocado"] == (orig_avocado))
+
+    assert(order1.ID == None)
+    assert(order1.Status == None)
+
+def test_default_burger_no_stock(inventory_fixture, ingredient_cost_fixture):
+    order1 = Order(inventory_fixture, ingredient_cost_fixture)
+    assert(isinstance(order1, Order))
+
+    orig_white_bun = inventory_fixture["white"] = 0
+    orig_beef = inventory_fixture["beef"]
+    orig_cheese = inventory_fixture["cheese"]
+    orig_tortilla = inventory_fixture["tortilla"]
+    orig_tuna = inventory_fixture["tuna"]
+    orig_lettuce = inventory_fixture["lettuce"]
+    orig_onion = inventory_fixture["onion"]
+    orig_tomato = inventory_fixture["tomato"]
+    orig_avocado = inventory_fixture["avocado"]
+
+    try:
+        def_burg1 = order1.Create_Item("Default Burger")
+    except ItemError as err:
+        assert(err.message == "Not enough white buns in stock.")
+    else:
+        assert(False)
+    assert(order1.Calculate_Cost() == 0)
+
+    
+
+    assert(inventory_fixture["white"] == (orig_white_bun))
+    assert(inventory_fixture["beef"] == (orig_beef))
+    assert(inventory_fixture["cheese"] == (orig_cheese))
+    assert(inventory_fixture["tortilla"] == (orig_tortilla))
+    assert(inventory_fixture["tuna"] == (orig_tuna))
+    assert(inventory_fixture["lettuce"] == (orig_lettuce))
+    assert(inventory_fixture["onion"] == (orig_onion))
+    assert(inventory_fixture["tomato"] == (orig_tomato))
+    assert(inventory_fixture["avocado"] == (orig_avocado))
+
+    assert(order1.ID == None)
+    assert(order1.Status == None)

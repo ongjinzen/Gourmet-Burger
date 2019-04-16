@@ -1,7 +1,9 @@
-from errors import *
-from system import System
-from order import Order
 import pytest
+
+from errors import SystemError
+from order import Order
+from system import System
+
 
 @pytest.fixture
 def inventory_fixture():

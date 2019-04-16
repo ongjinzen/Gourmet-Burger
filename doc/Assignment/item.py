@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from errors import ItemError
+
 
 class Item (ABC):
 
@@ -21,6 +21,7 @@ class Item (ABC):
     @abstractmethod
     def Clear_Ingredients(self):
         pass
+<<<<<<< HEAD
 
 class Burger (Item):
 
@@ -535,3 +536,5 @@ class Fountain_Drinks_and_Sides (Item):
                     self._Size = Size
             else:
                 raise ItemError("Invalid size.")
+=======
+>>>>>>> master
