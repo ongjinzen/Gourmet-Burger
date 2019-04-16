@@ -1,5 +1,9 @@
+from bottled_drink import Bottled_Drink
+from burger import Burger
 from errors import ItemError
-from item import *
+from fountain_drinks_and_sides import Fountain_Drinks_and_Sides
+from wrap import Wrap
+
 
 class Order ():
 
@@ -43,8 +47,13 @@ class Order ():
             item = Burger(self._Inventory, self._Ingredient_Costs)
         #default burger is 2 white buns beef patty and 1 lettuce. 
         elif Name == "Default Burger":
-            Create_Default(self)
-            return
+            item = Burger(self._Inventory, self._Ingredient_Costs)
+            item.Bun_Type = "white"
+            item.Add_Bun()
+            item.Add_Bun()
+            item.Patty_Type = "beef"
+            item.Add_Patty()
+            item.Add_Other("lettuce")
         elif Name == "Wrap":
             item = Wrap(self._Inventory, self._Ingredient_Costs)
         elif Name == "coke" or Name == "pepsi":
@@ -78,14 +87,3 @@ class Order ():
     def Remove_From_Order(self, Item):
         Item.Clear_Ingredients()
         self._Items.remove(Item)
-
-def Create_Default(self):
-    burg1 = Burger(self._Inventory, self._Ingredient_Costs)
-    burg1.Bun_Type = "white"
-    burg1.Add_Bun()
-    burg1.Add_Bun()
-    burg1.Patty_Type = "beef"
-    burg1.Add_Patty()
-    burg1.Add_Other("lettuce")
-    self.Add_To_Order(burg1)
-    

@@ -1,5 +1,5 @@
 from order import Order
-from errors import *
+from errors import SystemError
 
 class System():
 
