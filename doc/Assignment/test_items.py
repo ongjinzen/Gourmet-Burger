@@ -29,6 +29,8 @@ def inventory_fixture():
         "orange juice": 600,
         "fries": 500,
         "nuggets": 10,
+        "chocolate sundae": 1000,
+        "strawberry sundae": 500,
     }
     return Inventory
 
@@ -816,3 +818,47 @@ def test_clear_ingredients(inventory_fixture, ingredient_cost_fixture):
 
     nuggets1.Clear_Ingredients()
     assert(inventory_fixture[nuggets1._Name] == (orig_nuggets))
+
+def test_choc_sundae(inventory_fixture, ingredient_cost_fixture):
+    orig_choc = inventory_fixture["chocolate sundae"]
+    orig_white_bun = inventory_fixture["white"]
+
+
+    choc1 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "chocolate sundae")
+    choc1.Size = "small"
+    assert(choc1.Calculate_Cost() == 4)
+    assert(inventory_fixture["chocolate sundae"] == (orig_choc - 200))
+    assert(inventory_fixture["white"] == (orig_white_bun))
+
+    choc1.Size = "medium"
+    assert(choc1.Calculate_Cost() == 6)
+    assert(inventory_fixture["chocolate sundae"] == (orig_choc - 400))
+    assert(inventory_fixture["white"] == (orig_white_bun))
+
+    choc1.Size = "large"
+    assert(choc1.Calculate_Cost() == 11)
+    assert(inventory_fixture["chocolate sundae"] == (orig_choc - 600))
+    assert(inventory_fixture["white"] == (orig_white_bun))
+
+def test_strawberry_no_stock(inventory_fixture, ingredient_cost_fixture):
+    orig_strawberry = inventory_fixture["strawberry sundae"]
+    orig_white_bun = inventory_fixture["white"]
+
+
+    strawberry1 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "strawberry sundae")
+    strawberry1.Size = "small"
+    assert(strawberry1.Calculate_Cost() == 4)
+    assert(inventory_fixture["strawberry sundae"] == (orig_strawberry - 200))
+    assert(inventory_fixture["white"] == (orig_white_bun))
+
+    strawberry1.Size = "medium"
+    assert(strawberry1.Calculate_Cost() == 6)
+    assert(inventory_fixture["strawberry sundae"] == (orig_strawberry - 400))
+    assert(inventory_fixture["white"] == (orig_white_bun))
+
+    try:
+        strawberry1.Size = "large"
+    except ItemError as err:
+        assert(err.message == "Not enough strawberry sundae in stock.")
+    else:
+        assert(False)
