@@ -26,8 +26,9 @@ def inventory_fixture():
         "apple juice": 300,
         "orange juice": 600,
         "fries": 500,
-        "sundae": 1000,
         "nuggets": 10,
+        "chocolate sundae" : 1000,
+        "strawberry sundae" : 500
     }
     return Inventory
 
@@ -261,7 +262,7 @@ def test_view_menus(inventory_fixture, ingredient_cost_fixture):
 
     assert(system1.View_Main_Menu() == ["Burger", "Wrap"])
     assert(system1.View_Drink_Menu() == ["coke", "pepsi", "apple juice", "orange juice"])
-    assert(system1.View_Side_Menu() == ["fries", "nuggets","sundaes"])
+    assert(system1.View_Side_Menu() == ["fries", "nuggets","chocolate sundae", "strawberry sundae"])
 
 # UC5 - Acceptance Criteria: 1, 2
 # UC9 - Acceptance Criteria: 1

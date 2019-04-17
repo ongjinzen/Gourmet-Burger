@@ -10,7 +10,7 @@ class System():
         self._Incomplete_Orders = []
         self._Main_Menu = ["Burger", "Wrap"]
         self._Drink_Menu = ["coke", "pepsi", "apple juice", "orange juice"]
-        self._Side_Menu = ["fries", "nuggets", "sundaes"]
+        self._Side_Menu = ["fries", "nuggets", "chocolate sundae", "strawberry sundae"]
         self._Generate_ID = 0
 
     def __str__(self):
