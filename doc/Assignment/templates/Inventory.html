@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>Staff page</h1>
+
+    <a href="{{url_for('Inventory', )}}"><button style="cursor: pointer">Inventory</button></a>
+    <a href="{{url_for('allOrders', )}}"><button style="cursor: pointer">All Orders</button></a>
+    <a href="{{url_for('completedOrders', )}}"><button style="cursor: pointer">Completed Orders</button></a>
+    <a href="{{url_for('incompleteOrders', )}}"><button style="cursor: pointer">Incomplete Orders</button></a>
+
+<br>
+<form name="form1", method="POST">
+    {% if system.Inventory %}
+        {% for ingredient in system.Inventory %}
+            {{ingredient}}<br>
+            {% if ingredient in ["apple juice", "orange juice"] %}
+            
+                Amount: {{system.Inventory[ingredient]}}ml<br>
+            {% elif ingredient in ["fries", "chocolate sundae", "strawberry sundae"] %}
+                
+                Amount: {{system.Inventory[ingredient]}} grams<br>
+            {% else %}
+                
+                Amount: {{system.Inventory[ingredient]}}<br>
+            {% endif %}
+            Add inventory <input type="number" name="{{ingredient}}_update" size=30 value= "" ><br>
+        {% endfor %}
+        
+    {% else %}
+        No ingredients
+    {% endif %}
+    <input type ="submit" value="Add_ingredients" name ="Add ingredients"><br>
+</form>
+
+    {% endblock %}
