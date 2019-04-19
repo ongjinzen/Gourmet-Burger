@@ -16,7 +16,7 @@
             {{order}}
             </textarea>
             <br>
-            Delete order <input type="checkbox" name="{{order}}_delete" size=30 value= "" ><br>
+            Delete order <input type="checkbox" name="{{order}}" size=30 value= "" ><br>
             <a href="{{url_for('Order',{{order.ID}} )}}"><button style="cursor: pointer">View Order</button></a>
             {% endfor %}
         

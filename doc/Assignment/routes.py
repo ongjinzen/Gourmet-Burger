@@ -22,7 +22,7 @@ def staff():
 @app.route('/staff/inventory', methods=["GET", "POST"])
 def Inventory():
     if request.method == 'POST':
-        print(f"{request.form}")
+        #print(f"{request.form}")
         for query in request.form:
             if "update" in query and request.form[query] != '' and int(request.form[query]) > 0 :
                 system.Update_Stock(query.replace("_update",''),int(request.form[query]))
@@ -33,7 +33,11 @@ def Inventory():
 
 @app.route('/staff/AllOrders', methods=["GET", "POST"])
 def allOrders():
-    
+    if request.method == 'POST':
+        for order in system.View_All_Orders:
+            if order in request.form and request.form[order] == True:
+                system.Delete_Order(order)
+
     return render_template('AllOrders.html', system = system)
 
 @app.route('/staff/IncompleteOrders', methods=["GET", "POST"])
