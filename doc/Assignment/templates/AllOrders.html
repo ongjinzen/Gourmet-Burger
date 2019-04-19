@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>All orders</h1>
+
+    <a href="{{url_for('Inventory', )}}"><button style="cursor: pointer">Inventory</button></a>
+    <a href="{{url_for('allOrders', )}}"><button style="cursor: pointer">All Orders</button></a>
+    <a href="{{url_for('completedOrders', )}}"><button style="cursor: pointer">Completed Orders</button></a>
+    <a href="{{url_for('incompleteOrders', )}}"><button style="cursor: pointer">Incomplete Orders</button></a>
+
+    <br>
+    <form name="form1", method="POST">
+        {% if system.View_Incomplete_Orders %}}
+            {% for order in system.View_Incomplete_Orders %}
+            <textarea, rows="4" cols="50">
+            {{order}}
+            </textarea>
+            <br>
+            Delete order <input type="checkbox" name="{{order}}_delete" size=30 value= "" ><br>
+            <a href="{{url_for('Order',{{order.ID}} )}}"><button style="cursor: pointer">View Order</button></a>
+            {% endfor %}
+        
+        {% else %}
+        No Incomplete Orders
+        {% endif %}
+        {% if system.View_Complete_Orders %}}
+            {% for order in system.View_Complete_Orders %}
+            <textarea, rows="4" cols="50">
+            {{order}}
+            </textarea>
+            <br>
+            Delete order <input type="checkbox" name="{{order}}_delete" size=30 value= "" ><br>
+            <a href="{{url_for('Order',{{order.ID}} )}}"><button style="cursor: pointer">View Order</button></a>
+            {% endfor %}
+            
+        {% else %}
+        No Completed Orders
+        {% endif %}
+
+
+{% endblock %}

@@ -34,7 +34,7 @@ def Inventory():
 @app.route('/staff/AllOrders', methods=["GET", "POST"])
 def allOrders():
     
-    return render_template('staff.html')
+    return render_template('AllOrders.html', system = system)
 
 @app.route('/staff/IncompleteOrders', methods=["GET", "POST"])
 def incompleteOrders():
