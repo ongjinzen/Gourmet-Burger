@@ -309,3 +309,37 @@ def test_default_burger_no_stock(inventory_fixture, ingredient_cost_fixture):
 
     assert(order1.ID == None)
     assert(order1.Status == None)
+
+def test_default_wrap(inventory_fixture, ingredient_cost_fixture):
+    order1 = Order(inventory_fixture, ingredient_cost_fixture)
+    assert(isinstance(order1, Order))
+
+    orig_pita = inventory_fixture["pita"]
+    orig_pork = inventory_fixture["pork"]
+    orig_cheese = inventory_fixture["cheese"]
+    orig_tortilla = inventory_fixture["tortilla"]
+    orig_tuna = inventory_fixture["tuna"]
+    orig_lettuce = inventory_fixture["lettuce"]
+    orig_onion = inventory_fixture["onion"]
+    orig_tomato = inventory_fixture["tomato"]
+    orig_avocado = inventory_fixture["avocado"]
+
+    def_wrap1 = order1.Create_Item("Default Wrap")
+    order1.Add_To_Order(def_wrap1)
+    assert(def_wrap1 in order1.Items)
+    #assert(order1.Calculate_Cost() == 8)
+
+    
+
+    assert(inventory_fixture["pita"] == (orig_pita - 1))
+    assert(inventory_fixture["pork"] == (orig_pork - 1))
+    assert(inventory_fixture["cheese"] == (orig_cheese))
+    assert(inventory_fixture["tortilla"] == (orig_tortilla))
+    assert(inventory_fixture["tuna"] == (orig_tuna))
+    assert(inventory_fixture["lettuce"] == (orig_lettuce - 1))
+    assert(inventory_fixture["onion"] == (orig_onion))
+    assert(inventory_fixture["tomato"] == (orig_tomato))
+    assert(inventory_fixture["avocado"] == (orig_avocado))
+
+    assert(order1.ID == None)
+    assert(order1.Status == None)

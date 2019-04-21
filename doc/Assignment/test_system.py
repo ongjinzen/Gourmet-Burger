@@ -260,7 +260,7 @@ def test_new_stock(inventory_fixture, ingredient_cost_fixture):
 def test_view_menus(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
 
-    assert(system1.View_Main_Menu() == ["Burger", "Wrap", "Default Burger"])
+    assert(system1.View_Main_Menu() == ["Burger", "Wrap", "Default Burger", "Default Wrap"])
     assert(system1.View_Drink_Menu() == ["coke", "pepsi", "apple juice", "orange juice"])
     assert(system1.View_Side_Menu() == ["fries", "nuggets","chocolate sundae", "strawberry sundae"])
 

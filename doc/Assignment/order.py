@@ -56,6 +56,11 @@ class Order ():
             item.Add_Other("lettuce")
         elif Name == "Wrap":
             item = Wrap(self._Inventory, self._Ingredient_Costs)
+        elif Name == "Default Wrap":
+            item = Wrap(self._Inventory, self._Ingredient_Costs)
+            item.Wrap_Type = "pita"
+            item.Filling_Type = "pork"
+            item.Add_Other("lettuce")
         elif Name == "coke" or Name == "pepsi":
             item = Bottled_Drink(self._Inventory, self._Ingredient_Costs, Name)
         elif Name in ["apple juice", "orange juice", "fries", "nuggets","chocolate sundae", "strawberry sundae"]:

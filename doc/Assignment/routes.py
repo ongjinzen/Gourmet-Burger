@@ -85,7 +85,7 @@ def item(item):
         try:
             system.Current_Item = system.Current_Order.Create_Item(item)
         except ItemError as err:
-            if item in ['Burger', 'Wrap', 'Default Burger']:
+            if item in ['Burger', 'Wrap', 'Default Burger', 'Default Wrap']:
                 menu = 'main'
                 Menu = system.Main_Menu
             elif item in ["fries", "nuggets", "chocolate sundae", "strawberry sundae"]:
@@ -97,7 +97,7 @@ def item(item):
 
             return render_template('menu.html', menu=menu, Menu=Menu, order=system.Current_Order, message=err.message)
         else:
-            if item in ['Default Burger', 'coke', 'pepsi']:
+            if item in ['Default Burger', 'Default Wrap', 'coke', 'pepsi']:
                 return render_template('bottled.html', curritem=system.Current_Item, item=item)
             elif item in ['Burger', 'Wrap']:
                 return render_template('main.html', curritem=system.Current_Item, item=item)
@@ -110,7 +110,7 @@ def item(item):
             try:
                 system.Current_Order.Add_To_Order(system.Current_Item)
             except ItemError as err:
-                if item in ['Default Burger', 'coke', 'pepsi']:
+                if item in ['Default Burger', 'Default Wrap', 'coke', 'pepsi']:
                     return render_template('bottled.html', curritem=system.Current_Item, item=item, message=err.message)
                 elif item in ['Burger', 'Wrap']:
                     return render_template('main.html', curritem=system.Current_Item, item=item, message=err.message)
