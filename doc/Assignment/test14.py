@@ -59,14 +59,23 @@ def ingredient_cost_fixture():
     }
     return Ingredient_costs
     
-#UC 3 Testing
-#UC 3test-1
-def test_add_ingredients(inventory_fixture, ingredient_cost_fixture):
+# UC14 test 1
+def test_stock_decrease(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(system1, System))
     order1 = system1.Create_Order()
     assert(isinstance(order1, Order))
 
+    orig_white_bun = system1._Inventory["white"]
+    orig_beef = system1._Inventory["beef"]
+    orig_cheese = system1._Inventory["cheese"]
+    orig_tortilla = system1._Inventory["tortilla"]
+    orig_tuna = system1._Inventory["tuna"]
+    orig_lettuce = system1._Inventory["lettuce"]
+    orig_onion = system1._Inventory["onion"]
+    orig_tomato = system1._Inventory["tomato"]
+    orig_avocado = system1._Inventory["avocado"]
+    orig_pita= system1.Inventory["pita"]
 
     burg1 = order1.Create_Item("Burger")
     burg1.Bun_Type = "white"
@@ -79,52 +88,24 @@ def test_add_ingredients(inventory_fixture, ingredient_cost_fixture):
     assert(burg1 in order1.Items)
     assert(order1.Calculate_Cost() == 9)
 
-#UC 3 test-2
-def test_add_to_many_ingredients(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    assert(isinstance(order1, Order))
+    wrap1 = order1.Create_Item("Wrap")
+    wrap1.Wrap_Type = "tortilla"
+    wrap1.Filling_Type = "tuna"
+    wrap1.Add_Other("cheese")
+    wrap1.Add_Other("lettuce")
+    wrap1.Add_Other("onion")
+    wrap1.Add_Other("tomato")
+    wrap1.Add_Other("avocado")
+    order1.Add_To_Order(wrap1)
+    assert(order1.Calculate_Cost() == 38.5)
 
-    with pytest.raises(Exception) as err:
-        burg1 = order1.Create_Item("Burger")
-        burg1.Bun_Type = "white"
-        burg1.Add_Bun()
-        burg1.Add_Bun()
-        burg1.Patty_Type = "beef"
-        burg1.Add_Patty()
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-    order1.Add_To_Order(burg1)
-    assert( err != [] ) 
-    assert(burg1 in order1.Items)
-    assert(order1.Calculate_Cost() == 27)
-#UC 3 test 4
-def test_take_away_ingrediets(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    assert(isinstance(order1, Order))
-
-    
-    burg1 = order1.Create_Item("Burger")
-    burg1.Bun_Type = "white"
-    burg1.Add_Bun()
-    burg1.Add_Bun()
-    burg1.Patty_Type = "beef"
-    burg1.Add_Patty()
-    burg1.Add_Other("cheese")
-    burg1.Remove_Other("cheese")
-    order1.Add_To_Order(burg1)
-    
-    assert(burg1 in order1.Items)
-    assert(order1.Calculate_Cost() == 7)
+    assert(system1.Inventory["white"] == (orig_white_bun - 2))
+    assert(system1.Inventory["beef"] == (orig_beef - 1))
+    assert(system1.Inventory["cheese"] == (orig_cheese - 2))
+    assert(system1.Inventory["tortilla"] == (orig_tortilla - 1))
+    assert(system1.Inventory["tuna"] == (orig_tuna - 1))
+    assert(system1.Inventory["lettuce"] == (orig_lettuce - 1))
+    assert(system1.Inventory["onion"] == (orig_onion - 1))
+    assert(system1.Inventory["tomato"] == (orig_tomato - 1))
+    assert(system1.Inventory["avocado"] == (orig_avocado - 1))
+    assert(orig_pita==system1.Inventory["pita"])

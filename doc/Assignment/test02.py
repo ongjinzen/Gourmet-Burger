@@ -58,63 +58,33 @@ def ingredient_cost_fixture():
         "coke": 3.5,
     }
     return Ingredient_costs
+#UC 2 Testing
+#UC2 test-1 
+def test_Menus(inventory_fixture, ingredient_cost_fixture):
+    system1 = System(inventory_fixture, ingredient_cost_fixture)
+    assert(isinstance(system1, System))
+    assert(system1.View_Drink_Menu() == ["coke", "pepsi", "apple juice", "orange juice"])
+    assert(system1.View_Main_Menu() == ["Burger", "Wrap","Default Burger", "Default Wrap"])
+    assert(system1.View_Side_Menu() == ["fries", "nuggets", "chocolate sundae", "strawberry sundae"])
+#UC2 test-3 
+#UC2 test-4
+def test_valid_order(inventory_fixture, ingredient_cost_fixture):
+    system1 = System(inventory_fixture, ingredient_cost_fixture)
+    assert(isinstance(system1, System))
+    order1 = system1.Create_Order()
+    assert(isinstance(order1, Order))
 
-#UC5 -test 1
-def test_OrderID(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    burg1 = order1.Create_Item("Burger")
-    burg1.Bun_Type = "white"
-    burg1.Add_Bun()
-    burg1.Add_Bun()
-    burg1.Patty_Type = "beef"
-    burg1.Add_Patty()
-    burg1.Add_Other("cheese")
-    order1.Add_To_Order(burg1)
-    assert(burg1 in order1.Items)
-    system1.Submit_Order(order1)
-    assert(order1.ID == 0 )
-#UC 5 test 2
-def test_2ndOrderID(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    burg1 = order1.Create_Item("Burger")
-    burg1.Bun_Type = "white"
-    burg1.Add_Bun()
-    burg1.Add_Bun()
-    burg1.Patty_Type = "beef"
-    burg1.Add_Patty()
-    burg1.Add_Other("cheese")
-    order1.Add_To_Order(burg1)
-    assert(burg1 in order1.Items)
-    system1.Submit_Order(order1)
-    assert(order1.ID == 0 )
-    order2 = system1.Create_Order()
-    burg2 = order2.Create_Item("Burger")
-    burg2.Bun_Type = "white"
-    burg2.Add_Bun()
-    burg2.Add_Bun()
-    burg2.Patty_Type = "beef"
-    burg2.Add_Patty()
-    burg2.Add_Other("cheese")
-    order2.Add_To_Order(burg1)
-    system1.Submit_Order(order2)
-    assert(order2.ID ==1)
-#UC5 test-4
-def test_OrderID_not_found(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    with pytest.raises(SystemError) as err:
-        order = system1.View_Order(1)
-    assert( err)
+    orig_white_bun = system1._Inventory["white"]
+    orig_beef = system1._Inventory["beef"]
+    orig_cheese = system1._Inventory["cheese"]
+    orig_tortilla = system1._Inventory["tortilla"]
+    orig_tuna = system1._Inventory["tuna"]
+    orig_lettuce = system1._Inventory["lettuce"]
+    orig_onion = system1._Inventory["onion"]
+    orig_tomato = system1._Inventory["tomato"]
+    orig_avocado = system1._Inventory["avocado"]
+    orig_pita = system1._Inventory["pita"]
 
-#UC6 test-1
-def test_View_current_order(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
     burg1 = order1.Create_Item("Burger")
     burg1.Bun_Type = "white"
     burg1.Add_Bun()
@@ -123,60 +93,27 @@ def test_View_current_order(inventory_fixture, ingredient_cost_fixture):
     burg1.Add_Patty()
     burg1.Add_Other("cheese")
     order1.Add_To_Order(burg1)
-    assert(order1 == order1)
+    assert(burg1 in order1.Items)
+    assert(order1.Calculate_Cost() == 9)
 
-#UC7 test 3
-def test_Remove_from_order(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    burg1 = order1.Create_Item("Burger")
-    burg1.Bun_Type = "white"
-    burg1.Add_Bun()
-    burg1.Add_Bun()
-    burg1.Patty_Type = "beef"
-    burg1.Add_Patty()
-    burg1.Add_Other("cheese")
-    order1.Add_To_Order(burg1)
-    assert(burg1 in order1.Items)
-    order1.Remove_From_Order(burg1)
-    assert(burg1 not in order1.Items)
-#UC7 test 2  
-def test_Remove_from_order_cost(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    burg1 = order1.Create_Item("Burger")
-    burg1.Bun_Type = "white"
-    burg1.Add_Bun()
-    burg1.Add_Bun()
-    burg1.Patty_Type = "beef"
-    burg1.Add_Patty()
-    burg1.Add_Other("cheese")
-    order1.Add_To_Order(burg1)
-    assert(burg1 in order1.Items)
-    assert(order1.Calculate_Cost() == 9 )
-    order1.Remove_From_Order(burg1)
-    assert(burg1 not in order1.Items)
-    
-    assert(order1.Calculate_Cost() == 0 )
-#UC7 test 4
-def test_Remove_from_order_inventory(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    orig = inventory_fixture["white"]
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    burg1 = order1.Create_Item("Burger")
-    burg1.Bun_Type = "white"
-    burg1.Add_Bun()
-    burg1.Add_Bun()
-    burg1.Patty_Type = "beef"
-    burg1.Add_Patty()
-    burg1.Add_Other("cheese")
-    order1.Add_To_Order(burg1)
-    assert(burg1 in order1.Items)
-    assert(orig == inventory_fixture["white"] +2 )
-    order1.Remove_From_Order(burg1)
-    assert(burg1 not in order1.Items)
-    
-    assert(orig == inventory_fixture["white"] )
+    wrap1 = order1.Create_Item("Wrap")
+    wrap1.Wrap_Type = "tortilla"
+    wrap1.Filling_Type = "tuna"
+    wrap1.Add_Other("cheese")
+    wrap1.Add_Other("lettuce")
+    wrap1.Add_Other("onion")
+    wrap1.Add_Other("tomato")
+    wrap1.Add_Other("avocado")
+    order1.Add_To_Order(wrap1)
+    assert(order1.Calculate_Cost() == 38.5)
+
+    assert(system1.Inventory["white"] == (orig_white_bun - 2))
+    assert(system1.Inventory["beef"] == (orig_beef - 1))
+    assert(system1.Inventory["cheese"] == (orig_cheese - 2))
+    assert(system1.Inventory["tortilla"] == (orig_tortilla - 1))
+    assert(system1.Inventory["tuna"] == (orig_tuna - 1))
+    assert(system1.Inventory["lettuce"] == (orig_lettuce - 1))
+    assert(system1.Inventory["onion"] == (orig_onion - 1))
+    assert(system1.Inventory["tomato"] == (orig_tomato - 1))
+    assert(system1.Inventory["avocado"] == (orig_avocado - 1))
+    assert(system1.Inventory["pita"] == (orig_pita))

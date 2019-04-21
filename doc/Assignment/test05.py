@@ -58,16 +58,12 @@ def ingredient_cost_fixture():
         "coke": 3.5,
     }
     return Ingredient_costs
-    
-#UC 3 Testing
-#UC 3test-1
-def test_add_ingredients(inventory_fixture, ingredient_cost_fixture):
+
+#UC5 -test 1
+def test_OrderID(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(system1, System))
     order1 = system1.Create_Order()
-    assert(isinstance(order1, Order))
-
-
     burg1 = order1.Create_Item("Burger")
     burg1.Bun_Type = "white"
     burg1.Add_Bun()
@@ -77,45 +73,13 @@ def test_add_ingredients(inventory_fixture, ingredient_cost_fixture):
     burg1.Add_Other("cheese")
     order1.Add_To_Order(burg1)
     assert(burg1 in order1.Items)
-    assert(order1.Calculate_Cost() == 9)
-
-#UC 3 test-2
-def test_add_to_many_ingredients(inventory_fixture, ingredient_cost_fixture):
+    system1.Submit_Order(order1)
+    assert(order1.ID == 0 )
+#UC 5 test 2
+def test_2ndOrderID(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(system1, System))
     order1 = system1.Create_Order()
-    assert(isinstance(order1, Order))
-
-    with pytest.raises(Exception) as err:
-        burg1 = order1.Create_Item("Burger")
-        burg1.Bun_Type = "white"
-        burg1.Add_Bun()
-        burg1.Add_Bun()
-        burg1.Patty_Type = "beef"
-        burg1.Add_Patty()
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-        burg1.Add_Other("cheese")
-    order1.Add_To_Order(burg1)
-    assert( err != [] ) 
-    assert(burg1 in order1.Items)
-    assert(order1.Calculate_Cost() == 27)
-#UC 3 test 4
-def test_take_away_ingrediets(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    assert(isinstance(order1, Order))
-
-    
     burg1 = order1.Create_Item("Burger")
     burg1.Bun_Type = "white"
     burg1.Add_Bun()
@@ -123,8 +87,26 @@ def test_take_away_ingrediets(inventory_fixture, ingredient_cost_fixture):
     burg1.Patty_Type = "beef"
     burg1.Add_Patty()
     burg1.Add_Other("cheese")
-    burg1.Remove_Other("cheese")
     order1.Add_To_Order(burg1)
-    
     assert(burg1 in order1.Items)
-    assert(order1.Calculate_Cost() == 7)
+    system1.Submit_Order(order1)
+    assert(order1.ID == 0 )
+    order2 = system1.Create_Order()
+    burg2 = order2.Create_Item("Burger")
+    burg2.Bun_Type = "white"
+    burg2.Add_Bun()
+    burg2.Add_Bun()
+    burg2.Patty_Type = "beef"
+    burg2.Add_Patty()
+    burg2.Add_Other("cheese")
+    order2.Add_To_Order(burg1)
+    system1.Submit_Order(order2)
+    assert(order2.ID ==1)
+#UC5 test-4
+def test_OrderID_not_found(inventory_fixture, ingredient_cost_fixture):
+    system1 = System(inventory_fixture, ingredient_cost_fixture)
+    assert(isinstance(system1, System))
+    with pytest.raises(SystemError) as err:
+        order = system1.View_Order(1)
+    assert( err)
+

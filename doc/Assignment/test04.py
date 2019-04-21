@@ -58,156 +58,98 @@ def ingredient_cost_fixture():
         "coke": 3.5,
     }
     return Ingredient_costs
+    
+# UC4 - test 1,2,3
+def test_juice_sizes(inventory_fixture, ingredient_cost_fixture):
+    
+    juice1 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "apple juice")
+    
+    try:
+        juice1.Size = "medium"
+    except ItemError as err:
+        assert(err.message == "Not enough apple juice in stock.")
+    else:
+        assert(False)
 
-#UC13 test 1
-def test_viewStoc(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    assert(system1.Inventory == inventory_fixture)
+    juice1.Size = "small"
+    assert(juice1.Size == "small")
+    inventory_fixture["apple juice"] = 10000
+    juice1.Size = "large"
+    assert(juice1.Size == "large")
 
-
-# UC14 test 1
-def test_stock_decrease(inventory_fixture, ingredient_cost_fixture):
+#UC 4 test-4
+def test_Multiple_drinks(inventory_fixture, ingredient_cost_fixture):
     system1 = System(inventory_fixture, ingredient_cost_fixture)
     assert(isinstance(system1, System))
     order1 = system1.Create_Order()
     assert(isinstance(order1, Order))
-
-    orig_white_bun = system1._Inventory["white"]
-    orig_beef = system1._Inventory["beef"]
-    orig_cheese = system1._Inventory["cheese"]
-    orig_tortilla = system1._Inventory["tortilla"]
-    orig_tuna = system1._Inventory["tuna"]
-    orig_lettuce = system1._Inventory["lettuce"]
-    orig_onion = system1._Inventory["onion"]
-    orig_tomato = system1._Inventory["tomato"]
-    orig_avocado = system1._Inventory["avocado"]
-    orig_pita= system1.Inventory["pita"]
-
-    burg1 = order1.Create_Item("Burger")
-    burg1.Bun_Type = "white"
-    burg1.Add_Bun()
-    burg1.Add_Bun()
-    burg1.Patty_Type = "beef"
-    burg1.Add_Patty()
-    burg1.Add_Other("cheese")
-    order1.Add_To_Order(burg1)
-    assert(burg1 in order1.Items)
-    assert(order1.Calculate_Cost() == 9)
-
-    wrap1 = order1.Create_Item("Wrap")
-    wrap1.Wrap_Type = "tortilla"
-    wrap1.Filling_Type = "tuna"
-    wrap1.Add_Other("cheese")
-    wrap1.Add_Other("lettuce")
-    wrap1.Add_Other("onion")
-    wrap1.Add_Other("tomato")
-    wrap1.Add_Other("avocado")
-    order1.Add_To_Order(wrap1)
-    assert(order1.Calculate_Cost() == 38.5)
-
-    assert(system1.Inventory["white"] == (orig_white_bun - 2))
-    assert(system1.Inventory["beef"] == (orig_beef - 1))
-    assert(system1.Inventory["cheese"] == (orig_cheese - 2))
-    assert(system1.Inventory["tortilla"] == (orig_tortilla - 1))
-    assert(system1.Inventory["tuna"] == (orig_tuna - 1))
-    assert(system1.Inventory["lettuce"] == (orig_lettuce - 1))
-    assert(system1.Inventory["onion"] == (orig_onion - 1))
-    assert(system1.Inventory["tomato"] == (orig_tomato - 1))
-    assert(system1.Inventory["avocado"] == (orig_avocado - 1))
-    assert(orig_pita==system1.Inventory["pita"])
-
-#UC16 test2
-def test_stock_decrease(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    origJ = inventory_fixture["apple juice"]
-    order1 = system1.Create_Order()
-    juice1 = order1.Create_Item("apple juice")
+    juice1 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "apple juice")
     juice1.Size = "small"
+    inventory_fixture["apple juice"] = 10000
+    juice2 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "apple juice")
+    juice2.Size = "medium"
+    juice3 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "apple juice")
+    juice3.Size = "large"
     order1.Add_To_Order(juice1)
-    assert(inventory_fixture["apple juice"] == origJ-250)
+    order1.Add_To_Order(juice2)
+    order1.Add_To_Order(juice3)
+    assert(juice1 in order1.Items)
+    assert(juice2 in order1.Items)
+    assert(juice3 in order1.Items)
 
-#UC17 test1
-def test_strawberry(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    orig = inventory_fixture["strawberry sundae"]
-    order1 = system1.Create_Order()
-    sun = order1.Create_Item("strawberry sundae")
-    sun.Size = "small"
-    order1.Add_To_Order(sun)
-    assert(inventory_fixture["strawberry sundae"] == orig-200)
+#UC4 -test 5
+def test_invalid_juice_size(inventory_fixture, ingredient_cost_fixture):
 
-#UC17 test2
-def test_chocolate(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    orig = inventory_fixture["chocolate sundae"]
-    order1 = system1.Create_Order()
-    sun = order1.Create_Item("chocolate sundae")
-    sun.Size = "small"
-    order1.Add_To_Order(sun)
-    assert(inventory_fixture["chocolate sundae"] == orig-200)
-
-#UC17 test3,4,5
-def test_chocolate_sizes(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    inventory_fixture["chocolate sundae"] = 10000
-    orig = inventory_fixture["chocolate sundae"]
-    order1 = system1.Create_Order()
-    sun = order1.Create_Item("chocolate sundae")
-    sun.Size = "small"
-    order1.Add_To_Order(sun)
-    assert(inventory_fixture["chocolate sundae"] == orig-200)
-    assert(order1.Calculate_Cost()== 4)
-    inventory_fixture["chocolate sundae"] = 10000
-    orig = inventory_fixture["chocolate sundae"]
+    juice1 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "apple juice")
     
-    sun2 = order1.Create_Item("chocolate sundae")
-    sun2.Size = "medium"
-    order1.Add_To_Order(sun2)
-    assert(inventory_fixture["chocolate sundae"] == orig-400)
-    assert(order1.Calculate_Cost()== 10)
-    inventory_fixture["chocolate sundae"] = 10000
-    orig = inventory_fixture["chocolate sundae"]
-    
-    sun3 = order1.Create_Item("chocolate sundae")
-    sun3.Size = "large"
-    order1.Add_To_Order(sun3)
-    assert(inventory_fixture["chocolate sundae"] == orig-600)
-    assert(order1.Calculate_Cost()== 21)
-#UC 18 - test1 
-def test_default(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    order1 = system1.Create_Order()
-    burg1 = order1.Create_Item( "Default Burger")
-    assert(burg1.Bun_Type == "white")
-    assert(burg1.Num_Buns == 2)
-    assert(burg1.Num_Patties == 1)
-    assert(burg1.Patty_Type == "beef")
-    assert( "lettuce" in burg1.Other)
-    assert( "tomato" not in burg1.Other)
-#UC 18 test-2
-def test_default_no_stock(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
-    system1.Inventory["lettuce"] = 0
-    order1 = system1.Create_Order()
-    with pytest.raises(ItemError) as err:
-        burg1 = order1.Create_Item( "Default Burger")
-    assert(err)
+    try:
+        juice1.Size = "extra large"
+    except ItemError as err:
+        assert(err.message == "Invalid size.")
+    else:
+        assert(False)
 
-#UC 18 test-3
-def test_default_cost(inventory_fixture, ingredient_cost_fixture):
-    system1 = System(inventory_fixture, ingredient_cost_fixture)
-    assert(isinstance(system1, System))
+    try:
+        juice1.Check_Ingredients()
+    except ItemError as err:
+        assert(err.message == "Invalid size.")
 
-    order1 = system1.Create_Order()
+#UC4 -test 6
+def test_invalid_item(inventory_fixture, ingredient_cost_fixture):
+
+    try:
+        juice1 = Fountain_Drinks_and_Sides(inventory_fixture, ingredient_cost_fixture, "pear juice")
+    except ItemError as err:
+        assert(err.message == "Invalid item.")
+    else:
+        assert(False)
+
+# UC4 - test 6
+def test_valid_drink(inventory_fixture, ingredient_cost_fixture):
+    drink1 = Bottled_Drink(inventory_fixture, ingredient_cost_fixture, "coke")
+
+# UC4 - test 7
+def test_clear_ingredients(inventory_fixture, ingredient_cost_fixture):
+    orig_coke = inventory_fixture["coke"]
+    drink1 = Bottled_Drink(inventory_fixture, ingredient_cost_fixture, "coke")
+
+    assert(inventory_fixture["coke"] == (orig_coke - 1))
+    drink1.Clear_Ingredients()
+    assert(inventory_fixture["coke"] == orig_coke)
+
+# UC4 - test 8
+def test_check_calculate_cost(inventory_fixture, ingredient_cost_fixture):
+    drink1 = Bottled_Drink(inventory_fixture, ingredient_cost_fixture, "coke")
+
+    assert(drink1.Calculate_Cost() == 3.5)
+
+# UC4 - test 9
+def test_drink_no_stock(inventory_fixture, ingredient_cost_fixture):
+    inventory_fixture["coke"] = 0
     
-    burg1 = order1.Create_Item( "Default Burger")
-    order1.Add_To_Order(burg1)
-    assert(order1.Calculate_Cost() == 8)
-    
+    try:
+        drink1 = Bottled_Drink(inventory_fixture, ingredient_cost_fixture, "coke")
+    except ItemError as err:
+        assert(err.message == f"This drink is out of stock.")
+    else:
+        assert(False)
