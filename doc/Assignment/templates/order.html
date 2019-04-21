@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>Order</h1>
+
+{% if message %}
+{{message}}
+{% endif %}
+<br>
+
+<a href="{{url_for('menu', menu='main')}}"><input type="button" value="View Main Menu"></a>
+<a href="{{url_for('menu', menu='side')}}"><input type="button" value="View Side Menu"></a>
+<a href="{{url_for('menu', menu='drink')}}"><input type="button" value="View Drink Menu"></a>
+<br>
+<br>
+This order contains:
+<br>
+<br>
+
+{% for item in order.Items %}
+    <b><u>Item number: {{loop.index}}</u></b>
+    <li><p style="white-space: pre;">{{ item }}</p></li>
+    <br>
+{% endfor %}
+
+<form method="POST">
+    <label>Enter item number to remove from order</label>
+    <br>
+    <input name='item_no'/>
+    <button type='submit' name='action' value='item'>Remove Item</button>
+    <br>
+    <br>
+    Total cost: {{order.Calculate_Cost()}}
+    <br>
+    <button type='submit' name='action' value='submit'>Submit Order</button>
+    <button type='submit' name='action' value='order'>Delete Order</button>
+</form>
+
+{% endblock %}

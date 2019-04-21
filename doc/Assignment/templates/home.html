@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>GourmetBurgers</h1>
+<!--<a href="{{url_for('order')}}"><input type="button" value="Start Order"></a></li>-->
+<br>
+
+<form method="POST">
+	<button type='submit' name='action' value='order'>Start Order</button>
+	<label>Order ID:</label><input name='ID'/>
+	<button type='submit' name='action' value='search'>Search</button>
+</form>
+
+{% if status %}
+<br>
+Order status: {{status}}
+{% endif %}
+
+{% endblock %}

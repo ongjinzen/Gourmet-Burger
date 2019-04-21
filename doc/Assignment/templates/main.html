@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>{{item}}</h1>
+
+{% if message %}
+{{message}}
+{% endif %}
+
+<p style="white-space: pre;">{{ curritem }}</p>
+<br>
+<br>
+Price: {{curritem.Calculate_Cost()}}
+
+<form method="POST">
+        {% if item == 'Burger' %}
+        <button type='submit' name='action' value='white'>White Bun</button>
+        <button type='submit' name='action' value='sesame'>Sesame Bun</button>
+        <br>
+        <button type='submit' name='action' value='add bun'>Add Bun</button>
+        <button type='submit' name='action' value='remove bun'>Remove Bun</button>
+        <br>
+        <br>
+        <button type='submit' name='action' value='beef'>Beef Patty</button>
+        <button type='submit' name='action' value='chicken'>Chicken Patty</button>
+        <br>
+        <button type='submit' name='action' value='add patty'>Add Patty</button>
+        <button type='submit' name='action' value='remove patty'>Remove Patty</button>
+
+        {%elif item == 'Wrap'%}
+
+        <button type='submit' name='action' value='pita'>Pita Wrap</button>
+        <button type='submit' name='action' value='tortilla'>Tortilla Wrap</button>
+        <br>
+        <button type='submit' name='action' value='pork'>Pork Filling</button>
+        <button type='submit' name='action' value='tuna'>Tuna Filling</button>
+
+        {% endif %}
+        
+        <br>
+        <br>
+        <button type='submit' name='action' value='add cheese'>Add Cheese</button>
+        <button type='submit' name='action' value='remove cheese'>Remove Cheese</button>
+        <br>
+        <button type='submit' name='action' value='add lettuce'>Add Lettuce</button>
+        <button type='submit' name='action' value='remove lettuce'>Remove Lettuce</button>
+        <br>
+        <button type='submit' name='action' value='add onion'>Add Onion</button>
+        <button type='submit' name='action' value='remove onion'>Remove Onion</button>
+        <br>
+        <button type='submit' name='action' value='add tomato'>Add Tomato</button>
+        <button type='submit' name='action' value='remove tomato'>Remove Tomato</button>
+        <br>
+        <button type='submit' name='action' value='add avocado'>Add Avocado</button>
+        <button type='submit' name='action' value='remove avocado'>Remove Avocado</button>
+        <br>
+        <br>
+        <button type='submit' name='action' value='add'>Submit</button>
+        <button type='submit' name='action' value='cancel'>Cancel</button>
+</form>
+
+{% endblock %}

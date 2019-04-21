@@ -14,7 +14,6 @@ class Wrap(Item):
         output = 'This wrap contains:\n'
         output += f'A {self._Wrap_Type} wrap\n'
         output += f'{self._Filling_Type} filling\n'
-        output += f'and the following sides:\n'
         
         for ingredient in self._Other:
             output += ingredient.capitalize()
@@ -27,8 +26,15 @@ class Wrap(Item):
     def Calculate_Cost(self):
         
         base_cost = 4
-        wrap_cost = self._Ingredient_Costs[self._Wrap_Type]
-        filling_cost = self._Ingredient_Costs[self._Filling_Type]
+        if self._Wrap_Type == None:
+            wrap_cost = 0
+        else:
+            wrap_cost = self._Ingredient_Costs[self._Wrap_Type]
+        
+        if self._Filling_Type == None:
+            filling_cost = 0
+        else:
+            filling_cost = self._Ingredient_Costs[self._Filling_Type]
 
         other_cost = 0
 
@@ -48,8 +54,10 @@ class Wrap(Item):
 
     def Clear_Ingredients(self):
         
-        self._Inventory[self._Wrap_Type] += 1
-        self._Inventory[self._Filling_Type] += 1
+        if self._Wrap_Type != None:
+            self._Inventory[self._Wrap_Type] += 1
+        if self._Filling_Type != None:
+            self._Inventory[self._Filling_Type] += 1
 
         for ingredient in self._Other:
             self._Inventory[ingredient] += 1
