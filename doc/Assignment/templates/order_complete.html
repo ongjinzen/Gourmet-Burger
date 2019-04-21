@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>Order Complete</h1>
+<br>
+<br>
+<a href="{{url_for('home')}}"><input type="button" value="Home"></a>
+<br>
+<br>
+Order ID: {{order.ID}}
+<br>
+This order contains:
+<br>
+<br>
+
+{% for item in order.Items %}
+    <b><u>Item number: {{loop.index}}</u></b>
+    <li><p style="white-space: pre;">{{ item }}</p></li>
+    <br>
+{% endfor %}
+
+Total cost: {{order.Calculate_Cost()}}
+
+
+{% endblock %}

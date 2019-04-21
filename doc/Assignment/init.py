@@ -1,11 +1,9 @@
-from system import *
-from order import *
-from item import *
-
+from system import System
 
 def bootstrap_system():
+
     Inventory = {
-        "white": 10,
+        "white": 2,
         "sesame": 10,
         "beef": 10,
         "chicken": 10,
@@ -27,8 +25,6 @@ def bootstrap_system():
         "chocolate sundae" : 1000,
         "strawberry sundae" : 500
     }
-    
-
 
     Ingredient_costs = {
         "white": 1,
@@ -47,6 +43,7 @@ def bootstrap_system():
         "pepsi": 2.5,
         "coke": 3.5,
     }
-    system = System(Inventory,Ingredient_costs)
-    
+
+    system = System(Inventory, Ingredient_costs)
+
     return system

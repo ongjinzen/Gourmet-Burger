@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>{{ item }}</h1>
+
+<p style="white-space: pre;">{{ curritem }}</p>
+
+Price: {{curritem.Calculate_Cost()}}
+
+<form method="POST">
+        <button type='submit' name='action' value='add'>Add to order</button>
+        <button type='submit' name='action' value='cancel'>Cancel</button>
+</form>
+
+{% endblock %}

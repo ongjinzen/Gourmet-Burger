@@ -17,9 +17,7 @@ class Fountain_Drinks_and_Sides (Item):
     def __str__(self):
         
         if self._Size == None:
-            raise ItemError("Invalid size.")
-        elif self._Name == None:
-            raise ItemError("Invalid item.")
+            return f'{self._Name.capitalize()}'
         else:
             return f'{self._Size.capitalize()} {self._Name.capitalize()}'
 

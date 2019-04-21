@@ -6,9 +6,9 @@ class Burger (Item):
 
     def __init__(self, Inventory, Ingredient_Costs):
         super().__init__(Inventory, Ingredient_Costs)
-        self._Bun_Type = None
+        self._Bun_Type = 'white'
         self._Num_Buns = 0
-        self._Patty_Type = None
+        self._Patty_Type = 'beef'
         self._Num_Patties = 0
         self._Other = []
 
@@ -16,7 +16,6 @@ class Burger (Item):
         output = 'This burger contains:\n'
         output += f'{self._Num_Buns} pieces of {self._Bun_Type} buns\n'
         output += f'{self._Num_Patties} pieces of {self._Patty_Type} patties\n'
-        output += f'and the following sides:\n'
         
         for ingredient in self._Other:
             output += ingredient.capitalize()

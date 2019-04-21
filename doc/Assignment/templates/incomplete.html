@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>Incomplete Orders</h1>
+
+    <a href="{{url_for('inventory', )}}"><button style="cursor: pointer">Inventory</button></a>
+    <a href="{{url_for('allOrders', )}}"><button style="cursor: pointer">All Orders</button></a>
+    <a href="{{url_for('completedOrders', )}}"><button style="cursor: pointer">Completed Orders</button></a>
+    <a href="{{url_for('incompleteOrders', )}}"><button style="cursor: pointer">Incomplete Orders</button></a>
+    <br>
+    <br>
+
+    {% if message %}
+    {{message}}
+    <br>
+    {% endif %}
+    <br>
+    {% if order %}
+        {% for item in order.Items %}
+            <li><p style="white-space: pre;">{{ item }}</p></li>
+            <br>
+            <br>
+        {% endfor %}
+    {% endif %}
+
+    <br>
+    <br>
+
+    <form method="POST">
+        <label>Enter order number to start preparing order.</label>
+        <br>
+        <input name='order'/>
+        <button type='submit' name='action' value='prepare'>Prepare Order</button>
+        <br>
+        <br>
+        <label>Enter order number to complete order.</label>
+        <br>
+        <input name='order1'/>
+        <button type='submit' name='action' value='complete'>Complete Order</button>
+    </form>
+
+    <br>
+        {% if system.Incomplete_Orders %}
+            {% for order in system.Incomplete_Orders %}
+                {% if order.Status == 'Submitted' %}
+                    <li><p style="white-space: pre;">{{ order }}</p></li>
+                    <br>
+                    <br>
+                {% endif %}
+            {% endfor %}
+
+            {% for order in system.Incomplete_Orders %}
+                {% if order.Status == 'Preparing order' %}
+                    <li><p style="white-space: pre;">{{ order }}</p></li>
+                    <br>
+                    <br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+
+{% endblock %}

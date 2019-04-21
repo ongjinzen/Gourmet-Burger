@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>All orders</h1>
+
+    <a href="{{url_for('inventory', )}}"><button style="cursor: pointer">Inventory</button></a>
+    <a href="{{url_for('allOrders', )}}"><button style="cursor: pointer">All Orders</button></a>
+    <a href="{{url_for('completedOrders', )}}"><button style="cursor: pointer">Completed Orders</button></a>
+    <a href="{{url_for('incompleteOrders', )}}"><button style="cursor: pointer">Incomplete Orders</button></a>
+    <br>
+    <br>
+
+    {% if message %}
+    {{message}}
+    {% endif %}
+
+    {% if order %}
+    {% for item in order.Items %}
+            <li><p style="white-space: pre;">{{ item }}</p></li>
+            <br>
+    {% endfor %}
+    {% endif %}
+
+    <br>
+    <br>
+
+    <form method="POST">
+        <label>Enter order number to view order.</label>
+        <br>
+        <input name='order1'/>
+        <button type='submit' name='action' value='view'>View Order</button>
+        <br>
+        <br>
+        <label>Enter order number to delete order.</label>
+        <br>
+        <input name='order'/>
+        <button type='submit' name='action' value='item'>Delete Order</button>
+    </form>
+
+    <br>
+    {% for order in system.Incomplete_Orders %}
+    <li><p style="white-space: pre;">{{ order }}</p></li>
+    <br>
+    <br>
+    {% endfor %}
+
+    {% for order in system.Completed_Orders %}
+    <li><p style="white-space: pre;">{{ order }}</p></li>
+    <br>
+    <br>
+    {% endfor %}
+
+{% endblock %}

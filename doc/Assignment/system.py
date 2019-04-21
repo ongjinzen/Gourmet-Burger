@@ -6,9 +6,11 @@ class System():
     def __init__(self, Inventory, Ingredient_Costs):
         self._Inventory = Inventory
         self._Ingredient_Costs = Ingredient_Costs
+        self._Current_Order = None
+        self._Current_Item = None
         self._Completed_Orders = []
         self._Incomplete_Orders = []
-        self._Main_Menu = ["Burger", "Wrap"]
+        self._Main_Menu = ["Burger", "Wrap", "Default Burger"]
         self._Drink_Menu = ["coke", "pepsi", "apple juice", "orange juice"]
         self._Side_Menu = ["fries", "nuggets", "chocolate sundae", "strawberry sundae"]
         self._Generate_ID = 0
@@ -51,6 +53,22 @@ class System():
     @property
     def Incomplete_Orders(self):
         return self._Incomplete_Orders
+
+    @property
+    def Current_Order(self):
+        return self._Current_Order
+
+    @Current_Order.setter
+    def Current_Order(self, order):
+        self._Current_Order = order
+
+    @property
+    def Current_Item(self):
+        return self._Current_Item
+
+    @Current_Item.setter
+    def Current_Item(self, item):
+        self._Current_Item = item
         
     # Creates a new order 
     def Create_Order(self):
@@ -66,6 +84,10 @@ class System():
             while i >= 0:
                 order.Remove_From_Order(order.Items[i])
                 i -= 1
+            if order in self._Completed_Orders:
+                self._Completed_Orders.remove(order)
+            elif order in self._Incomplete_Orders:
+                self._Incomplete_Orders.remove(order)
         else:
             raise SystemError("Invalid order.")
 
