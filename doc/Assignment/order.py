@@ -58,7 +58,7 @@ class Order ():
             item = Wrap(self._Inventory, self._Ingredient_Costs)
         elif Name == "coke" or Name == "pepsi":
             item = Bottled_Drink(self._Inventory, self._Ingredient_Costs, Name)
-        elif Name in ["apple juice", "orange juice", "fries", "nuggets","sundae"]:
+        elif Name in ["apple juice", "orange juice", "fries", "nuggets",'chocolate sundae',"strawberry sundae"]:
             item = Fountain_Drinks_and_Sides(self._Inventory, self._Ingredient_Costs, Name)
         else:
             raise ItemError("Invalid item.")
