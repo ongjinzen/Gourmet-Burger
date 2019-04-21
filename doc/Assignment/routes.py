@@ -76,8 +76,6 @@ def menu(menu):
     elif menu == 'drink':
         Menu = system.Drink_Menu
 
-    order = system.Current_Order
-
     return render_template('menu.html', menu=menu, Menu=Menu, order=system.Current_Order)
 
 @app.route('/item/<item>', methods=["GET", "POST"])
@@ -87,7 +85,17 @@ def item(item):
         try:
             system.Current_Item = system.Current_Order.Create_Item(item)
         except ItemError as err:
-            return render_template('order.html', message=err.message)
+            if item in ['Burger', 'Wrap', 'Default Burger']:
+                menu = 'main'
+                Menu = system.Main_Menu
+            elif item in ["fries", "nuggets", "chocolate sundae", "strawberry sundae"]:
+                menu = 'side'
+                Menu = system.Side_Menu
+            elif item in ['coke', 'pepsi', "apple juice", "orange juice"]:
+                menu = 'drink'
+                Menu = system.Drink_Menu
+
+            return render_template('menu.html', menu=menu, Menu=Menu, order=system.Current_Order, message=err.message)
         else:
             if item in ['Default Burger', 'coke', 'pepsi']:
                 return render_template('bottled.html', curritem=system.Current_Item, item=item)

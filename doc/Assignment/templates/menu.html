@@ -8,6 +8,11 @@
 {% endfor %}
 
 <a href="{{url_for('order')}}">Back</a>
+<br>
+<br>
+{% if message %}
+{{message}}
+{% endif %}
 
 <p style="white-space: pre;">{{ order }}</p>
 {% endblock %}
